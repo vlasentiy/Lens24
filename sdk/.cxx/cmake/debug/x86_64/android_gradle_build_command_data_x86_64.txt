@@ -1,0 +1,7 @@
+Executable : /home/vlas/Android/Sdk/cmake/3.10.2.4988404/bin/ninja
+arguments : 
+-C
+/home/vlas/Projects/home/android/Lens24/sdk/.cxx/cmake/debug/x86_64
+data
+jvmArgs : 
+

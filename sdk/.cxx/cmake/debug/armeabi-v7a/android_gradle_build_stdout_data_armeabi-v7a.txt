@@ -1,0 +1,155 @@
+ninja: Entering directory `/home/vlas/Projects/home/android/Lens24/sdk/.cxx/cmake/debug/armeabi-v7a'
+[1/129] Building CXX object protobuf/CMakeFiles/protobuf.dir/GoogleProtobuf/google/protobuf/io/gzip_stream.cc.o
+[2/129] Building CXX object protobuf/CMakeFiles/protobuf.dir/GoogleProtobuf/google/protobuf/io/zero_copy_stream.cc.o
+[3/129] Building CXX object protobuf/CMakeFiles/protobuf.dir/GoogleProtobuf/google/protobuf/message_lite.cc.o
+[4/129] Building CXX object protobuf/CMakeFiles/protobuf.dir/GoogleProtobuf/google/protobuf/io/zero_copy_stream_impl_lite.cc.o
+[5/129] Building CXX object protobuf/CMakeFiles/protobuf.dir/GoogleProtobuf/google/protobuf/generated_message_util.cc.o
+[6/129] Building CXX object protobuf/CMakeFiles/protobuf.dir/GoogleProtobuf/google/protobuf/io/tokenizer.cc.o
+[7/129] Building CXX object protobuf/CMakeFiles/protobuf.dir/GoogleProtobuf/google/protobuf/io/coded_stream.cc.o
+[8/129] Building CXX object protobuf/CMakeFiles/protobuf.dir/GoogleProtobuf/google/protobuf/service.cc.o
+[9/129] Building CXX object protobuf/CMakeFiles/protobuf.dir/GoogleProtobuf/google/protobuf/io/printer.cc.o
+[10/129] Building CXX object protobuf/CMakeFiles/protobuf.dir/GoogleProtobuf/google/protobuf/repeated_field.cc.o
+[11/129] Building CXX object protobuf/CMakeFiles/protobuf.dir/GoogleProtobuf/google/protobuf/reflection_ops.cc.o
+[12/129] Building CXX object protobuf/CMakeFiles/protobuf.dir/GoogleProtobuf/google/protobuf/io/zero_copy_stream_impl.cc.o
+[13/129] Building CXX object protobuf/CMakeFiles/protobuf.dir/GoogleProtobuf/google/protobuf/stubs/structurally_valid.cc.o
+[14/129] Building CXX object protobuf/CMakeFiles/protobuf.dir/GoogleProtobuf/google/protobuf/stubs/common.cc.o
+[15/129] Building CXX object protobuf/CMakeFiles/protobuf.dir/GoogleProtobuf/google/protobuf/stubs/once.cc.o
+[16/129] Building CXX object protobuf/CMakeFiles/protobuf.dir/GoogleProtobuf/google/protobuf/stubs/substitute.cc.o
+[17/129] Building CXX object protobuf/CMakeFiles/protobuf.dir/GoogleProtobuf/google/protobuf/wire_format_lite.cc.o
+[18/129] Building CXX object protobuf/CMakeFiles/protobuf.dir/GoogleProtobuf/google/protobuf/message.cc.o
+[19/129] Building CXX object protobuf/CMakeFiles/protobuf.dir/GoogleProtobuf/google/protobuf/extension_set.cc.o
+[20/129] Building CXX object protobuf/CMakeFiles/protobuf.dir/GoogleProtobuf/google/protobuf/stubs/strutil.cc.o
+[21/129] Building CXX object protobuf/CMakeFiles/protobuf.dir/GoogleProtobuf/google/protobuf/dynamic_message.cc.o
+[22/129] Building CXX object protobuf/CMakeFiles/protobuf.dir/GoogleProtobuf/google/protobuf/extension_set_heavy.cc.o
+[23/129] Building CXX object protobuf/CMakeFiles/protobuf.dir/GoogleProtobuf/google/protobuf/generated_message_reflection.cc.o
+[24/129] Building CXX object protobuf/CMakeFiles/protobuf.dir/GoogleProtobuf/google/protobuf/unknown_field_set.cc.o
+[25/129] Building CXX object protobuf/CMakeFiles/protobuf.dir/GoogleProtobuf/google/protobuf/descriptor_database.cc.o
+[26/129] Building CXX object protobuf/CMakeFiles/protobuf.dir/GoogleProtobuf/google/protobuf/text_format.cc.o
+[27/129] Building CXX object CMakeFiles/data.dir/CardRecognizer-jni.cpp.o
+[28/129] Building CXX object protobuf/CMakeFiles/protobuf.dir/GoogleProtobuf/google/protobuf/wire_format.cc.o
+[29/129] Building CXX object protobuf/CMakeFiles/protobuf.dir/GoogleProtobuf/google/protobuf/descriptor.pb.cc.o
+[30/129] Building CXX object caffe/CMakeFiles/caffe.dir/Caffe/common.cpp.o
+[31/129] Building CXX object protobuf/CMakeFiles/protobuf.dir/GoogleProtobuf/google/protobuf/descriptor.cc.o
+[32/129] Building CXX object caffe/CMakeFiles/caffe.dir/Caffe/layers/base_data_layer.cpp.o
+[33/129] Building CXX object caffe/CMakeFiles/caffe.dir/Caffe/layers/conv_layer.cpp.o
+[34/129] Building CXX object caffe/CMakeFiles/caffe.dir/Caffe/layer_factory.cpp.o
+[35/129] Building CXX object caffe/CMakeFiles/caffe.dir/Caffe/layers/loss_layer.cpp.o
+[36/129] Building CXX object caffe/CMakeFiles/caffe.dir/Caffe/layers/neuron_layer.cpp.o
+[37/129] Building CXX object caffe/CMakeFiles/caffe.dir/Caffe/layers/flatten_layer.cpp.o
+[38/129] Building CXX object caffe/CMakeFiles/caffe.dir/Caffe/layers/memory_data_layer.cpp.o
+[39/129] Building CXX object caffe/CMakeFiles/caffe.dir/Caffe/layers/eltwise_layer.cpp.o
+[40/129] Linking CXX static library protobuf/libprotobuf.a
+[41/129] Building CXX object caffe/CMakeFiles/caffe.dir/Caffe/layers/bnll_layer.cpp.o
+[42/129] Building CXX object caffe/CMakeFiles/caffe.dir/Caffe/layers/base_conv_layer.cpp.o
+[43/129] Building CXX object caffe/CMakeFiles/caffe.dir/Caffe/layers/power_layer.cpp.o
+[44/129] Building CXX object caffe/CMakeFiles/caffe.dir/Caffe/layers/concat_layer.cpp.o
+[45/129] Building CXX object caffe/CMakeFiles/caffe.dir/Caffe/layers/im2col_layer.cpp.o
+[46/129] Building CXX object caffe/CMakeFiles/caffe.dir/Caffe/blob.cpp.o
+[47/129] Building CXX object caffe/CMakeFiles/caffe.dir/Caffe/layers/inner_product_layer.cpp.o
+[48/129] Building CXX object caffe/CMakeFiles/caffe.dir/Caffe/layers/pooling_layer.cpp.o
+[49/129] Building CXX object libyuv/CMakeFiles/libyuv.dir/source/compare_common.cc.o
+[50/129] Building CXX object libyuv/CMakeFiles/libyuv.dir/source/compare_gcc.cc.o
+[51/129] Building CXX object libyuv/CMakeFiles/libyuv.dir/source/compare_mmi.cc.o
+[52/129] Building CXX object libyuv/CMakeFiles/libyuv.dir/source/compare.cc.o
+[53/129] Building CXX object libyuv/CMakeFiles/libyuv.dir/source/compare_neon64.cc.o
+[54/129] Building CXX object libyuv/CMakeFiles/libyuv.dir/source/compare_msa.cc.o
+[55/129] Building CXX object libyuv/CMakeFiles/libyuv.dir/source/convert.cc.o
+[56/129] Building CXX object libyuv/CMakeFiles/libyuv.dir/source/convert_argb.cc.o
+[57/129] Building CXX object libyuv/CMakeFiles/libyuv.dir/source/convert_from.cc.o
+[58/129] Building CXX object caffe/CMakeFiles/caffe.dir/Caffe/layers/sigmoid_layer.cpp.o
+[59/129] Building CXX object libyuv/CMakeFiles/libyuv.dir/source/convert_to_argb.cc.o
+[60/129] Building CXX object libyuv/CMakeFiles/libyuv.dir/source/convert_from_argb.cc.o
+[61/129] Building CXX object caffe/CMakeFiles/caffe.dir/Caffe/syncedmem.cpp.o
+[62/129] Building CXX object libyuv/CMakeFiles/libyuv.dir/source/convert_to_i420.cc.o
+[63/129] Building CXX object libyuv/CMakeFiles/libyuv.dir/source/cpu_id.cc.o
+[64/129] Building CXX object caffe/CMakeFiles/caffe.dir/Caffe/util/im2col.cpp.o
+[65/129] Building CXX object libyuv/CMakeFiles/libyuv.dir/source/rotate_any.cc.o
+[66/129] Building CXX object libyuv/CMakeFiles/libyuv.dir/source/rotate_gcc.cc.o
+[67/129] Building CXX object libyuv/CMakeFiles/libyuv.dir/source/rotate.cc.o
+[68/129] Building CXX object libyuv/CMakeFiles/libyuv.dir/source/rotate_common.cc.o
+[69/129] Building CXX object libyuv/CMakeFiles/libyuv.dir/source/rotate_mmi.cc.o
+[70/129] Building CXX object libyuv/CMakeFiles/libyuv.dir/source/rotate_msa.cc.o
+[71/129] Building CXX object caffe/CMakeFiles/caffe.dir/Caffe/layers/relu_layer.cpp.o
+[72/129] Building CXX object libyuv/CMakeFiles/libyuv.dir/source/rotate_neon64.cc.o
+[73/129] Building CXX object libyuv/CMakeFiles/libyuv.dir/source/rotate_argb.cc.o
+[74/129] Building CXX object libyuv/CMakeFiles/libyuv.dir/source/row_mmi.cc.o
+[75/129] Building CXX object libyuv/CMakeFiles/libyuv.dir/source/row_gcc.cc.o
+[76/129] Building CXX object libyuv/CMakeFiles/libyuv.dir/source/row_msa.cc.o
+[77/129] Building CXX object caffe/CMakeFiles/caffe.dir/Caffe/layers/softmax_layer.cpp.o
+[78/129] Building CXX object libyuv/CMakeFiles/libyuv.dir/source/row_neon64.cc.o
+[79/129] Building CXX object caffe/CMakeFiles/caffe.dir/Caffe/layers/lrn_layer.cpp.o
+[80/129] Building CXX object libyuv/CMakeFiles/libyuv.dir/source/scale_any.cc.o
+[81/129] Building CXX object libyuv/CMakeFiles/libyuv.dir/source/scale_msa.cc.o
+[82/129] Building CXX object libyuv/CMakeFiles/libyuv.dir/source/planar_functions.cc.o
+[83/129] Building CXX object libyuv/CMakeFiles/libyuv.dir/source/scale_mmi.cc.o
+[84/129] Building CXX object libyuv/CMakeFiles/libyuv.dir/source/scale_gcc.cc.o
+[85/129] Building CXX object libyuv/CMakeFiles/libyuv.dir/source/video_common.cc.o
+[86/129] Building CXX object libyuv/CMakeFiles/libyuv.dir/source/scale_argb.cc.o
+[87/129] Building CXX object libyuv/CMakeFiles/libyuv.dir/source/row_any.cc.o
+[88/129] Building CXX object libyuv/CMakeFiles/libyuv.dir/source/scale_neon64.cc.o
+[89/129] Building CXX object libyuv/CMakeFiles/libyuv.dir/source/rotate_neon.cc.o
+[90/129] Building CXX object libyuv/CMakeFiles/libyuv.dir/source/compare_neon.cc.o
+[91/129] Building CXX object caffe/CMakeFiles/caffe.dir/Caffe/layers/split_layer.cpp.o
+[92/129] Building CXX object caffe/CMakeFiles/caffe.dir/Caffe/util/insert_splits.cpp.o
+[93/129] Building CXX object libyuv/CMakeFiles/libyuv.dir/source/scale_neon.cc.o
+[94/129] Building CXX object libyuv/CMakeFiles/libyuv.dir/source/row_neon.cc.o
+[95/129] Building CXX object caffe/CMakeFiles/caffe.dir/Caffe/util/io.cpp.o
+[96/129] Building CXX object libyuv/CMakeFiles/libyuv.dir/source/scale.cc.o
+[97/129] Building CXX object caffe/CMakeFiles/caffe.dir/Caffe/layers/tanh_layer.cpp.o
+[98/129] Building CXX object libyuv/CMakeFiles/libyuv.dir/source/scale_common.cc.o
+[99/129] Building CXX object caffe/CMakeFiles/caffe.dir/Caffe/layers/softmax_loss_layer.cpp.o
+[100/129] Building CXX object crossplatform/CMakeFiles/crossplatform.dir/CrossPlatform/CV/hough.cpp.o
+[101/129] Building CXX object crossplatform/CMakeFiles/crossplatform.dir/CrossPlatform/CaffePredictor/CaffeResultList.cpp.o
+[102/129] Building CXX object libyuv/CMakeFiles/libyuv.dir/source/row_common.cc.o
+[103/129] Linking CXX static library libyuv/liblibyuv.a
+[104/129] Building CXX object crossplatform/CMakeFiles/crossplatform.dir/CrossPlatform/CV/canny.cpp.o
+[105/129] Building CXX object caffe/CMakeFiles/caffe.dir/Caffe/util/upgrade_proto.cpp.o
+[106/129] Building CXX object crossplatform/CMakeFiles/crossplatform.dir/CrossPlatform/Recognizer/EdgesDetector.cpp.o
+[107/129] Building CXX object crossplatform/CMakeFiles/crossplatform.dir/CrossPlatform/CaffePredictor/CaffeDatumList.cpp.o
+[108/129] Building CXX object crossplatform/CMakeFiles/crossplatform.dir/CrossPlatform/Recognizer/DateRecognizer.cpp.o
+[109/129] Building CXX object crossplatform/CMakeFiles/crossplatform.dir/CrossPlatform/CaffePredictor/CaffeObjectFactory.cpp.o
+[110/129] Building CXX object crossplatform/CMakeFiles/crossplatform.dir/CrossPlatform/Torch/TorchManager.cpp.o
+[111/129] Building CXX object crossplatform/CMakeFiles/crossplatform.dir/CrossPlatform/Recognizer/RecognitionResult.cpp.o
+[112/129] Building CXX object crossplatform/CMakeFiles/crossplatform.dir/jniImpl/TorchDelegate.cpp.o
+[113/129] Building CXX object crossplatform/CMakeFiles/crossplatform.dir/CrossPlatform/CaffePredictor/CaffeDatum.cpp.o
+[114/129] Building CXX object crossplatform/CMakeFiles/crossplatform.dir/CrossPlatform/Recognizer/FrameStorage.cpp.o
+[115/129] Building CXX object crossplatform/CMakeFiles/crossplatform.dir/CrossPlatform/CaffePredictor/CaffeResult.cpp.o
+[116/129] Building CXX object crossplatform/CMakeFiles/crossplatform.dir/CrossPlatform/Recognizer/NumberRecognizer.cpp.o
+[117/129] Building CXX object crossplatform/CMakeFiles/crossplatform.dir/CrossPlatform/CaffePredictor/CaffeNeuralNetwork.cpp.o
+[118/129] Building CXX object crossplatform/CMakeFiles/crossplatform.dir/CrossPlatform/Recognizer/Utils.cpp.o
+[119/129] Building CXX object crossplatform/CMakeFiles/crossplatform.dir/CrossPlatform/Recognizer/RecognitionCore.cpp.o
+[120/129] Building CXX object crossplatform/CMakeFiles/crossplatform.dir/jniImpl/RecognitionCoreDelegate.cpp.o
+[121/129] Building CXX object crossplatform/CMakeFiles/crossplatform.dir/CrossPlatform/Recognizer/NameRecognizer.cpp.o
+/home/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/crossplatform/CrossPlatform/Recognizer/NameRecognizer.cpp:280:124: warning: 'ptr_fun<int, int>' is deprecated [-Wdeprecated-declarations]
+                        resultStr.erase(resultStr.begin(), std::find_if(resultStr.begin(), resultStr.end(), std::not1(std::ptr_fun<int, int>(std::isspace))));
+                                                                                                                           ^
+/home/vlas/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include/c++/v1/functional:1107:1: note: 'ptr_fun<int, int>' has been explicitly marked deprecated here
+_LIBCPP_DEPRECATED_IN_CXX11 inline _LIBCPP_INLINE_VISIBILITY
+^
+/home/vlas/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include/c++/v1/__config:941:39: note: expanded from macro '_LIBCPP_DEPRECATED_IN_CXX11'
+#  define _LIBCPP_DEPRECATED_IN_CXX11 _LIBCPP_DEPRECATED
+                                      ^
+/home/vlas/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include/c++/v1/__config:930:48: note: expanded from macro '_LIBCPP_DEPRECATED'
+#    define _LIBCPP_DEPRECATED __attribute__ ((deprecated))
+                                               ^
+/home/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/crossplatform/CrossPlatform/Recognizer/NameRecognizer.cpp:281:107: warning: 'ptr_fun<int, int>' is deprecated [-Wdeprecated-declarations]
+                        resultStr.erase(std::find_if(resultStr.rbegin(), resultStr.rend(), std::not1(std::ptr_fun<int, int>(std::isspace))).base(), resultStr.end());
+                                                                                                          ^
+/home/vlas/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include/c++/v1/functional:1107:1: note: 'ptr_fun<int, int>' has been explicitly marked deprecated here
+_LIBCPP_DEPRECATED_IN_CXX11 inline _LIBCPP_INLINE_VISIBILITY
+^
+/home/vlas/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include/c++/v1/__config:941:39: note: expanded from macro '_LIBCPP_DEPRECATED_IN_CXX11'
+#  define _LIBCPP_DEPRECATED_IN_CXX11 _LIBCPP_DEPRECATED
+                                      ^
+/home/vlas/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include/c++/v1/__config:930:48: note: expanded from macro '_LIBCPP_DEPRECATED'
+#    define _LIBCPP_DEPRECATED __attribute__ ((deprecated))
+                                               ^
+2 warnings generated.
+[122/129] Building CXX object caffe/CMakeFiles/caffe.dir/Caffe/net.cpp.o
+[123/129] Building CXX object crossplatform/CMakeFiles/crossplatform.dir/CrossPlatform/ServiceContainer.cpp.o
+[124/129] Building CXX object caffe/CMakeFiles/caffe.dir/Caffe/util/math_functions.cpp.o
+[125/129] Building CXX object caffe/CMakeFiles/caffe.dir/Caffe/proto/caffe.pb.cc.o
+[126/129] Linking CXX static library caffe/libcaffe.a
+[127/129] Building CXX object crossplatform/CMakeFiles/crossplatform.dir/CrossPlatform/CV/warp.cpp.o
+[128/129] Linking CXX static library crossplatform/libcrossplatform.a
+[129/129] Linking CXX shared library /home/vlas/Projects/home/android/Lens24/sdk/build/intermediates/cmake/debug/obj/armeabi-v7a/libdata.so

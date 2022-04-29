@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <color name="primary_dark">#8DC641</color>
+    <color name="primary">#8DC641</color>
+    <color name="accent">#8DC641</color>
+    <color name="default_window_background">#000</color>
+    <color name="card_shadow_color">#a5080808</color>
+    <color name="manual_input_color_pressed">#20ffffff</color>
+    <color name="manual_input_color">#05000000</color>
+    <color name="link_color">#80ffffff</color>
+    <color name="tablet_screen_bg">#BB000000</color>
+
+</resources>

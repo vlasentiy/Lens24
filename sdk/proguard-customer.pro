@@ -1,0 +1,3 @@
+-keep class lens24.ndk.RecognitionCore { *; }
+-keep class lens24.intent.** { *; }
+-dontnote lens24.ndk.RecognitionCore
