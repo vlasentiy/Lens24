@@ -6,7 +6,6 @@ Automatic recognition of bank card data using built-in camera on Android devices
 
 Build an Intent using the `ScanCardIntent.Builder` and start a new activity to perform the scan:
 
-
 ```java
 static final int REQUEST_CODE_SCAN_CARD = 1;
  
