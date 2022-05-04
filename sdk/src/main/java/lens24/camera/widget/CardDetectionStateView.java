@@ -2,7 +2,6 @@ package lens24.camera.widget;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Matrix;
@@ -11,17 +10,16 @@ import android.graphics.Rect;
 import android.graphics.Typeface;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.graphics.drawable.GradientDrawable;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
 
 import androidx.core.content.ContextCompat;
-import androidx.core.content.res.ResourcesCompat;
-
-import lens24.sdk.R;
 import lens24.ndk.RecognitionConstants;
 import lens24.ndk.RecognitionResult;
+import lens24.sdk.R;
 import lens24.utils.CardUtils;
 import lens24.utils.Constants;
 import lens24.utils.Fonts;
@@ -123,7 +121,8 @@ public class CardDetectionStateView extends View {
 
         if (isInEditMode()) {
             mDetectionState = TOP_EDGE | BOTTOM_EDGE | LEFT_EDGE | RIGHT_EDGE;
-            mRecognitionResultCardNumber = CardUtils.prettyPrintCardNumber("1234567890123456");
+
+            mRecognitionResultCardNumber = CardUtils.prettyPrintCardNumber("1234123412341234");
             mRecognitionResultDate = "05/22";
             mRecognitionResultHolder = "CARDHOLDER NAME";
         }
@@ -139,30 +138,29 @@ public class CardDetectionStateView extends View {
     }
 
     public static Bitmap drawableToBitmap (Drawable drawable) {
-        Bitmap bitmap = null;
-
+        Bitmap bitmap;
         if (drawable instanceof BitmapDrawable) {
             BitmapDrawable bitmapDrawable = (BitmapDrawable) drawable;
             if(bitmapDrawable.getBitmap() != null) {
                 return bitmapDrawable.getBitmap();
             }
         }
-
         if(drawable.getIntrinsicWidth() <= 0 || drawable.getIntrinsicHeight() <= 0) {
             bitmap = Bitmap.createBitmap(1, 1, Bitmap.Config.ARGB_8888); // Single color bitmap will be created of 1x1 pixel
         } else {
             bitmap = Bitmap.createBitmap(drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
         }
-
         Canvas canvas = new Canvas(bitmap);
         drawable.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
         drawable.draw(canvas);
+
         return bitmap;
     }
 
     private void initCornerDrawables(Context context) {
-        Drawable topLeftCorner = ContextCompat.getDrawable(context, R.drawable.ic_scanbox_border);
+        Drawable topLeftCorner = ContextCompat.getDrawable(context, R.drawable.ic_top_corner);
         Matrix m = new Matrix();
+
         Bitmap bitmap = drawableToBitmap(topLeftCorner);
 
         m.setRotate(0);
@@ -184,10 +182,13 @@ public class CardDetectionStateView extends View {
     }
 
     private void initLineDrawables(Context context) {
-        Drawable topLeftCorner = ContextCompat.getDrawable(context,R.drawable.ic_line);
+        GradientDrawable gd = new GradientDrawable();
+        gd.setShape(GradientDrawable.RECTANGLE);
+        gd.setColor(Color.parseColor("#8DC641"));
+        gd.setSize(2, 2);
 
         Matrix m = new Matrix();
-        Bitmap bitmap = drawableToBitmap(topLeftCorner);
+        Bitmap bitmap = drawableToBitmap(gd);
 
         m.setRotate(0);
         mLineTopDrawable = new BitmapDrawable(context.getResources(),
@@ -319,28 +320,28 @@ public class CardDetectionStateView extends View {
         mCornerBottomRightDrawable.setBounds(left2, top2, left2 + rectWidth, top2 + rectHeight);
 
         // Lines
-        //// +24 and +1 was + mLineTopDrawable.getIntrinsicHeight() +0
+        //// +24 was + mLineTopDrawable.getIntrinsicHeight() +0
         int offset = (int) mCornerRadius;
         mLineTopDrawable.setBounds(
                 left1 + offset,
-                top1 - 1,
+                top1,
                 left2 + rectWidth - offset,
                 top1 + 24);
         mLineLeftDrawable.setBounds(
-                left1 - 1,
+                left1,
                 top1 + offset,
                 left1 + 24,
                 top2 + rectHeight - offset);
         mLineRightDrawable.setBounds(
                 left2 + rectWidth - 24,
                 top1 + offset,
-                left2 + rectWidth + 1,
+                left2 + rectWidth,
                 top2 + rectHeight - offset);
         mLineBottomDrawable.setBounds(
                 left1 + offset,
                 top2 + rectHeight - 24,
                 left2 + rectWidth - offset,
-                top2 + rectHeight + 1);
+                top2 + rectHeight);
     }
 
     private void refreshTextSize() {
