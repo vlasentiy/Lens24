@@ -5,12 +5,6 @@ import android.graphics.Bitmap;
 import android.hardware.Camera;
 import android.os.Build;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RestrictTo;
-import androidx.fragment.app.Fragment;
-
 import android.os.VibrationEffect;
 import android.os.Vibrator;
 import android.text.TextUtils;
@@ -19,15 +13,21 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
+import android.widget.ImageView;
 
 import java.io.ByteArrayOutputStream;
 
-import lens24.intent.Card;
-import lens24.sdk.R;
-import lens24.intent.ScanCardIntent;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
+import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
 import lens24.camera.ScanManager;
 import lens24.camera.widget.CameraPreviewLayout;
+import lens24.intent.Card;
+import lens24.intent.ScanCardIntent;
 import lens24.ndk.RecognitionResult;
+import lens24.sdk.R;
 import lens24.ui.views.ProgressBarIndeterminate;
 import lens24.utils.Constants;
 
@@ -48,7 +48,7 @@ public class ScanCardFragment extends Fragment {
     private ViewGroup mMainContent;
 
     @Nullable
-    private View mFlashButton;
+    private ImageView mFlashButton;
 
     @Nullable
     private ScanManager mScanManager;
@@ -79,9 +79,11 @@ public class ScanCardFragment extends Fragment {
 
     @Override
     public Animation onCreateAnimation(int transit, boolean enter, int nextAnim) {
-        if (Constants.DEBUG) Log.d(TAG, "onCreateAnimation() called with: " +  "transit = [" + transit + "], enter = [" + enter + "], nextAnim = [" + nextAnim + "]");
+        if (Constants.DEBUG)
+            Log.d(TAG, "onCreateAnimation() called with: " + "transit = [" + transit + "], enter = [" + enter + "], nextAnim = [" + nextAnim + "]");
         // SurfaceView is hard to animate
-        Animation a = new Animation() {};
+        Animation a = new Animation() {
+        };
         a.setDuration(0);
         return a;
     }
@@ -89,7 +91,7 @@ public class ScanCardFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View root =  inflater.inflate(R.layout.fragment_scan_card, container, false);
+        View root = inflater.inflate(R.layout.fragment_scan_card, container, false);
 
         mProgressBar = root.findViewById(R.id.progress_bar);
 
@@ -108,10 +110,9 @@ public class ScanCardFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         int recognitionMode = RECOGNIZER_MODE_NUMBER;
-        if (mRequest.isScanCardHolderEnabled()) recognitionMode |=  RECOGNIZER_MODE_NAME;
+        if (mRequest.isScanCardHolderEnabled()) recognitionMode |= RECOGNIZER_MODE_NAME;
         if (mRequest.isScanExpirationDateEnabled()) recognitionMode |= RECOGNIZER_MODE_DATE;
         if (mRequest.isGrabCardImageEnabled()) recognitionMode |= RECOGNIZER_MODE_GRAB_CARD_IMAGE;
-
         mScanManager = new ScanManager(recognitionMode, getActivity(), mCameraPreviewLayout, new ScanManager.Callbacks() {
 
             private byte[] mLastCardImage = null;
@@ -123,7 +124,8 @@ public class ScanCardFragment extends Fragment {
                 if (getView() == null) return;
                 mProgressBar.hideSlow();
                 mCameraPreviewLayout.setBackgroundDrawable(null);
-                if (mFlashButton != null) mFlashButton.setVisibility(isFlashSupported ? View.VISIBLE : View.GONE);
+                if (mFlashButton != null)
+                    mFlashButton.setVisibility(isFlashSupported ? View.VISIBLE : View.GONE);
             }
 
             @Override
@@ -137,7 +139,7 @@ public class ScanCardFragment extends Fragment {
             public void onRecognitionComplete(RecognitionResult result) {
                 if (result.isFirst()) {
                     if (mScanManager != null) mScanManager.freezeCameraPreview();
-                    if(mRequest.isVibrationEnabled()) vibrate();
+                    if (mRequest.isVibrationEnabled()) vibrate();
                 }
                 if (result.isFinal()) {
                     String date;
@@ -145,7 +147,7 @@ public class ScanCardFragment extends Fragment {
                         date = null;
                     } else {
                         assert result.getDate() != null;
-                        date =  result.getDate().substring(0, 2) + '/' + result.getDate().substring(2);
+                        date = result.getDate().substring(0, 2) + '/' + result.getDate().substring(2);
                     }
 
                     Card card = new Card(result.getNumber(), result.getName(), date);
@@ -161,13 +163,23 @@ public class ScanCardFragment extends Fragment {
             }
 
             @Override
-            public void onFpsReport(String report) {}
+            public void onFpsReport(String report) {
+            }
 
             @Override
-            public void onAutoFocusMoving(boolean start, String cameraFocusMode) {}
+            public void onAutoFocusMoving(boolean start, String cameraFocusMode) {
+            }
 
             @Override
-            public void onAutoFocusComplete(boolean success, String cameraFocusMode) {}
+            public void onAutoFocusComplete(boolean success, String cameraFocusMode) {
+            }
+
+            @Override
+            public void onTorchStatusChanged(boolean turnTorchOn) {
+                if (mFlashButton != null && getContext() != null) {
+                    mFlashButton.setImageDrawable(ContextCompat.getDrawable(getContext(), turnTorchOn ? R.drawable.ic_flash_on : R.drawable.ic_flash_off));
+                }
+            }
 
             @Nullable
             private byte[] compressCardImage(Bitmap img) {
@@ -216,21 +228,16 @@ public class ScanCardFragment extends Fragment {
     }
 
     private void initView(View view) {
-        view.findViewById(R.id.tv_enter_card_number_id).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(final View v) {
-                if (v.isEnabled()) {
-                    v.setEnabled(false);
-                    if (mListener != null) mListener.onScanCardCanceled(ScanCardIntent.ADD_MANUALLY_PRESSED);
-                }
+        view.findViewById(R.id.tv_enter_card_number_id).setOnClickListener(v -> {
+            if (v.isEnabled()) {
+                v.setEnabled(false);
+                if (mListener != null)
+                    mListener.onScanCardCanceled(ScanCardIntent.ADD_MANUALLY_PRESSED);
             }
         });
-        if(mFlashButton != null) {
-            mFlashButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(final View v) {
-                    if (mScanManager != null) mScanManager.toggleFlash();
-                }
+        if (mFlashButton != null) {
+            mFlashButton.setOnClickListener(v -> {
+                if (mScanManager != null) mScanManager.toggleFlash();
             });
         }
     }
@@ -266,7 +273,9 @@ public class ScanCardFragment extends Fragment {
 
     public interface InteractionListener {
         void onScanCardCanceled(@ScanCardIntent.CancelReason int cancelReason);
+
         void onScanCardFailed(Exception e);
+
         void onScanCardFinished(Card card, byte[] cardImage);
     }
 }

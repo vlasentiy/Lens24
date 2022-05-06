@@ -8,19 +8,20 @@ import android.opengl.Matrix;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
-import androidx.annotation.RestrictTo;
 import android.util.Log;
 import android.view.SurfaceHolder;
 
 import java.io.IOException;
 import java.lang.ref.WeakReference;
 
+import androidx.annotation.RestrictTo;
 import lens24.camera.gles.Drawable2d;
 import lens24.camera.gles.EglCore;
 import lens24.camera.gles.GlUtil;
 import lens24.camera.gles.Sprite2d;
 import lens24.camera.gles.Texture2dProgram;
 import lens24.camera.gles.WindowSurface;
+import lens24.ndk.TorchStatusListener;
 import lens24.utils.Constants;
 
 /**
@@ -70,9 +71,16 @@ public final class RenderThread extends Thread {
 
     private volatile boolean mOnFreeze;
 
+    private final TorchStatusListener mTorchStatusListener;
+
     public RenderThread(Context context, ScanManagerHandler mainHandler) {
+        this(context, mainHandler, null);
+    }
+
+    public RenderThread(Context context, ScanManagerHandler mainHandler, TorchStatusListener torchStatusListener) {
         mMainHandler = mainHandler;
         mAppContext = context.getApplicationContext();
+        mTorchStatusListener = torchStatusListener;
     }
 
     /**
@@ -94,8 +102,7 @@ public final class RenderThread extends Thread {
         try {
             // Prepare EGL and open the camera before we start handling messages.
             mEglCore = new EglCore(null, 0);
-
-            mCameraManager = new CameraManager(mAppContext);
+            mCameraManager = new CameraManager(mAppContext, mTorchStatusListener);
             mCameraManager.openCamera();
             mCameraManager.setProcessFrameCallbacks(new ProcessFrameThread.Callbacks() {
                 @Override

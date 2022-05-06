@@ -4,7 +4,6 @@ import android.content.Context;
 import android.graphics.ImageFormat;
 import android.graphics.SurfaceTexture;
 import android.hardware.Camera;
-import androidx.annotation.Nullable;
 import android.util.Log;
 import android.view.Display;
 import android.view.WindowManager;
@@ -12,7 +11,9 @@ import android.view.WindowManager;
 import java.io.IOException;
 import java.util.List;
 
+import androidx.annotation.Nullable;
 import lens24.ndk.RecognitionCore;
+import lens24.ndk.TorchStatusListener;
 import lens24.utils.Constants;
 
 class CameraManager {
@@ -43,11 +44,18 @@ class CameraManager {
 
     private boolean mIsProcessFramesActive;
 
+    private final TorchStatusListener mTorchStatusListener;
+
     public CameraManager(Context context) {
+        this(context, null);
+    }
+
+    public CameraManager(Context context, TorchStatusListener torchStatusListener) {
         mAppContext = context.getApplicationContext();
         mRecognitionCore = RecognitionCore.getInstance(mAppContext);
         mIsResumed = true;
         mIsProcessFramesActive = true;
+        mTorchStatusListener = torchStatusListener;
     }
 
     @Nullable
@@ -80,8 +88,7 @@ class CameraManager {
 
         mAutoFocusManager = new AutoFocusManager(mCamera, mFocusCallbacks);
         syncAutofocusManager();
-
-        mTorchManager = new TorchManager(mRecognitionCore, mCamera);
+        mTorchManager = new TorchManager(mRecognitionCore, mCamera, mTorchStatusListener);
         syncTorchManager();
 
         syncProcessThread(true);

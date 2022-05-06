@@ -1,9 +1,9 @@
 package lens24.camera;
 
 import android.hardware.Camera;
-import androidx.annotation.RestrictTo;
 import android.util.Log;
 
+import androidx.annotation.RestrictTo;
 import lens24.ndk.RecognitionCore;
 import lens24.ndk.TorchStatusListener;
 import lens24.utils.Constants;
@@ -22,9 +22,16 @@ public final class TorchManager {
 
     private final RecognitionCore mRecognitionCore;
 
-    public TorchManager(RecognitionCore recognitionCore, Camera camera) {
+    private final TorchStatusListener mTorchStatusListener;
+
+    public TorchManager(RecognitionCore recognitionCore, Camera camera, TorchStatusListener torchStatusListener) {
         mCamera = camera;
         mRecognitionCore = recognitionCore;
+        mTorchStatusListener = torchStatusListener;
+    }
+
+    public TorchManager(RecognitionCore recognitionCore, Camera camera) {
+        this(recognitionCore, camera, null);
     }
 
     public void pause() {
@@ -68,13 +75,17 @@ public final class TorchManager {
         @Override
         public void onTorchStatusChanged(boolean turnTorchOn) {
             if (mCamera == null) return;
-            if (DBG) Log.d(TAG, "onTorchStatusChanged() called with: " +  "turnTorchOn = [" + turnTorchOn + "]");
+            if (DBG)
+                Log.d(TAG, "onTorchStatusChanged() called with: " + "turnTorchOn = [" + turnTorchOn + "]");
             if (turnTorchOn) {
                 mTorchTurnedOn = true;
                 if (!mPaused) CameraConfigurationUtils.setFlashLight(mCamera, true);
             } else {
                 mTorchTurnedOn = false;
                 CameraConfigurationUtils.setFlashLight(mCamera, false);
+            }
+            if (mTorchStatusListener != null) {
+                mTorchStatusListener.onTorchStatusChanged(turnTorchOn);
             }
         }
     };

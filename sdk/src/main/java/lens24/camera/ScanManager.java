@@ -8,9 +8,6 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
-import androidx.annotation.MainThread;
-import androidx.annotation.Nullable;
-import androidx.annotation.RestrictTo;
 import android.util.Log;
 import android.view.Display;
 import android.view.SurfaceHolder;
@@ -20,6 +17,9 @@ import android.view.WindowManager;
 
 import java.util.Locale;
 
+import androidx.annotation.MainThread;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 import lens24.camera.widget.CameraPreviewLayout;
 import lens24.camera.widget.CardDetectionStateView;
 import lens24.camera.widget.OnWindowFocusChangedListener;
@@ -75,7 +75,10 @@ public final class ScanManager {
         void onCardImageReceived(Bitmap bitmap);
         void onFpsReport(String report);
         void onAutoFocusMoving(boolean start, String cameraFocusMode);
+
         void onAutoFocusComplete(boolean success, String cameraFocusMode);
+
+        void onTorchStatusChanged(boolean turnTorchOn);
     }
 
     public ScanManager(Context context, CameraPreviewLayout previewLayout, Callbacks callbacks) {
@@ -155,8 +158,7 @@ public final class ScanManager {
 
     public void onResume() {
         if (DBG) Log.d(TAG, "onResume()");
-
-        mRenderThread = new RenderThread(mAppContext, mHandler);
+        mRenderThread = new RenderThread(mAppContext, mHandler, mCallbacks::onTorchStatusChanged);
         mRenderThread.setName("Camera thread");
         mRenderThread.start();
         mRenderThread.waitUntilReady();
