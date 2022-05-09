@@ -1,1 +1,1 @@
-/Users/vlas/Projects/home/android/Lens24/sdk/build/intermediates/cmake/release/obj/x86_64
+/home/vlas/Projects/home/android/Lens24/sdk/build/intermediates/cmake/release/obj/x86_64

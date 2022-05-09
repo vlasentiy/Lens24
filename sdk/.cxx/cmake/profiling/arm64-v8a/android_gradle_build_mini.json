@@ -1,86 +1,86 @@
 {
   "buildFiles": [
-    "/Users/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/CMakeLists.txt",
-    "/Users/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/eigen/CMakeLists.txt",
-    "/Users/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/caffe/CMakeLists.txt",
-    "/Users/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/libyuv/CMakeLists.txt",
-    "/Users/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/protobuf/CMakeLists.txt",
-    "/Users/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/crossplatform/CMakeLists.txt",
-    "/Users/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/armneon2x86sse/CMakeLists.txt"
+    "/home/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/CMakeLists.txt",
+    "/home/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/eigen/CMakeLists.txt",
+    "/home/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/caffe/CMakeLists.txt",
+    "/home/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/libyuv/CMakeLists.txt",
+    "/home/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/protobuf/CMakeLists.txt",
+    "/home/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/crossplatform/CMakeLists.txt",
+    "/home/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/armneon2x86sse/CMakeLists.txt"
   ],
   "cleanCommandsComponents": [
     [
-      "/Users/vlas/Library/Android/sdk/cmake/3.10.2.4988404/bin/ninja",
+      "/home/vlas/Android/Sdk/cmake/3.10.2.4988404/bin/ninja",
       "-C",
-      "/Users/vlas/Projects/home/android/Lens24/sdk/.cxx/cmake/profiling/arm64-v8a",
+      "/home/vlas/Projects/home/android/Lens24/sdk/.cxx/cmake/profiling/arm64-v8a",
       "clean"
     ]
   ],
   "buildTargetsCommandComponents": [
-    "/Users/vlas/Library/Android/sdk/cmake/3.10.2.4988404/bin/ninja",
+    "/home/vlas/Android/Sdk/cmake/3.10.2.4988404/bin/ninja",
     "-C",
-    "/Users/vlas/Projects/home/android/Lens24/sdk/.cxx/cmake/profiling/arm64-v8a",
+    "/home/vlas/Projects/home/android/Lens24/sdk/.cxx/cmake/profiling/arm64-v8a",
     "{LIST_OF_TARGETS_TO_BUILD}"
   ],
   "libraries": {
     "protobuf-Release-arm64-v8a": {
       "artifactName": "protobuf",
       "buildCommandComponents": [
-        "/Users/vlas/Library/Android/sdk/cmake/3.10.2.4988404/bin/ninja",
+        "/home/vlas/Android/Sdk/cmake/3.10.2.4988404/bin/ninja",
         "-C",
-        "/Users/vlas/Projects/home/android/Lens24/sdk/.cxx/cmake/profiling/arm64-v8a",
+        "/home/vlas/Projects/home/android/Lens24/sdk/.cxx/cmake/profiling/arm64-v8a",
         "protobuf"
       ],
       "abi": "arm64-v8a",
-      "output": "/Users/vlas/Projects/home/android/Lens24/sdk/.cxx/cmake/profiling/arm64-v8a/protobuf/libprotobuf.a",
+      "output": "/home/vlas/Projects/home/android/Lens24/sdk/.cxx/cmake/profiling/arm64-v8a/protobuf/libprotobuf.a",
       "runtimeFiles": []
     },
     "caffe-Release-arm64-v8a": {
       "artifactName": "caffe",
       "buildCommandComponents": [
-        "/Users/vlas/Library/Android/sdk/cmake/3.10.2.4988404/bin/ninja",
+        "/home/vlas/Android/Sdk/cmake/3.10.2.4988404/bin/ninja",
         "-C",
-        "/Users/vlas/Projects/home/android/Lens24/sdk/.cxx/cmake/profiling/arm64-v8a",
+        "/home/vlas/Projects/home/android/Lens24/sdk/.cxx/cmake/profiling/arm64-v8a",
         "caffe"
       ],
       "abi": "arm64-v8a",
-      "output": "/Users/vlas/Projects/home/android/Lens24/sdk/.cxx/cmake/profiling/arm64-v8a/caffe/libcaffe.a",
+      "output": "/home/vlas/Projects/home/android/Lens24/sdk/.cxx/cmake/profiling/arm64-v8a/caffe/libcaffe.a",
       "runtimeFiles": []
     },
     "data-Release-arm64-v8a": {
       "artifactName": "data",
       "buildCommandComponents": [
-        "/Users/vlas/Library/Android/sdk/cmake/3.10.2.4988404/bin/ninja",
+        "/home/vlas/Android/Sdk/cmake/3.10.2.4988404/bin/ninja",
         "-C",
-        "/Users/vlas/Projects/home/android/Lens24/sdk/.cxx/cmake/profiling/arm64-v8a",
+        "/home/vlas/Projects/home/android/Lens24/sdk/.cxx/cmake/profiling/arm64-v8a",
         "data"
       ],
       "abi": "arm64-v8a",
-      "output": "/Users/vlas/Projects/home/android/Lens24/sdk/build/intermediates/cmake/profiling/obj/arm64-v8a/libdata.so",
+      "output": "/home/vlas/Projects/home/android/Lens24/sdk/build/intermediates/cmake/profiling/obj/arm64-v8a/libdata.so",
       "runtimeFiles": []
     },
     "libyuv-Release-arm64-v8a": {
       "artifactName": "libyuv",
       "buildCommandComponents": [
-        "/Users/vlas/Library/Android/sdk/cmake/3.10.2.4988404/bin/ninja",
+        "/home/vlas/Android/Sdk/cmake/3.10.2.4988404/bin/ninja",
         "-C",
-        "/Users/vlas/Projects/home/android/Lens24/sdk/.cxx/cmake/profiling/arm64-v8a",
+        "/home/vlas/Projects/home/android/Lens24/sdk/.cxx/cmake/profiling/arm64-v8a",
         "libyuv"
       ],
       "abi": "arm64-v8a",
-      "output": "/Users/vlas/Projects/home/android/Lens24/sdk/.cxx/cmake/profiling/arm64-v8a/libyuv/liblibyuv.a",
+      "output": "/home/vlas/Projects/home/android/Lens24/sdk/.cxx/cmake/profiling/arm64-v8a/libyuv/liblibyuv.a",
       "runtimeFiles": []
     },
     "crossplatform-Release-arm64-v8a": {
       "artifactName": "crossplatform",
       "buildCommandComponents": [
-        "/Users/vlas/Library/Android/sdk/cmake/3.10.2.4988404/bin/ninja",
+        "/home/vlas/Android/Sdk/cmake/3.10.2.4988404/bin/ninja",
         "-C",
-        "/Users/vlas/Projects/home/android/Lens24/sdk/.cxx/cmake/profiling/arm64-v8a",
+        "/home/vlas/Projects/home/android/Lens24/sdk/.cxx/cmake/profiling/arm64-v8a",
         "crossplatform"
       ],
       "abi": "arm64-v8a",
-      "output": "/Users/vlas/Projects/home/android/Lens24/sdk/.cxx/cmake/profiling/arm64-v8a/crossplatform/libcrossplatform.a",
+      "output": "/home/vlas/Projects/home/android/Lens24/sdk/.cxx/cmake/profiling/arm64-v8a/crossplatform/libcrossplatform.a",
       "runtimeFiles": []
     }
   }

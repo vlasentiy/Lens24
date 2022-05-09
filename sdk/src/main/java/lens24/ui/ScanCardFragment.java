@@ -14,7 +14,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import java.io.ByteArrayOutputStream;
 
@@ -53,8 +52,6 @@ public class ScanCardFragment extends Fragment {
 
     @Nullable
     private ScanManager mScanManager;
-
-    private TextView mHint;
 
     private InteractionListener mListener;
 
@@ -98,7 +95,7 @@ public class ScanCardFragment extends Fragment {
 
         mProgressBar = root.findViewById(R.id.progress_bar);
 
-        mCameraPreviewLayout = root.findViewById(R.id.card_recognition_view);
+        mCameraPreviewLayout = root.findViewById(R.id.wocr_card_recognition_view);
         mMainContent = root.findViewById(R.id.main_content);
         mFlashButton = root.findViewById(R.id.iv_flash);
 
@@ -243,8 +240,6 @@ public class ScanCardFragment extends Fragment {
                 if (mScanManager != null) mScanManager.toggleFlash();
             });
         }
-        mHint = view.findViewById(R.id.tvHint);
-        mHint.setText(mRequest.getHint());
     }
 
     private void showMainContent() {

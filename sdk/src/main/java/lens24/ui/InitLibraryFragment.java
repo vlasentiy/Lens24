@@ -7,23 +7,23 @@ import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
+import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import java.lang.ref.WeakReference;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RestrictTo;
-import androidx.fragment.app.Fragment;
+import lens24.sdk.R;
+import lens24.intent.ScanCardIntent;
 import lens24.camera.RecognitionAvailabilityChecker;
 import lens24.camera.RecognitionCoreUtils;
 import lens24.camera.RecognitionUnavailableException;
 import lens24.camera.widget.CameraPreviewLayout;
-import lens24.intent.ScanCardIntent;
 import lens24.ndk.RecognitionCore;
-import lens24.sdk.R;
 
 @RestrictTo(RestrictTo.Scope.LIBRARY)
 public final class InitLibraryFragment extends Fragment {
@@ -58,7 +58,7 @@ public final class InitLibraryFragment extends Fragment {
 
         mMainContent = root.findViewById(R.id.main_content);
         mProgressBar = root.findViewById(R.id.progress_bar);
-        mCameraPreviewLayout = root.findViewById(R.id.card_recognition_view);
+        mCameraPreviewLayout = root.findViewById(R.id.wocr_card_recognition_view);
         mFlashButton = root.findViewById(R.id.iv_flash);
 
         View enterManuallyButton = root.findViewById(R.id.tv_enter_card_number_id);

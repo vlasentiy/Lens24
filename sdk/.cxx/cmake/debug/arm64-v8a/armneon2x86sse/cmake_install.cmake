@@ -1,4 +1,4 @@
-# Install script for directory: /Users/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/armneon2x86sse
+# Install script for directory: /home/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/armneon2x86sse
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -29,7 +29,7 @@ endif()
 
 # Install shared libraries without execute permission?
 if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
-  set(CMAKE_INSTALL_SO_NO_EXE "0")
+  set(CMAKE_INSTALL_SO_NO_EXE "1")
 endif()
 
 # Is this installation the result of a crosscompile?
@@ -38,13 +38,13 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE FILE FILES "/Users/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/armneon2x86sse/NEON_2_SSE.h")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE FILE FILES "/home/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/armneon2x86sse/NEON_2_SSE.h")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/NEON_2_SSE" TYPE FILE FILES
-    "/Users/vlas/Projects/home/android/Lens24/sdk/.cxx/cmake/debug/arm64-v8a/armneon2x86sse/generated/NEON_2_SSEConfig.cmake"
-    "/Users/vlas/Projects/home/android/Lens24/sdk/.cxx/cmake/debug/arm64-v8a/armneon2x86sse/generated/NEON_2_SSEConfigVersion.cmake"
+    "/home/vlas/Projects/home/android/Lens24/sdk/.cxx/cmake/debug/arm64-v8a/armneon2x86sse/generated/NEON_2_SSEConfig.cmake"
+    "/home/vlas/Projects/home/android/Lens24/sdk/.cxx/cmake/debug/arm64-v8a/armneon2x86sse/generated/NEON_2_SSEConfigVersion.cmake"
     )
 endif()
 
@@ -52,7 +52,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/cmake/NEON_2_SSE/NEON_2_SSETargets.cmake")
     file(DIFFERENT EXPORT_FILE_CHANGED FILES
          "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/cmake/NEON_2_SSE/NEON_2_SSETargets.cmake"
-         "/Users/vlas/Projects/home/android/Lens24/sdk/.cxx/cmake/debug/arm64-v8a/armneon2x86sse/CMakeFiles/Export/lib/cmake/NEON_2_SSE/NEON_2_SSETargets.cmake")
+         "/home/vlas/Projects/home/android/Lens24/sdk/.cxx/cmake/debug/arm64-v8a/armneon2x86sse/CMakeFiles/Export/lib/cmake/NEON_2_SSE/NEON_2_SSETargets.cmake")
     if(EXPORT_FILE_CHANGED)
       file(GLOB OLD_CONFIG_FILES "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/cmake/NEON_2_SSE/NEON_2_SSETargets-*.cmake")
       if(OLD_CONFIG_FILES)
@@ -61,6 +61,6 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
       endif()
     endif()
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/NEON_2_SSE" TYPE FILE FILES "/Users/vlas/Projects/home/android/Lens24/sdk/.cxx/cmake/debug/arm64-v8a/armneon2x86sse/CMakeFiles/Export/lib/cmake/NEON_2_SSE/NEON_2_SSETargets.cmake")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/NEON_2_SSE" TYPE FILE FILES "/home/vlas/Projects/home/android/Lens24/sdk/.cxx/cmake/debug/arm64-v8a/armneon2x86sse/CMakeFiles/Export/lib/cmake/NEON_2_SSE/NEON_2_SSETargets.cmake")
 endif()
 

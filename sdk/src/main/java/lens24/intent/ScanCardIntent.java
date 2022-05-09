@@ -3,12 +3,12 @@ package lens24.intent;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import androidx.annotation.IntDef;
+import androidx.annotation.RestrictTo;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
-import androidx.annotation.IntDef;
-import androidx.annotation.RestrictTo;
 import lens24.ui.ScanCardActivity;
 import lens24.ui.ScanCardRequest;
 
@@ -50,8 +50,6 @@ public final class ScanCardIntent {
 
         private boolean mGrabCardImage = DEFAULT_GRAB_CARD_IMAGE;
 
-        private String mHint;
-
 
         public Builder(Context context) {
             mContext = context;
@@ -86,7 +84,6 @@ public final class ScanCardIntent {
 
         /**
          * Defines if the card image will be captured.
-         *
          * @param enable Defines if the card image will be captured. Default: <b>false</b>
          */
         public Builder setSaveCard(boolean enable) {
@@ -94,22 +91,11 @@ public final class ScanCardIntent {
             return this;
         }
 
-        /**
-         * Defines hint under card frame.
-         *
-         * @param text Defines hint text under card frame. Default: <b>null</b>
-         */
-        public Builder setHint(String text) {
-            mHint = text;
-            return this;
-        }
-
         public Intent build() {
             Intent intent = new Intent(mContext, ScanCardActivity.class);
             ScanCardRequest request = new ScanCardRequest(mEnableVibration, mScanExpirationDate,
-                    mScanCardHolder, mGrabCardImage, mHint);
+                    mScanCardHolder, mGrabCardImage);
             intent.putExtra(KEY_SCAN_CARD_REQUEST, request);
-
             return intent;
         }
     }

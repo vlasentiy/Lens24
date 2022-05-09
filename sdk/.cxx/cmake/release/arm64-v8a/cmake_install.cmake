@@ -1,4 +1,4 @@
-# Install script for directory: /Users/vlas/Projects/home/android/Lens24/sdk/src/main/cpp
+# Install script for directory: /home/vlas/Projects/home/android/Lens24/sdk/src/main/cpp
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -29,7 +29,7 @@ endif()
 
 # Install shared libraries without execute permission?
 if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
-  set(CMAKE_INSTALL_SO_NO_EXE "0")
+  set(CMAKE_INSTALL_SO_NO_EXE "1")
 endif()
 
 # Is this installation the result of a crosscompile?
@@ -39,12 +39,12 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/Users/vlas/Projects/home/android/Lens24/sdk/.cxx/cmake/release/arm64-v8a/armneon2x86sse/cmake_install.cmake")
-  include("/Users/vlas/Projects/home/android/Lens24/sdk/.cxx/cmake/release/arm64-v8a/eigen/cmake_install.cmake")
-  include("/Users/vlas/Projects/home/android/Lens24/sdk/.cxx/cmake/release/arm64-v8a/protobuf/cmake_install.cmake")
-  include("/Users/vlas/Projects/home/android/Lens24/sdk/.cxx/cmake/release/arm64-v8a/caffe/cmake_install.cmake")
-  include("/Users/vlas/Projects/home/android/Lens24/sdk/.cxx/cmake/release/arm64-v8a/libyuv/cmake_install.cmake")
-  include("/Users/vlas/Projects/home/android/Lens24/sdk/.cxx/cmake/release/arm64-v8a/crossplatform/cmake_install.cmake")
+  include("/home/vlas/Projects/home/android/Lens24/sdk/.cxx/cmake/release/arm64-v8a/armneon2x86sse/cmake_install.cmake")
+  include("/home/vlas/Projects/home/android/Lens24/sdk/.cxx/cmake/release/arm64-v8a/eigen/cmake_install.cmake")
+  include("/home/vlas/Projects/home/android/Lens24/sdk/.cxx/cmake/release/arm64-v8a/protobuf/cmake_install.cmake")
+  include("/home/vlas/Projects/home/android/Lens24/sdk/.cxx/cmake/release/arm64-v8a/caffe/cmake_install.cmake")
+  include("/home/vlas/Projects/home/android/Lens24/sdk/.cxx/cmake/release/arm64-v8a/libyuv/cmake_install.cmake")
+  include("/home/vlas/Projects/home/android/Lens24/sdk/.cxx/cmake/release/arm64-v8a/crossplatform/cmake_install.cmake")
 
 endif()
 
@@ -56,5 +56,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/Users/vlas/Projects/home/android/Lens24/sdk/.cxx/cmake/release/arm64-v8a/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/vlas/Projects/home/android/Lens24/sdk/.cxx/cmake/release/arm64-v8a/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

@@ -2,9 +2,6 @@ package lens24.ui;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-
-import java.util.Objects;
-
 import androidx.annotation.RestrictTo;
 
 @RestrictTo(RestrictTo.Scope.LIBRARY)
@@ -26,11 +23,9 @@ public final class ScanCardRequest implements Parcelable {
 
     private final boolean mGrabCardImage;
 
-    private final String mHint;
-
     private static final ScanCardRequest sDefaultInstance = new ScanCardRequest(
             DEFAULT_ENABLE_VIBRATION, DEFAULT_SCAN_EXPIRATION_DATE, DEFAULT_SCAN_CARD_HOLDER,
-            DEFAULT_GRAB_CARD_IMAGE, null);
+            DEFAULT_GRAB_CARD_IMAGE);
 
     public static ScanCardRequest getDefault() {
         return sDefaultInstance;
@@ -39,13 +34,11 @@ public final class ScanCardRequest implements Parcelable {
     public ScanCardRequest(boolean enableVibration,
                            boolean scanExpirationDate,
                            boolean scanCardHolder,
-                           boolean grabCardImage,
-                           String hint) {
+                           boolean grabCardImage) {
         this.mEnableVibration = enableVibration;
         this.mScanExpirationDate = scanExpirationDate;
         this.mScanCardHolder = scanCardHolder;
         this.mGrabCardImage = grabCardImage;
-        this.mHint = hint;
     }
 
     public boolean isVibrationEnabled() { return mEnableVibration; }
@@ -62,10 +55,6 @@ public final class ScanCardRequest implements Parcelable {
         return mGrabCardImage;
     }
 
-    public String getHint() {
-        return mHint;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -76,8 +65,7 @@ public final class ScanCardRequest implements Parcelable {
         if (mEnableVibration != that.mEnableVibration) return false;
         if (mScanExpirationDate != that.mScanExpirationDate) return false;
         if (mScanCardHolder != that.mScanCardHolder) return false;
-        if (mGrabCardImage != that.mGrabCardImage) return false;
-        return Objects.equals(mHint, that.mHint);
+        return mGrabCardImage == that.mGrabCardImage;
     }
 
     @Override
@@ -86,9 +74,9 @@ public final class ScanCardRequest implements Parcelable {
         result = 31 * result + (mScanExpirationDate ? 1 : 0);
         result = 31 * result + (mScanCardHolder ? 1 : 0);
         result = 31 * result + (mGrabCardImage ? 1 : 0);
-        result = 31 * result + (mHint != null ? mHint.hashCode() : 0);
         return result;
     }
+
 
     @Override
     public int describeContents() {
@@ -101,18 +89,16 @@ public final class ScanCardRequest implements Parcelable {
         dest.writeByte(this.mScanExpirationDate ? (byte) 1 : (byte) 0);
         dest.writeByte(this.mScanCardHolder ? (byte) 1 : (byte) 0);
         dest.writeByte(this.mGrabCardImage ? (byte) 1 : (byte) 0);
-        dest.writeString(this.mHint);
     }
 
-    private ScanCardRequest(Parcel in) {
+    protected ScanCardRequest(Parcel in) {
         this.mEnableVibration = in.readByte() != 0;
         this.mScanExpirationDate = in.readByte() != 0;
         this.mScanCardHolder = in.readByte() != 0;
         this.mGrabCardImage = in.readByte() != 0;
-        this.mHint = in.readString();
     }
 
-    public static final Creator<ScanCardRequest> CREATOR = new Creator<ScanCardRequest>() {
+    public static final Parcelable.Creator<ScanCardRequest> CREATOR = new Parcelable.Creator<ScanCardRequest>() {
         @Override
         public ScanCardRequest createFromParcel(Parcel source) {
             return new ScanCardRequest(source);
