@@ -16,8 +16,8 @@ CMAKE SERVER: {
     "major": 1,
     "minor": 1
   },
-  "sourceDirectory": "/home/vlas/Projects/home/android/Lens24/sdk/src/main/cpp",
-  "buildDirectory": "/home/vlas/Projects/home/android/Lens24/sdk/.cxx/cmake/release/x86_64",
+  "sourceDirectory": "/Users/vlas/Projects/home/android/Lens24/sdk/src/main/cpp",
+  "buildDirectory": "/Users/vlas/Projects/home/android/Lens24/sdk/.cxx/cmake/release/x86_64",
   "generator": "Ninja"
 }
 
@@ -37,18 +37,18 @@ CMAKE SERVER: {
   "type": "configure",
   "cacheArguments": [
     "",
-    "-DCMAKE_FIND_ROOT_PATH\u003d/home/vlas/Projects/home/android/Lens24/sdk/.cxx/cmake/release/prefab/x86_64/prefab",
+    "-DCMAKE_FIND_ROOT_PATH\u003d/Users/vlas/Projects/home/android/Lens24/sdk/.cxx/cmake/release/prefab/x86_64/prefab",
     "-DCMAKE_BUILD_TYPE\u003dRelease",
-    "-DCMAKE_TOOLCHAIN_FILE\u003d/home/vlas/Android/Sdk/ndk/21.4.7075529/build/cmake/android.toolchain.cmake",
+    "-DCMAKE_TOOLCHAIN_FILE\u003d/Users/vlas/Library/Android/sdk/ndk/21.4.7075529/build/cmake/android.toolchain.cmake",
     "-DANDROID_ABI\u003dx86_64",
-    "-DANDROID_NDK\u003d/home/vlas/Android/Sdk/ndk/21.4.7075529",
+    "-DANDROID_NDK\u003d/Users/vlas/Library/Android/sdk/ndk/21.4.7075529",
     "-DANDROID_PLATFORM\u003dandroid-16",
     "-DCMAKE_ANDROID_ARCH_ABI\u003dx86_64",
-    "-DCMAKE_ANDROID_NDK\u003d/home/vlas/Android/Sdk/ndk/21.4.7075529",
+    "-DCMAKE_ANDROID_NDK\u003d/Users/vlas/Library/Android/sdk/ndk/21.4.7075529",
     "-DCMAKE_EXPORT_COMPILE_COMMANDS\u003dON",
-    "-DCMAKE_LIBRARY_OUTPUT_DIRECTORY\u003d/home/vlas/Projects/home/android/Lens24/sdk/build/intermediates/cmake/release/obj/x86_64",
-    "-DCMAKE_RUNTIME_OUTPUT_DIRECTORY\u003d/home/vlas/Projects/home/android/Lens24/sdk/build/intermediates/cmake/release/obj/x86_64",
-    "-DCMAKE_MAKE_PROGRAM\u003d/home/vlas/Android/Sdk/cmake/3.10.2.4988404/bin/ninja",
+    "-DCMAKE_LIBRARY_OUTPUT_DIRECTORY\u003d/Users/vlas/Projects/home/android/Lens24/sdk/build/intermediates/cmake/release/obj/x86_64",
+    "-DCMAKE_RUNTIME_OUTPUT_DIRECTORY\u003d/Users/vlas/Projects/home/android/Lens24/sdk/build/intermediates/cmake/release/obj/x86_64",
+    "-DCMAKE_MAKE_PROGRAM\u003d/Users/vlas/Library/Android/sdk/cmake/3.10.2.4988404/bin/ninja",
     "-DCMAKE_SYSTEM_NAME\u003dAndroid",
     "-DCMAKE_SYSTEM_VERSION\u003d16",
     "-DANDROID_STL\u003dc++_shared"
@@ -61,7 +61,17 @@ CMAKE SERVER:
 
 CMAKE SERVER: [== "CMake Server" ==[
 
-CMAKE SERVER: {"cookie":"","inReplyTo":"configure","progressCurrent":257,"progressMaximum":1000,"progressMessage":"Configuring","progressMinimum":0,"type":"progress"}
+CMAKE SERVER: {"cookie":"","inReplyTo":"configure","message":"Check for working C compiler: /Users/vlas/Library/Android/sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang","type":"message"}
+
+CMAKE SERVER: ]== "CMake Server" ==]
+
+CMAKE SERVER: Check for working C compiler: /Users/vlas/Library/Android/sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang
+CMAKE SERVER: Check for working C compiler: /Users/vlas/Library/Android/sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang
+CMAKE SERVER: 
+
+CMAKE SERVER: [== "CMake Server" ==[
+
+CMAKE SERVER: {"cookie":"","inReplyTo":"configure","progressCurrent":33,"progressMaximum":1000,"progressMessage":"Configuring","progressMinimum":0,"type":"progress"}
 
 CMAKE SERVER: ]== "CMake Server" ==]
 
@@ -69,7 +79,27 @@ CMAKE SERVER:
 
 CMAKE SERVER: [== "CMake Server" ==[
 
-CMAKE SERVER: {"cookie":"","inReplyTo":"configure","progressCurrent":385,"progressMaximum":1000,"progressMessage":"Configuring","progressMinimum":0,"type":"progress"}
+CMAKE SERVER: {"cookie":"","inReplyTo":"configure","message":"Check for working C compiler: /Users/vlas/Library/Android/sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang -- works","type":"message"}
+
+CMAKE SERVER: ]== "CMake Server" ==]
+
+CMAKE SERVER: Check for working C compiler: /Users/vlas/Library/Android/sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang -- works
+CMAKE SERVER: Check for working C compiler: /Users/vlas/Library/Android/sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang -- works
+CMAKE SERVER: 
+
+CMAKE SERVER: [== "CMake Server" ==[
+
+CMAKE SERVER: {"cookie":"","inReplyTo":"configure","message":"Detecting C compiler ABI info","type":"message"}
+
+CMAKE SERVER: ]== "CMake Server" ==]
+
+CMAKE SERVER: Detecting C compiler ABI info
+CMAKE SERVER: Detecting C compiler ABI info
+CMAKE SERVER: 
+
+CMAKE SERVER: [== "CMake Server" ==[
+
+CMAKE SERVER: {"cookie":"","inReplyTo":"configure","progressCurrent":65,"progressMaximum":1000,"progressMessage":"Configuring","progressMinimum":0,"type":"progress"}
 
 CMAKE SERVER: ]== "CMake Server" ==]
 
@@ -77,7 +107,27 @@ CMAKE SERVER:
 
 CMAKE SERVER: [== "CMake Server" ==[
 
-CMAKE SERVER: {"cookie":"","inReplyTo":"configure","progressCurrent":514,"progressMaximum":1000,"progressMessage":"Configuring","progressMinimum":0,"type":"progress"}
+CMAKE SERVER: {"cookie":"","inReplyTo":"configure","message":"Detecting C compiler ABI info - done","type":"message"}
+
+CMAKE SERVER: ]== "CMake Server" ==]
+
+CMAKE SERVER: Detecting C compiler ABI info - done
+CMAKE SERVER: Detecting C compiler ABI info - done
+CMAKE SERVER: 
+
+CMAKE SERVER: [== "CMake Server" ==[
+
+CMAKE SERVER: {"cookie":"","inReplyTo":"configure","message":"Detecting C compile features","type":"message"}
+
+CMAKE SERVER: ]== "CMake Server" ==]
+
+CMAKE SERVER: Detecting C compile features
+CMAKE SERVER: Detecting C compile features
+CMAKE SERVER: 
+
+CMAKE SERVER: [== "CMake Server" ==[
+
+CMAKE SERVER: {"cookie":"","inReplyTo":"configure","progressCurrent":96,"progressMaximum":1000,"progressMessage":"Configuring","progressMinimum":0,"type":"progress"}
 
 CMAKE SERVER: ]== "CMake Server" ==]
 
@@ -85,7 +135,7 @@ CMAKE SERVER:
 
 CMAKE SERVER: [== "CMake Server" ==[
 
-CMAKE SERVER: {"cookie":"","inReplyTo":"configure","progressCurrent":642,"progressMaximum":1000,"progressMessage":"Configuring","progressMinimum":0,"type":"progress"}
+CMAKE SERVER: {"cookie":"","inReplyTo":"configure","progressCurrent":126,"progressMaximum":1000,"progressMessage":"Configuring","progressMinimum":0,"type":"progress"}
 
 CMAKE SERVER: ]== "CMake Server" ==]
 
@@ -93,7 +143,7 @@ CMAKE SERVER:
 
 CMAKE SERVER: [== "CMake Server" ==[
 
-CMAKE SERVER: {"cookie":"","inReplyTo":"configure","progressCurrent":771,"progressMaximum":1000,"progressMessage":"Configuring","progressMinimum":0,"type":"progress"}
+CMAKE SERVER: {"cookie":"","inReplyTo":"configure","progressCurrent":155,"progressMaximum":1000,"progressMessage":"Configuring","progressMinimum":0,"type":"progress"}
 
 CMAKE SERVER: ]== "CMake Server" ==]
 
@@ -101,10 +151,178 @@ CMAKE SERVER:
 
 CMAKE SERVER: [== "CMake Server" ==[
 
-CMAKE SERVER: {"cookie":"","inReplyTo":"configure","progressCurrent":900,"progressMaximum":1000,"progressMessage":"Configuring","progressMinimum":0,"type":"progress"}
+CMAKE SERVER: {"cookie":"","inReplyTo":"configure","message":"Detecting C compile features - done","type":"message"}
 
 CMAKE SERVER: ]== "CMake Server" ==]
 
+CMAKE SERVER: Detecting C compile features - done
+CMAKE SERVER: Detecting C compile features - done
+CMAKE SERVER: 
+
+CMAKE SERVER: [== "CMake Server" ==[
+
+CMAKE SERVER: {"cookie":"","inReplyTo":"configure","message":"Check for working CXX compiler: /Users/vlas/Library/Android/sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang++","type":"message"}
+
+CMAKE SERVER: ]== "CMake Server" ==]
+
+CMAKE SERVER: Check for working CXX compiler: /Users/vlas/Library/Android/sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang++
+CMAKE SERVER: Check for working CXX compiler: /Users/vlas/Library/Android/sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang++
+CMAKE SERVER: 
+
+CMAKE SERVER: [== "CMake Server" ==[
+
+CMAKE SERVER: {"cookie":"","inReplyTo":"configure","progressCurrent":184,"progressMaximum":1000,"progressMessage":"Configuring","progressMinimum":0,"type":"progress"}
+
+CMAKE SERVER: ]== "CMake Server" ==]
+
+CMAKE SERVER: 
+
+CMAKE SERVER: [== "CMake Server" ==[
+
+CMAKE SERVER: {"cookie":"","inReplyTo":"configure","message":"Check for working CXX compiler: /Users/vlas/Library/Android/sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang++ -- works","type":"message"}
+
+CMAKE SERVER: ]== "CMake Server" ==]
+
+CMAKE SERVER: Check for working CXX compiler: /Users/vlas/Library/Android/sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang++ -- works
+CMAKE SERVER: Check for working CXX compiler: /Users/vlas/Library/Android/sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang++ -- works
+CMAKE SERVER: 
+
+CMAKE SERVER: [== "CMake Server" ==[
+
+CMAKE SERVER: {"cookie":"","inReplyTo":"configure","message":"Detecting CXX compiler ABI info","type":"message"}
+
+CMAKE SERVER: ]== "CMake Server" ==]
+
+CMAKE SERVER: Detecting CXX compiler ABI info
+CMAKE SERVER: Detecting CXX compiler ABI info
+CMAKE SERVER: 
+
+CMAKE SERVER: [== "CMake Server" ==[
+
+CMAKE SERVER: {"cookie":"","inReplyTo":"configure","progressCurrent":211,"progressMaximum":1000,"progressMessage":"Configuring","progressMinimum":0,"type":"progress"}
+
+CMAKE SERVER: ]== "CMake Server" ==]
+
+CMAKE SERVER: 
+
+CMAKE SERVER: [== "CMake Server" ==[
+
+CMAKE SERVER: {"cookie":"","inReplyTo":"configure","message":"Detecting CXX compiler ABI info - done","type":"message"}
+
+CMAKE SERVER: ]== "CMake Server" ==]
+
+CMAKE SERVER: Detecting CXX compiler ABI info - done
+CMAKE SERVER: Detecting CXX compiler ABI info - done
+CMAKE SERVER: 
+
+CMAKE SERVER: [== "CMake Server" ==[
+
+CMAKE SERVER: {"cookie":"","inReplyTo":"configure","message":"Detecting CXX compile features","type":"message"}
+
+CMAKE SERVER: ]== "CMake Server" ==]
+
+CMAKE SERVER: Detecting CXX compile features
+CMAKE SERVER: Detecting CXX compile features
+CMAKE SERVER: 
+
+CMAKE SERVER: [== "CMake Server" ==[
+
+CMAKE SERVER: {"cookie":"","inReplyTo":"configure","progressCurrent":237,"progressMaximum":1000,"progressMessage":"Configuring","progressMinimum":0,"type":"progress"}
+
+CMAKE SERVER: ]== "CMake Server" ==]
+
+CMAKE SERVER: 
+
+CMAKE SERVER: [== "CMake Server" ==[
+
+CMAKE SERVER: {"cookie":"","inReplyTo":"configure","progressCurrent":262,"progressMaximum":1000,"progressMessage":"Configuring","progressMinimum":0,"type":"progress"}
+
+CMAKE SERVER: ]== "CMake Server" ==]
+
+CMAKE SERVER: 
+
+CMAKE SERVER: [== "CMake Server" ==[
+
+CMAKE SERVER: {"cookie":"","inReplyTo":"configure","progressCurrent":287,"progressMaximum":1000,"progressMessage":"Configuring","progressMinimum":0,"type":"progress"}
+
+CMAKE SERVER: ]== "CMake Server" ==]
+
+CMAKE SERVER: 
+
+CMAKE SERVER: [== "CMake Server" ==[
+
+CMAKE SERVER: {"cookie":"","inReplyTo":"configure","progressCurrent":311,"progressMaximum":1000,"progressMessage":"Configuring","progressMinimum":0,"type":"progress"}
+
+CMAKE SERVER: ]== "CMake Server" ==]
+
+CMAKE SERVER: 
+
+CMAKE SERVER: [== "CMake Server" ==[
+
+CMAKE SERVER: {"cookie":"","inReplyTo":"configure","message":"Detecting CXX compile features - done","type":"message"}
+
+CMAKE SERVER: ]== "CMake Server" ==]
+
+CMAKE SERVER: Detecting CXX compile features - done
+CMAKE SERVER: Detecting CXX compile features - done
+CMAKE SERVER: 
+
+CMAKE SERVER: [== "CMake Server" ==[
+
+CMAKE SERVER: {"cookie":"","inReplyTo":"configure","progressCurrent":334,"progressMaximum":1000,"progressMessage":"Configuring","progressMinimum":0,"type":"progress"}
+
+CMAKE SERVER: ]== "CMake Server" ==]
+
+CMAKE SERVER: 
+
+CMAKE SERVER: [== "CMake Server" ==[
+
+CMAKE SERVER: {"cookie":"","inReplyTo":"configure","progressCurrent":356,"progressMaximum":1000,"progressMessage":"Configuring","progressMinimum":0,"type":"progress"}
+
+CMAKE SERVER: ]== "CMake Server" ==]
+
+CMAKE SERVER: 
+
+CMAKE SERVER: [== "CMake Server" ==[
+
+CMAKE SERVER: {"cookie":"","inReplyTo":"configure","progressCurrent":377,"progressMaximum":1000,"progressMessage":"Configuring","progressMinimum":0,"type":"progress"}
+
+CMAKE SERVER: ]== "CMake Server" ==]
+
+CMAKE SERVER: 
+
+CMAKE SERVER: [== "CMake Server" ==[
+
+CMAKE SERVER: {"cookie":"","inReplyTo":"configure","progressCurrent":398,"progressMaximum":1000,"progressMessage":"Configuring","progressMinimum":0,"type":"progress"}
+
+CMAKE SERVER: ]== "CMake Server" ==]
+
+CMAKE SERVER: 
+
+CMAKE SERVER: [== "CMake Server" ==[
+
+CMAKE SERVER: {"cookie":"","inReplyTo":"configure","progressCurrent":418,"progressMaximum":1000,"progressMessage":"Configuring","progressMinimum":0,"type":"progress"}
+
+CMAKE SERVER: ]== "CMake Server" ==]
+
+CMAKE SERVER: 
+
+CMAKE SERVER: [== "CMake Server" ==[
+
+CMAKE SERVER: {"cookie":"","inReplyTo":"configure","progressCurrent":438,"progressMaximum":1000,"progressMessage":"Configuring","progressMinimum":0,"type":"progress"}
+
+CMAKE SERVER: ]== "CMake Server" ==]
+
+CMAKE SERVER: 
+
+CMAKE SERVER: [== "CMake Server" ==[
+
+CMAKE SERVER: {"cookie":"","inReplyTo":"configure","message":"Found OpenCV: /Users/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/opencv2 (found version \"3.4.3\") found components:  opencv_objdetect opencv_imgcodecs opencv_imgproc opencv_ml opencv_core ","type":"message"}
+
+CMAKE SERVER: ]== "CMake Server" ==]
+
+CMAKE SERVER: Found OpenCV: /Users/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/opencv2 (found version "3.4.3") found components:  opencv_objdetect opencv_imgcodecs opencv_imgproc opencv_ml opencv_core 
+CMAKE SERVER: Found OpenCV: /Users/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/opencv2 (found version "3.4.3") found components:  opencv_objdetect opencv_imgcodecs opencv_imgproc opencv_ml opencv_core 
 CMAKE SERVER: 
 
 CMAKE SERVER: [== "CMake Server" ==[
@@ -268,7 +486,7 @@ CMAKE SERVER:
 
 CMAKE SERVER: [== "CMake Server" ==[
 
-CMAKE SERVER: {"buildFiles":[{"isCMake":true,"isTemporary":false,"sources":["/home/vlas/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeSystemSpecificInitialize.cmake","/home/vlas/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android-Initialize.cmake","/home/vlas/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeSystemSpecificInformation.cmake","/home/vlas/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeGenericSystem.cmake","/home/vlas/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android.cmake","/home/vlas/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Linux.cmake","/home/vlas/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/UnixPaths.cmake","/home/vlas/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeCInformation.cmake","/home/vlas/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeLanguageInformation.cmake","/home/vlas/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/Clang-C.cmake","/home/vlas/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/Clang.cmake","/home/vlas/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/CMakeCommonCompilerMacros.cmake","/home/vlas/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/GNU.cmake","/home/vlas/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/CMakeCommonCompilerMacros.cmake","/home/vlas/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android-Clang-C.cmake","/home/vlas/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android-Clang.cmake","/home/vlas/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeCommonLanguageInclude.cmake","/home/vlas/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeCXXInformation.cmake","/home/vlas/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeLanguageInformation.cmake","/home/vlas/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/Clang-CXX.cmake","/home/vlas/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/Clang.cmake","/home/vlas/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android-Clang-CXX.cmake","/home/vlas/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android-Clang.cmake","/home/vlas/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeCommonLanguageInclude.cmake","/home/vlas/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakePackageConfigHelpers.cmake","/home/vlas/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/WriteBasicConfigVersionFile.cmake","/home/vlas/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/BasicConfigVersion-SameMajorVersion.cmake.in","/home/vlas/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/FindPackageHandleStandardArgs.cmake","/home/vlas/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/FindPackageMessage.cmake"]},{"isCMake":false,"isTemporary":false,"sources":["CMakeLists.txt","/home/vlas/Android/Sdk/ndk/21.4.7075529/build/cmake/android.toolchain.cmake","/home/vlas/Android/Sdk/ndk/21.4.7075529/build/cmake/platforms.cmake","armneon2x86sse/CMakeLists.txt","armneon2x86sse/cmake/Config.cmake.in","eigen/CMakeLists.txt","protobuf/CMakeLists.txt","caffe/CMakeLists.txt","libyuv/CMakeLists.txt","crossplatform/CMakeLists.txt","opencv2/sdk/native/jni/OpenCVConfig-version.cmake","opencv2/sdk/native/jni/OpenCVConfig.cmake","opencv2/sdk/native/jni/abi-x86_64/OpenCVConfig.cmake","opencv2/sdk/native/jni/abi-x86_64/OpenCVModules.cmake","opencv2/sdk/native/jni/abi-x86_64/OpenCVModules-release.cmake"]},{"isCMake":false,"isTemporary":true,"sources":["../../../.cxx/cmake/release/x86_64/CMakeFiles/3.10.2/CMakeSystem.cmake","../../../.cxx/cmake/release/x86_64/CMakeFiles/3.10.2/CMakeCCompiler.cmake","../../../.cxx/cmake/release/x86_64/CMakeFiles/3.10.2/CMakeCXXCompiler.cmake"]}],"cmakeRootDirectory":"/home/vlas/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10","cookie":"","inReplyTo":"cmakeInputs","sourceDirectory":"/home/vlas/Projects/home/android/Lens24/sdk/src/main/cpp","type":"reply"}
+CMAKE SERVER: {"buildFiles":[{"isCMake":true,"isTemporary":false,"sources":["/Users/vlas/Library/Android/sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeDetermineSystem.cmake","/Users/vlas/Library/Android/sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android-Determine.cmake","/Users/vlas/Library/Android/sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeSystem.cmake.in","/Users/vlas/Library/Android/sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeSystemSpecificInitialize.cmake","/Users/vlas/Library/Android/sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android-Initialize.cmake","/Users/vlas/Library/Android/sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeDetermineCCompiler.cmake","/Users/vlas/Library/Android/sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeDetermineCompiler.cmake","/Users/vlas/Library/Android/sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android-Determine-C.cmake","/Users/vlas/Library/Android/sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android/Determine-Compiler.cmake","/Users/vlas/Library/Android/sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeFindBinUtils.cmake","/Users/vlas/Library/Android/sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/Clang-FindBinUtils.cmake","/Users/vlas/Library/Android/sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeCCompiler.cmake.in","/Users/vlas/Library/Android/sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeDetermineCXXCompiler.cmake","/Users/vlas/Library/Android/sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeDetermineCompiler.cmake","/Users/vlas/Library/Android/sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android-Determine-CXX.cmake","/Users/vlas/Library/Android/sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android/Determine-Compiler.cmake","/Users/vlas/Library/Android/sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeFindBinUtils.cmake","/Users/vlas/Library/Android/sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/Clang-FindBinUtils.cmake","/Users/vlas/Library/Android/sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeCXXCompiler.cmake.in","/Users/vlas/Library/Android/sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeSystemSpecificInformation.cmake","/Users/vlas/Library/Android/sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeGenericSystem.cmake","/Users/vlas/Library/Android/sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android.cmake","/Users/vlas/Library/Android/sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Linux.cmake","/Users/vlas/Library/Android/sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/UnixPaths.cmake","/Users/vlas/Library/Android/sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeCInformation.cmake","/Users/vlas/Library/Android/sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeLanguageInformation.cmake","/Users/vlas/Library/Android/sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/Clang-C.cmake","/Users/vlas/Library/Android/sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/Clang.cmake","/Users/vlas/Library/Android/sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/CMakeCommonCompilerMacros.cmake","/Users/vlas/Library/Android/sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/GNU.cmake","/Users/vlas/Library/Android/sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/CMakeCommonCompilerMacros.cmake","/Users/vlas/Library/Android/sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android-Clang-C.cmake","/Users/vlas/Library/Android/sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android-Clang.cmake","/Users/vlas/Library/Android/sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeCommonLanguageInclude.cmake","/Users/vlas/Library/Android/sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeTestCCompiler.cmake","/Users/vlas/Library/Android/sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeTestCompilerCommon.cmake","/Users/vlas/Library/Android/sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeDetermineCompilerABI.cmake","/Users/vlas/Library/Android/sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeParseImplicitLinkInfo.cmake","/Users/vlas/Library/Android/sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeCCompilerABI.c","/Users/vlas/Library/Android/sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeDetermineCompileFeatures.cmake","/Users/vlas/Library/Android/sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Internal/FeatureTesting.cmake","/Users/vlas/Library/Android/sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/Clang-C-FeatureTests.cmake","/Users/vlas/Library/Android/sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/Clang-C-FeatureTests.cmake","/Users/vlas/Library/Android/sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/Clang-C-FeatureTests.cmake","/Users/vlas/Library/Android/sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeCCompiler.cmake.in","/Users/vlas/Library/Android/sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeCXXInformation.cmake","/Users/vlas/Library/Android/sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeLanguageInformation.cmake","/Users/vlas/Library/Android/sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/Clang-CXX.cmake","/Users/vlas/Library/Android/sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/Clang.cmake","/Users/vlas/Library/Android/sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android-Clang-CXX.cmake","/Users/vlas/Library/Android/sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android-Clang.cmake","/Users/vlas/Library/Android/sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeCommonLanguageInclude.cmake","/Users/vlas/Library/Android/sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeTestCXXCompiler.cmake","/Users/vlas/Library/Android/sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeTestCompilerCommon.cmake","/Users/vlas/Library/Android/sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeDetermineCompilerABI.cmake","/Users/vlas/Library/Android/sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeParseImplicitLinkInfo.cmake","/Users/vlas/Library/Android/sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeCXXCompilerABI.cpp","/Users/vlas/Library/Android/sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeDetermineCompileFeatures.cmake","/Users/vlas/Library/Android/sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Internal/FeatureTesting.cmake","/Users/vlas/Library/Android/sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/Clang-CXX-FeatureTests.cmake","/Users/vlas/Library/Android/sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/Clang-CXX-TestableFeatures.cmake","/Users/vlas/Library/Android/sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/Clang-CXX-FeatureTests.cmake","/Users/vlas/Library/Android/sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/Clang-CXX-TestableFeatures.cmake","/Users/vlas/Library/Android/sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/Clang-CXX-FeatureTests.cmake","/Users/vlas/Library/Android/sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/Clang-CXX-TestableFeatures.cmake","/Users/vlas/Library/Android/sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/Clang-CXX-FeatureTests.cmake","/Users/vlas/Library/Android/sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/Clang-CXX-TestableFeatures.cmake","/Users/vlas/Library/Android/sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeCXXCompiler.cmake.in","/Users/vlas/Library/Android/sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakePackageConfigHelpers.cmake","/Users/vlas/Library/Android/sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/WriteBasicConfigVersionFile.cmake","/Users/vlas/Library/Android/sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/BasicConfigVersion-SameMajorVersion.cmake.in","/Users/vlas/Library/Android/sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/FindPackageHandleStandardArgs.cmake","/Users/vlas/Library/Android/sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/FindPackageMessage.cmake"]},{"isCMake":false,"isTemporary":false,"sources":["CMakeLists.txt","/Users/vlas/Library/Android/sdk/ndk/21.4.7075529/build/cmake/android.toolchain.cmake","/Users/vlas/Library/Android/sdk/ndk/21.4.7075529/build/cmake/platforms.cmake","/Users/vlas/Library/Android/sdk/ndk/21.4.7075529/build/cmake/android.toolchain.cmake","armneon2x86sse/CMakeLists.txt","armneon2x86sse/cmake/Config.cmake.in","eigen/CMakeLists.txt","protobuf/CMakeLists.txt","caffe/CMakeLists.txt","libyuv/CMakeLists.txt","crossplatform/CMakeLists.txt","opencv2/sdk/native/jni/OpenCVConfig-version.cmake","opencv2/sdk/native/jni/OpenCVConfig.cmake","opencv2/sdk/native/jni/abi-x86_64/OpenCVConfig.cmake","opencv2/sdk/native/jni/abi-x86_64/OpenCVModules.cmake","opencv2/sdk/native/jni/abi-x86_64/OpenCVModules-release.cmake"]},{"isCMake":false,"isTemporary":true,"sources":["../../../.cxx/cmake/release/x86_64/CMakeFiles/3.10.2/CMakeSystem.cmake","../../../.cxx/cmake/release/x86_64/CMakeFiles/3.10.2/CMakeCCompiler.cmake","../../../.cxx/cmake/release/x86_64/CMakeFiles/3.10.2/CMakeCXXCompiler.cmake","../../../.cxx/cmake/release/x86_64/CMakeFiles/feature_tests.c","../../../.cxx/cmake/release/x86_64/CMakeFiles/feature_tests.c","../../../.cxx/cmake/release/x86_64/CMakeFiles/feature_tests.c","../../../.cxx/cmake/release/x86_64/CMakeFiles/3.10.2/CMakeCCompiler.cmake","../../../.cxx/cmake/release/x86_64/CMakeFiles/feature_tests.cxx","../../../.cxx/cmake/release/x86_64/CMakeFiles/feature_tests.cxx","../../../.cxx/cmake/release/x86_64/CMakeFiles/feature_tests.cxx","../../../.cxx/cmake/release/x86_64/CMakeFiles/feature_tests.cxx","../../../.cxx/cmake/release/x86_64/CMakeFiles/3.10.2/CMakeCXXCompiler.cmake"]}],"cmakeRootDirectory":"/Users/vlas/Library/Android/sdk/cmake/3.10.2.4988404/share/cmake-3.10","cookie":"","inReplyTo":"cmakeInputs","sourceDirectory":"/Users/vlas/Projects/home/android/Lens24/sdk/src/main/cpp","type":"reply"}
 
 CMAKE SERVER: ]== "CMake Server" ==]
 
@@ -282,7 +500,7 @@ CMAKE SERVER:
 
 CMAKE SERVER: [== "CMake Server" ==[
 
-CMAKE SERVER: {"configurations":[{"name":"Release","projects":[{"buildDirectory":"/home/vlas/Projects/home/android/Lens24/sdk/.cxx/cmake/release/x86_64/armneon2x86sse","name":"NEON_2_SSE","sourceDirectory":"/home/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/armneon2x86sse","targets":[{"buildDirectory":"/home/vlas/Projects/home/android/Lens24/sdk/.cxx/cmake/release/x86_64/armneon2x86sse","name":"NEON_2_SSE","sourceDirectory":"/home/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/armneon2x86sse","type":"INTERFACE_LIBRARY"}]},{"buildDirectory":"/home/vlas/Projects/home/android/Lens24/sdk/.cxx/cmake/release/x86_64","name":"Project","sourceDirectory":"/home/vlas/Projects/home/android/Lens24/sdk/src/main/cpp","targets":[{"artifacts":["/home/vlas/Projects/home/android/Lens24/sdk/build/intermediates/cmake/release/obj/x86_64/libdata.so"],"buildDirectory":"/home/vlas/Projects/home/android/Lens24/sdk/.cxx/cmake/release/x86_64","fileGroups":[{"compileFlags":"-g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -O2 -DNDEBUG  -fPIC  ","defines":["data_EXPORTS"],"includePath":[{"path":"/home/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/crossplatform"},{"path":"/home/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/crossplatform/CrossPlatform"},{"path":"/home/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/crossplatform/CrossPlatform/CaffePredictor"},{"path":"/home/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/crossplatform/CrossPlatform/CV"},{"path":"/home/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/crossplatform/CrossPlatform/Include"},{"path":"/home/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/crossplatform/CrossPlatform/Include/NeuralNetwork"},{"path":"/home/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/crossplatform/CrossPlatform/Include/Public"},{"path":"/home/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/crossplatform/CrossPlatform/Include/Recognizer"},{"path":"/home/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/crossplatform/CrossPlatform/Include/Torch"},{"path":"/home/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/crossplatform/CrossPlatform/Recognizer"},{"path":"/home/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/crossplatform/CrossPlatform/Torch"},{"path":"/home/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/crossplatform/jniImpl"},{"isSystem":true,"path":"/home/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/opencv2/sdk/native/jni/include"},{"isSystem":true,"path":"/home/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/opencv2/sdk/native/jni/include/opencv"},{"path":"/home/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/libyuv/include"}],"isGenerated":false,"language":"CXX","sources":["CardRecognizer-jni.cpp"]}],"fullName":"libdata.so","linkFlags":"-Wl,--exclude-libs,libgcc.a -Wl,--exclude-libs,libgcc_real.a -Wl,--exclude-libs,libatomic.a -Wl,--build-id -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments","linkLibraries":"crossplatform/libcrossplatform.a libyuv/liblibyuv.a -llog -lz caffe/libcaffe.a protobuf/libprotobuf.a /home/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/opencv2/sdk/native/staticlibs/x86_64/libopencv_objdetect.a /home/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/opencv2/sdk/native/staticlibs/x86_64/libopencv_imgcodecs.a /home/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/opencv2/sdk/native/staticlibs/x86_64/libopencv_imgproc.a /home/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/opencv2/sdk/native/staticlibs/x86_64/libopencv_ml.a /home/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/opencv2/sdk/native/staticlibs/x86_64/libopencv_core.a -llog -lz /home/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/opencv2/sdk/native/3rdparty/libs/x86_64/libtbb.a -lc -ldl -lm /home/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/opencv2/sdk/native/3rdparty/libs/x86_64/libcpufeatures.a -latomic -lm","linkerLanguage":"CXX","name":"data","sourceDirectory":"/home/vlas/Projects/home/android/Lens24/sdk/src/main/cpp","sysroot":"/home/vlas/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot","type":"SHARED_LIBRARY"},{"buildDirectory":"/home/vlas/Projects/home/android/Lens24/sdk/.cxx/cmake/release/x86_64/armneon2x86sse","name":"NEON_2_SSE","sourceDirectory":"/home/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/armneon2x86sse","type":"INTERFACE_LIBRARY"},{"buildDirectory":"/home/vlas/Projects/home/android/Lens24/sdk/.cxx/cmake/release/x86_64/eigen","name":"eigen","sourceDirectory":"/home/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/eigen","type":"INTERFACE_LIBRARY"},{"artifacts":["/home/vlas/Projects/home/android/Lens24/sdk/.cxx/cmake/release/x86_64/protobuf/libprotobuf.a"],"buildDirectory":"/home/vlas/Projects/home/android/Lens24/sdk/.cxx/cmake/release/x86_64/protobuf","fileGroups":[{"compileFlags":"-g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -O2 -DNDEBUG  -fPIC -fvisibility=hidden -fvisibility-inlines-hidden   -frtti -fno-exceptions -Wno-enum-compare-switch -Wno-error=return-type -Wno-null-conversion -Wno-sign-compare -Wno-sign-promo -Wno-tautological-constant-compare -Wno-tautological-undefined-compare -Wno-unused-parameter -std=c++11","includePath":[{"path":"/home/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/protobuf/GoogleProtobuf"}],"isGenerated":false,"language":"CXX","sources":["GoogleProtobuf/google/protobuf/descriptor.cc","GoogleProtobuf/google/protobuf/descriptor_database.cc","GoogleProtobuf/google/protobuf/descriptor.pb.cc","GoogleProtobuf/google/protobuf/dynamic_message.cc","GoogleProtobuf/google/protobuf/extension_set.cc","GoogleProtobuf/google/protobuf/extension_set_heavy.cc","GoogleProtobuf/google/protobuf/generated_message_reflection.cc","GoogleProtobuf/google/protobuf/generated_message_util.cc","GoogleProtobuf/google/protobuf/io/coded_stream.cc","GoogleProtobuf/google/protobuf/io/gzip_stream.cc","GoogleProtobuf/google/protobuf/io/printer.cc","GoogleProtobuf/google/protobuf/io/tokenizer.cc","GoogleProtobuf/google/protobuf/io/zero_copy_stream.cc","GoogleProtobuf/google/protobuf/io/zero_copy_stream_impl.cc","GoogleProtobuf/google/protobuf/io/zero_copy_stream_impl_lite.cc","GoogleProtobuf/google/protobuf/message.cc","GoogleProtobuf/google/protobuf/message_lite.cc","GoogleProtobuf/google/protobuf/reflection_ops.cc","GoogleProtobuf/google/protobuf/repeated_field.cc","GoogleProtobuf/google/protobuf/service.cc","GoogleProtobuf/google/protobuf/stubs/common.cc","GoogleProtobuf/google/protobuf/stubs/once.cc","GoogleProtobuf/google/protobuf/stubs/structurally_valid.cc","GoogleProtobuf/google/protobuf/stubs/strutil.cc","GoogleProtobuf/google/protobuf/stubs/substitute.cc","GoogleProtobuf/google/protobuf/text_format.cc","GoogleProtobuf/google/protobuf/unknown_field_set.cc","GoogleProtobuf/google/protobuf/wire_format.cc","GoogleProtobuf/google/protobuf/wire_format_lite.cc"]}],"fullName":"libprotobuf.a","linkerLanguage":"CXX","name":"protobuf","sourceDirectory":"/home/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/protobuf","sysroot":"/home/vlas/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot","type":"STATIC_LIBRARY"},{"artifacts":["/home/vlas/Projects/home/android/Lens24/sdk/.cxx/cmake/release/x86_64/caffe/libcaffe.a"],"buildDirectory":"/home/vlas/Projects/home/android/Lens24/sdk/.cxx/cmake/release/x86_64/caffe","fileGroups":[{"compileFlags":"-g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -O2 -DNDEBUG  -fPIC -fvisibility=hidden -fvisibility-inlines-hidden   -marm -Wno-unused-command-line-argument -frtti -fexceptions -O3","defines":["CPU_ONLY","USE_EIGEN"],"includePath":[{"path":"/home/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/caffe/Caffe"},{"path":"/home/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/caffe/include"},{"path":"/home/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/protobuf/GoogleProtobuf"},{"path":"/home/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/eigen"},{"path":"/home/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/eigen/Eigen"}],"isGenerated":false,"language":"CXX","sources":["Caffe/blob.cpp","Caffe/common.cpp","Caffe/layer_factory.cpp","Caffe/layers/base_conv_layer.cpp","Caffe/layers/base_data_layer.cpp","Caffe/layers/bnll_layer.cpp","Caffe/layers/concat_layer.cpp","Caffe/layers/conv_layer.cpp","Caffe/layers/eltwise_layer.cpp","Caffe/layers/flatten_layer.cpp","Caffe/layers/im2col_layer.cpp","Caffe/layers/inner_product_layer.cpp","Caffe/layers/loss_layer.cpp","Caffe/layers/lrn_layer.cpp","Caffe/layers/memory_data_layer.cpp","Caffe/layers/neuron_layer.cpp","Caffe/layers/pooling_layer.cpp","Caffe/layers/power_layer.cpp","Caffe/layers/relu_layer.cpp","Caffe/layers/sigmoid_layer.cpp","Caffe/layers/softmax_layer.cpp","Caffe/layers/softmax_loss_layer.cpp","Caffe/layers/split_layer.cpp","Caffe/layers/tanh_layer.cpp","Caffe/net.cpp","Caffe/proto/caffe.pb.cc","Caffe/syncedmem.cpp","Caffe/util/im2col.cpp","Caffe/util/insert_splits.cpp","Caffe/util/io.cpp","Caffe/util/math_functions.cpp","Caffe/util/upgrade_proto.cpp"]}],"fullName":"libcaffe.a","linkerLanguage":"CXX","name":"caffe","sourceDirectory":"/home/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/caffe","sysroot":"/home/vlas/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot","type":"STATIC_LIBRARY"},{"artifacts":["/home/vlas/Projects/home/android/Lens24/sdk/.cxx/cmake/release/x86_64/libyuv/liblibyuv.a"],"buildDirectory":"/home/vlas/Projects/home/android/Lens24/sdk/.cxx/cmake/release/x86_64/libyuv","fileGroups":[{"compileFlags":"-g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -O2 -DNDEBUG  -fPIC -fvisibility=hidden -fvisibility-inlines-hidden   -fno-exceptions -fno-rtti -Wall -O3","includePath":[{"path":"/home/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/libyuv/include"}],"isGenerated":false,"language":"CXX","sources":["source/compare.cc","source/compare_common.cc","source/compare_gcc.cc","source/compare_mmi.cc","source/compare_msa.cc","source/compare_neon64.cc","source/convert.cc","source/convert_argb.cc","source/convert_from.cc","source/convert_from_argb.cc","source/convert_to_argb.cc","source/convert_to_i420.cc","source/cpu_id.cc","source/planar_functions.cc","source/rotate.cc","source/rotate_any.cc","source/rotate_argb.cc","source/rotate_common.cc","source/rotate_gcc.cc","source/rotate_mmi.cc","source/rotate_msa.cc","source/rotate_neon64.cc","source/row_any.cc","source/row_common.cc","source/row_gcc.cc","source/row_mmi.cc","source/row_msa.cc","source/row_neon64.cc","source/scale.cc","source/scale_any.cc","source/scale_argb.cc","source/scale_common.cc","source/scale_gcc.cc","source/scale_mmi.cc","source/scale_msa.cc","source/scale_neon64.cc","source/video_common.cc"]}],"fullName":"liblibyuv.a","linkerLanguage":"CXX","name":"libyuv","sourceDirectory":"/home/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/libyuv","sysroot":"/home/vlas/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot","type":"STATIC_LIBRARY"},{"artifacts":["/home/vlas/Projects/home/android/Lens24/sdk/.cxx/cmake/release/x86_64/crossplatform/libcrossplatform.a"],"buildDirectory":"/home/vlas/Projects/home/android/Lens24/sdk/.cxx/cmake/release/x86_64/crossplatform","fileGroups":[{"compileFlags":"-g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -O2 -DNDEBUG  -fPIC -fvisibility=hidden -fvisibility-inlines-hidden   -marm -Wno-unused-command-line-argument -frtti -fexceptions -O3 -Wno-unknown-attributes -Wno-deprecated-declarations -std=c++11","defines":["CPU_ONLY","HAVE_NEON_X86=1","USE_EIGEN"],"includePath":[{"path":"/home/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/crossplatform"},{"path":"/home/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/crossplatform/CrossPlatform"},{"path":"/home/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/crossplatform/CrossPlatform/CaffePredictor"},{"path":"/home/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/crossplatform/CrossPlatform/CV"},{"path":"/home/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/crossplatform/CrossPlatform/Include"},{"path":"/home/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/crossplatform/CrossPlatform/Include/NeuralNetwork"},{"path":"/home/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/crossplatform/CrossPlatform/Include/Public"},{"path":"/home/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/crossplatform/CrossPlatform/Include/Recognizer"},{"path":"/home/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/crossplatform/CrossPlatform/Include/Torch"},{"path":"/home/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/crossplatform/CrossPlatform/Recognizer"},{"path":"/home/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/crossplatform/CrossPlatform/Torch"},{"path":"/home/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/crossplatform/jniImpl"},{"path":"/home/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/armneon2x86sse"},{"path":"/home/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/eigen"},{"path":"/home/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/eigen/Eigen"},{"path":"/home/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/caffe/include"},{"path":"/home/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/protobuf/GoogleProtobuf"},{"path":"/home/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/libyuv/include"},{"isSystem":true,"path":"/home/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/opencv2/sdk/native/jni/include"},{"isSystem":true,"path":"/home/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/opencv2/sdk/native/jni/include/opencv"}],"isGenerated":false,"language":"CXX","sources":["CrossPlatform/CaffePredictor/CaffeDatum.cpp","CrossPlatform/CaffePredictor/CaffeDatumList.cpp","CrossPlatform/CaffePredictor/CaffeNeuralNetwork.cpp","CrossPlatform/CaffePredictor/CaffeObjectFactory.cpp","CrossPlatform/CaffePredictor/CaffeResult.cpp","CrossPlatform/CaffePredictor/CaffeResultList.cpp","CrossPlatform/CV/canny.cpp","CrossPlatform/CV/hough.cpp","CrossPlatform/CV/warp.cpp","CrossPlatform/Recognizer/DateRecognizer.cpp","CrossPlatform/Recognizer/EdgesDetector.cpp","CrossPlatform/Recognizer/FrameStorage.cpp","CrossPlatform/Recognizer/NameRecognizer.cpp","CrossPlatform/Recognizer/NumberRecognizer.cpp","CrossPlatform/Recognizer/RecognitionCore.cpp","CrossPlatform/Recognizer/RecognitionResult.cpp","CrossPlatform/Recognizer/Utils.cpp","CrossPlatform/ServiceContainer.cpp","CrossPlatform/Torch/TorchManager.cpp","jniImpl/RecognitionCoreDelegate.cpp","jniImpl/TorchDelegate.cpp"]}],"fullName":"libcrossplatform.a","linkerLanguage":"CXX","name":"crossplatform","sourceDirectory":"/home/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/crossplatform","sysroot":"/home/vlas/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot","type":"STATIC_LIBRARY"}]}]}],"cookie":"","inReplyTo":"codemodel","type":"reply"}
+CMAKE SERVER: {"configurations":[{"name":"Release","projects":[{"buildDirectory":"/Users/vlas/Projects/home/android/Lens24/sdk/.cxx/cmake/release/x86_64/armneon2x86sse","name":"NEON_2_SSE","sourceDirectory":"/Users/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/armneon2x86sse","targets":[{"buildDirectory":"/Users/vlas/Projects/home/android/Lens24/sdk/.cxx/cmake/release/x86_64/armneon2x86sse","name":"NEON_2_SSE","sourceDirectory":"/Users/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/armneon2x86sse","type":"INTERFACE_LIBRARY"}]},{"buildDirectory":"/Users/vlas/Projects/home/android/Lens24/sdk/.cxx/cmake/release/x86_64","name":"Project","sourceDirectory":"/Users/vlas/Projects/home/android/Lens24/sdk/src/main/cpp","targets":[{"artifacts":["/Users/vlas/Projects/home/android/Lens24/sdk/build/intermediates/cmake/release/obj/x86_64/libdata.so"],"buildDirectory":"/Users/vlas/Projects/home/android/Lens24/sdk/.cxx/cmake/release/x86_64","fileGroups":[{"compileFlags":"-g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -O2 -DNDEBUG  -fPIC  ","defines":["data_EXPORTS"],"includePath":[{"path":"/Users/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/crossplatform"},{"path":"/Users/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/crossplatform/CrossPlatform"},{"path":"/Users/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/crossplatform/CrossPlatform/CaffePredictor"},{"path":"/Users/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/crossplatform/CrossPlatform/CV"},{"path":"/Users/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/crossplatform/CrossPlatform/Include"},{"path":"/Users/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/crossplatform/CrossPlatform/Include/NeuralNetwork"},{"path":"/Users/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/crossplatform/CrossPlatform/Include/Public"},{"path":"/Users/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/crossplatform/CrossPlatform/Include/Recognizer"},{"path":"/Users/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/crossplatform/CrossPlatform/Include/Torch"},{"path":"/Users/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/crossplatform/CrossPlatform/Recognizer"},{"path":"/Users/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/crossplatform/CrossPlatform/Torch"},{"path":"/Users/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/crossplatform/jniImpl"},{"isSystem":true,"path":"/Users/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/opencv2/sdk/native/jni/include"},{"isSystem":true,"path":"/Users/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/opencv2/sdk/native/jni/include/opencv"},{"path":"/Users/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/libyuv/include"}],"isGenerated":false,"language":"CXX","sources":["CardRecognizer-jni.cpp"]}],"fullName":"libdata.so","linkFlags":"-Wl,--exclude-libs,libgcc.a -Wl,--exclude-libs,libgcc_real.a -Wl,--exclude-libs,libatomic.a -Wl,--build-id -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments","linkLibraries":"crossplatform/libcrossplatform.a libyuv/liblibyuv.a -llog -lz caffe/libcaffe.a protobuf/libprotobuf.a /Users/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/opencv2/sdk/native/staticlibs/x86_64/libopencv_objdetect.a /Users/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/opencv2/sdk/native/staticlibs/x86_64/libopencv_imgcodecs.a /Users/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/opencv2/sdk/native/staticlibs/x86_64/libopencv_imgproc.a /Users/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/opencv2/sdk/native/staticlibs/x86_64/libopencv_ml.a /Users/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/opencv2/sdk/native/staticlibs/x86_64/libopencv_core.a -llog -lz /Users/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/opencv2/sdk/native/3rdparty/libs/x86_64/libtbb.a -lc -ldl -lm /Users/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/opencv2/sdk/native/3rdparty/libs/x86_64/libcpufeatures.a -latomic -lm","linkerLanguage":"CXX","name":"data","sourceDirectory":"/Users/vlas/Projects/home/android/Lens24/sdk/src/main/cpp","sysroot":"/Users/vlas/Library/Android/sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/darwin-x86_64/sysroot","type":"SHARED_LIBRARY"},{"buildDirectory":"/Users/vlas/Projects/home/android/Lens24/sdk/.cxx/cmake/release/x86_64/armneon2x86sse","name":"NEON_2_SSE","sourceDirectory":"/Users/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/armneon2x86sse","type":"INTERFACE_LIBRARY"},{"buildDirectory":"/Users/vlas/Projects/home/android/Lens24/sdk/.cxx/cmake/release/x86_64/eigen","name":"eigen","sourceDirectory":"/Users/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/eigen","type":"INTERFACE_LIBRARY"},{"artifacts":["/Users/vlas/Projects/home/android/Lens24/sdk/.cxx/cmake/release/x86_64/protobuf/libprotobuf.a"],"buildDirectory":"/Users/vlas/Projects/home/android/Lens24/sdk/.cxx/cmake/release/x86_64/protobuf","fileGroups":[{"compileFlags":"-g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -O2 -DNDEBUG  -fPIC -fvisibility=hidden -fvisibility-inlines-hidden   -frtti -fno-exceptions -Wno-enum-compare-switch -Wno-error=return-type -Wno-null-conversion -Wno-sign-compare -Wno-sign-promo -Wno-tautological-constant-compare -Wno-tautological-undefined-compare -Wno-unused-parameter -std=c++11","includePath":[{"path":"/Users/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/protobuf/GoogleProtobuf"}],"isGenerated":false,"language":"CXX","sources":["GoogleProtobuf/google/protobuf/descriptor.cc","GoogleProtobuf/google/protobuf/descriptor_database.cc","GoogleProtobuf/google/protobuf/descriptor.pb.cc","GoogleProtobuf/google/protobuf/dynamic_message.cc","GoogleProtobuf/google/protobuf/extension_set.cc","GoogleProtobuf/google/protobuf/extension_set_heavy.cc","GoogleProtobuf/google/protobuf/generated_message_reflection.cc","GoogleProtobuf/google/protobuf/generated_message_util.cc","GoogleProtobuf/google/protobuf/io/coded_stream.cc","GoogleProtobuf/google/protobuf/io/gzip_stream.cc","GoogleProtobuf/google/protobuf/io/printer.cc","GoogleProtobuf/google/protobuf/io/tokenizer.cc","GoogleProtobuf/google/protobuf/io/zero_copy_stream.cc","GoogleProtobuf/google/protobuf/io/zero_copy_stream_impl.cc","GoogleProtobuf/google/protobuf/io/zero_copy_stream_impl_lite.cc","GoogleProtobuf/google/protobuf/message.cc","GoogleProtobuf/google/protobuf/message_lite.cc","GoogleProtobuf/google/protobuf/reflection_ops.cc","GoogleProtobuf/google/protobuf/repeated_field.cc","GoogleProtobuf/google/protobuf/service.cc","GoogleProtobuf/google/protobuf/stubs/common.cc","GoogleProtobuf/google/protobuf/stubs/once.cc","GoogleProtobuf/google/protobuf/stubs/structurally_valid.cc","GoogleProtobuf/google/protobuf/stubs/strutil.cc","GoogleProtobuf/google/protobuf/stubs/substitute.cc","GoogleProtobuf/google/protobuf/text_format.cc","GoogleProtobuf/google/protobuf/unknown_field_set.cc","GoogleProtobuf/google/protobuf/wire_format.cc","GoogleProtobuf/google/protobuf/wire_format_lite.cc"]}],"fullName":"libprotobuf.a","linkerLanguage":"CXX","name":"protobuf","sourceDirectory":"/Users/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/protobuf","sysroot":"/Users/vlas/Library/Android/sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/darwin-x86_64/sysroot","type":"STATIC_LIBRARY"},{"artifacts":["/Users/vlas/Projects/home/android/Lens24/sdk/.cxx/cmake/release/x86_64/caffe/libcaffe.a"],"buildDirectory":"/Users/vlas/Projects/home/android/Lens24/sdk/.cxx/cmake/release/x86_64/caffe","fileGroups":[{"compileFlags":"-g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -O2 -DNDEBUG  -fPIC -fvisibility=hidden -fvisibility-inlines-hidden   -marm -Wno-unused-command-line-argument -frtti -fexceptions -O3","defines":["CPU_ONLY","USE_EIGEN"],"includePath":[{"path":"/Users/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/caffe/Caffe"},{"path":"/Users/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/caffe/include"},{"path":"/Users/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/protobuf/GoogleProtobuf"},{"path":"/Users/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/eigen"},{"path":"/Users/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/eigen/Eigen"}],"isGenerated":false,"language":"CXX","sources":["Caffe/blob.cpp","Caffe/common.cpp","Caffe/layer_factory.cpp","Caffe/layers/base_conv_layer.cpp","Caffe/layers/base_data_layer.cpp","Caffe/layers/bnll_layer.cpp","Caffe/layers/concat_layer.cpp","Caffe/layers/conv_layer.cpp","Caffe/layers/eltwise_layer.cpp","Caffe/layers/flatten_layer.cpp","Caffe/layers/im2col_layer.cpp","Caffe/layers/inner_product_layer.cpp","Caffe/layers/loss_layer.cpp","Caffe/layers/lrn_layer.cpp","Caffe/layers/memory_data_layer.cpp","Caffe/layers/neuron_layer.cpp","Caffe/layers/pooling_layer.cpp","Caffe/layers/power_layer.cpp","Caffe/layers/relu_layer.cpp","Caffe/layers/sigmoid_layer.cpp","Caffe/layers/softmax_layer.cpp","Caffe/layers/softmax_loss_layer.cpp","Caffe/layers/split_layer.cpp","Caffe/layers/tanh_layer.cpp","Caffe/net.cpp","Caffe/proto/caffe.pb.cc","Caffe/syncedmem.cpp","Caffe/util/im2col.cpp","Caffe/util/insert_splits.cpp","Caffe/util/io.cpp","Caffe/util/math_functions.cpp","Caffe/util/upgrade_proto.cpp"]}],"fullName":"libcaffe.a","linkerLanguage":"CXX","name":"caffe","sourceDirectory":"/Users/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/caffe","sysroot":"/Users/vlas/Library/Android/sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/darwin-x86_64/sysroot","type":"STATIC_LIBRARY"},{"artifacts":["/Users/vlas/Projects/home/android/Lens24/sdk/.cxx/cmake/release/x86_64/libyuv/liblibyuv.a"],"buildDirectory":"/Users/vlas/Projects/home/android/Lens24/sdk/.cxx/cmake/release/x86_64/libyuv","fileGroups":[{"compileFlags":"-g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -O2 -DNDEBUG  -fPIC -fvisibility=hidden -fvisibility-inlines-hidden   -fno-exceptions -fno-rtti -Wall -O3","includePath":[{"path":"/Users/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/libyuv/include"}],"isGenerated":false,"language":"CXX","sources":["source/compare.cc","source/compare_common.cc","source/compare_gcc.cc","source/compare_mmi.cc","source/compare_msa.cc","source/compare_neon64.cc","source/convert.cc","source/convert_argb.cc","source/convert_from.cc","source/convert_from_argb.cc","source/convert_to_argb.cc","source/convert_to_i420.cc","source/cpu_id.cc","source/planar_functions.cc","source/rotate.cc","source/rotate_any.cc","source/rotate_argb.cc","source/rotate_common.cc","source/rotate_gcc.cc","source/rotate_mmi.cc","source/rotate_msa.cc","source/rotate_neon64.cc","source/row_any.cc","source/row_common.cc","source/row_gcc.cc","source/row_mmi.cc","source/row_msa.cc","source/row_neon64.cc","source/scale.cc","source/scale_any.cc","source/scale_argb.cc","source/scale_common.cc","source/scale_gcc.cc","source/scale_mmi.cc","source/scale_msa.cc","source/scale_neon64.cc","source/video_common.cc"]}],"fullName":"liblibyuv.a","linkerLanguage":"CXX","name":"libyuv","sourceDirectory":"/Users/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/libyuv","sysroot":"/Users/vlas/Library/Android/sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/darwin-x86_64/sysroot","type":"STATIC_LIBRARY"},{"artifacts":["/Users/vlas/Projects/home/android/Lens24/sdk/.cxx/cmake/release/x86_64/crossplatform/libcrossplatform.a"],"buildDirectory":"/Users/vlas/Projects/home/android/Lens24/sdk/.cxx/cmake/release/x86_64/crossplatform","fileGroups":[{"compileFlags":"-g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -O2 -DNDEBUG  -fPIC -fvisibility=hidden -fvisibility-inlines-hidden   -marm -Wno-unused-command-line-argument -frtti -fexceptions -O3 -Wno-unknown-attributes -Wno-deprecated-declarations -std=c++11","defines":["CPU_ONLY","HAVE_NEON_X86=1","USE_EIGEN"],"includePath":[{"path":"/Users/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/crossplatform"},{"path":"/Users/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/crossplatform/CrossPlatform"},{"path":"/Users/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/crossplatform/CrossPlatform/CaffePredictor"},{"path":"/Users/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/crossplatform/CrossPlatform/CV"},{"path":"/Users/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/crossplatform/CrossPlatform/Include"},{"path":"/Users/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/crossplatform/CrossPlatform/Include/NeuralNetwork"},{"path":"/Users/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/crossplatform/CrossPlatform/Include/Public"},{"path":"/Users/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/crossplatform/CrossPlatform/Include/Recognizer"},{"path":"/Users/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/crossplatform/CrossPlatform/Include/Torch"},{"path":"/Users/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/crossplatform/CrossPlatform/Recognizer"},{"path":"/Users/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/crossplatform/CrossPlatform/Torch"},{"path":"/Users/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/crossplatform/jniImpl"},{"path":"/Users/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/armneon2x86sse"},{"path":"/Users/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/eigen"},{"path":"/Users/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/eigen/Eigen"},{"path":"/Users/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/caffe/include"},{"path":"/Users/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/protobuf/GoogleProtobuf"},{"path":"/Users/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/libyuv/include"},{"isSystem":true,"path":"/Users/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/opencv2/sdk/native/jni/include"},{"isSystem":true,"path":"/Users/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/opencv2/sdk/native/jni/include/opencv"}],"isGenerated":false,"language":"CXX","sources":["CrossPlatform/CaffePredictor/CaffeDatum.cpp","CrossPlatform/CaffePredictor/CaffeDatumList.cpp","CrossPlatform/CaffePredictor/CaffeNeuralNetwork.cpp","CrossPlatform/CaffePredictor/CaffeObjectFactory.cpp","CrossPlatform/CaffePredictor/CaffeResult.cpp","CrossPlatform/CaffePredictor/CaffeResultList.cpp","CrossPlatform/CV/canny.cpp","CrossPlatform/CV/hough.cpp","CrossPlatform/CV/warp.cpp","CrossPlatform/Recognizer/DateRecognizer.cpp","CrossPlatform/Recognizer/EdgesDetector.cpp","CrossPlatform/Recognizer/FrameStorage.cpp","CrossPlatform/Recognizer/NameRecognizer.cpp","CrossPlatform/Recognizer/NumberRecognizer.cpp","CrossPlatform/Recognizer/RecognitionCore.cpp","CrossPlatform/Recognizer/RecognitionResult.cpp","CrossPlatform/Recognizer/Utils.cpp","CrossPlatform/ServiceContainer.cpp","CrossPlatform/Torch/TorchManager.cpp","jniImpl/RecognitionCoreDelegate.cpp","jniImpl/TorchDelegate.cpp"]}],"fullName":"libcrossplatform.a","linkerLanguage":"CXX","name":"crossplatform","sourceDirectory":"/Users/vlas/Projects/home/android/Lens24/sdk/src/main/cpp/crossplatform","sysroot":"/Users/vlas/Library/Android/sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/darwin-x86_64/sysroot","type":"STATIC_LIBRARY"}]}]}],"cookie":"","inReplyTo":"codemodel","type":"reply"}
 
 CMAKE SERVER: ]== "CMake Server" ==]
 

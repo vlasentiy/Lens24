@@ -1,1 +1,1 @@
-/home/vlas/Projects/home/android/Lens24/sdk/build/intermediates/cmake/release/obj/armeabi-v7a
+/Users/vlas/Projects/home/android/Lens24/sdk/build/intermediates/cmake/release/obj/armeabi-v7a
