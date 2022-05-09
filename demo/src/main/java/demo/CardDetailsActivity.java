@@ -1,15 +1,12 @@
 package demo;
 
+import com.google.android.material.textfield.TextInputLayout;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.ResultReceiver;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.google.android.material.textfield.TextInputLayout;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
@@ -19,16 +16,18 @@ import android.widget.Toast;
 
 import java.lang.reflect.Method;
 
-import demo.BuildConfig;
-import demo.R;
-import lens24.intent.Card;
-import lens24.intent.ScanCardIntent;
-import lens24.intent.ScanCardIntent.CancelReason;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import demo.validation.CardExpiryDateValidator;
 import demo.validation.CardHolderValidator;
 import demo.validation.CardNumberValidator;
 import demo.validation.ValidationResult;
 import demo.widget.CardNumberEditText;
+import lens24.intent.Card;
+import lens24.intent.ScanCardIntent;
+import lens24.intent.ScanCardIntent.CancelReason;
 
 public class CardDetailsActivity extends AppCompatActivity {
 
@@ -61,12 +60,7 @@ public class CardDetailsActivity extends AppCompatActivity {
         mExpiryField = findViewById(R.id.expiry_date_field);
         setupToolbar();
 
-        findViewById(R.id.scan_button).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                scanCard();
-            }
-        });
+        findViewById(R.id.scan_button).setOnClickListener(view -> scanCard());
 
         if (savedInstanceState == null) {
             scanCard();
@@ -77,15 +71,12 @@ public class CardDetailsActivity extends AppCompatActivity {
     private void setupToolbar() {
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
-        mToolbar.findViewById(R.id.button_next).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Card card = readForm();
-                ValidationResult validationResult = validateForm(card);
-                setValidationResult(validationResult);
-                if (validationResult.isValid()) {
-                    Toast.makeText(CardDetailsActivity.this, "THE END =)", Toast.LENGTH_SHORT).show();
-                }
+        mToolbar.findViewById(R.id.button_next).setOnClickListener(view -> {
+            Card card = readForm();
+            ValidationResult validationResult = validateForm(card);
+            setValidationResult(validationResult);
+            if (validationResult.isValid()) {
+                Toast.makeText(CardDetailsActivity.this, "THE END =)", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -116,7 +107,7 @@ public class CardDetailsActivity extends AppCompatActivity {
     }
 
     private Card readForm() {
-        String cardNumber = ((CardNumberEditText)mCardNumberField.getEditText()).getCardNumber();
+        String cardNumber = ((CardNumberEditText) mCardNumberField.getEditText()).getCardNumber();
         String holder = mCardholderField.getEditText().getText().toString();
         String expiryDate = mExpiryField.getEditText().getText().toString();
         return new Card(cardNumber, holder, expiryDate);
@@ -151,7 +142,9 @@ public class CardDetailsActivity extends AppCompatActivity {
     }
 
     private void scanCard() {
-        Intent intent = new ScanCardIntent.Builder(this).build();
+        Intent intent = new ScanCardIntent.Builder(this)
+                .setHint(getString(R.string.hint_position_card_in_frame))
+                .build();
         startActivityForResult(intent, REQUEST_CODE_SCAN_CARD);
     }
 
