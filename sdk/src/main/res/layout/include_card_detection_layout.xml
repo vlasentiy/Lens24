@@ -31,7 +31,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <lens24.camera.widget.CardDetectionStateView
-            android:id="@+id/wocr_card_detection_state"
+            android:id="@+id/card_detection_state"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 

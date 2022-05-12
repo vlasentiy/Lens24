@@ -4,9 +4,6 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Rect;
-import androidx.annotation.RestrictTo;
-import androidx.core.view.GravityCompat;
-import androidx.core.view.ViewCompat;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.Gravity;
@@ -18,6 +15,9 @@ import android.widget.FrameLayout;
 import java.util.ArrayList;
 import java.util.List;
 
+import androidx.annotation.RestrictTo;
+import androidx.core.view.GravityCompat;
+import androidx.core.view.ViewCompat;
 import lens24.sdk.R;
 import lens24.utils.Constants;
 
@@ -115,10 +115,10 @@ public final class CameraPreviewLayout extends FrameLayout {
         List<View> list = getAllChildren(getRootView());
 
         for (View view : list) {
-            if (view instanceof SurfaceView && view.getId()==R.id.surface_view){
+            if (view instanceof SurfaceView && view.getId() == R.id.surface_view) {
                 mSurfaceView = (SurfaceView) view;
-            }else if(view instanceof CardDetectionStateView && view.getId()==R.id.wocr_card_detection_state){
-                mDetectionStateOverlay  = (CardDetectionStateView) view;
+            } else if (view instanceof CardDetectionStateView && view.getId() == R.id.card_detection_state) {
+                mDetectionStateOverlay = (CardDetectionStateView) view;
             }
         }
     }
