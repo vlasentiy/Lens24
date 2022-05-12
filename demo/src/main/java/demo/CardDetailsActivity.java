@@ -76,7 +76,7 @@ public class CardDetailsActivity extends AppCompatActivity {
             ValidationResult validationResult = validateForm(card);
             setValidationResult(validationResult);
             if (validationResult.isValid()) {
-                Toast.makeText(CardDetailsActivity.this, "THE END =)", Toast.LENGTH_SHORT).show();
+                Toast.makeText(CardDetailsActivity.this, "That's All folks!", Toast.LENGTH_SHORT).show();
             }
         });
     }
