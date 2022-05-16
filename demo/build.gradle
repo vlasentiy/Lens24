@@ -1,7 +1,5 @@
 apply plugin: 'com.android.application'
 
-uploadArchives.enabled = false
-
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
 
@@ -22,7 +20,7 @@ android {
         release {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            //signingConfig signingConfigs.release // MacOS
+            //signingConfig signingConfigs.release // Linux
         }
         debug {
             minifyEnabled false
