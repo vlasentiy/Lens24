@@ -37,7 +37,6 @@ public final class InitLibraryFragment extends Fragment {
     private View mProgressBar;
     private CameraPreviewLayout mCameraPreviewLayout;
     private ViewGroup mMainContent;
-    private @Nullable View mFlashButton;
 
     private DeployCoreTask mDeployCoreTask;
 
@@ -59,15 +58,12 @@ public final class InitLibraryFragment extends Fragment {
         mMainContent = root.findViewById(R.id.main_content);
         mProgressBar = root.findViewById(R.id.progress_bar);
         mCameraPreviewLayout = root.findViewById(R.id.card_recognition_view);
-        mFlashButton = root.findViewById(R.id.iv_flash);
 
-        View enterManuallyButton = root.findViewById(R.id.tv_enter_card_number_id);
+        View enterManuallyButton = root.findViewById(R.id.bManual);
         enterManuallyButton.setVisibility(View.VISIBLE);
-        enterManuallyButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (mListener != null) mListener.onScanCardCanceled(ScanCardIntent.ADD_MANUALLY_PRESSED);
-            }
+        enterManuallyButton.setOnClickListener(v -> {
+            if (mListener != null)
+                mListener.onScanCardCanceled(ScanCardIntent.ADD_MANUALLY_PRESSED);
         });
         return root;
     }
@@ -80,7 +76,6 @@ public final class InitLibraryFragment extends Fragment {
         mCameraPreviewLayout.setVisibility(View.VISIBLE);
         mCameraPreviewLayout.getSurfaceView().setVisibility(View.GONE);
         mCameraPreviewLayout.setBackgroundColor(Color.BLACK);
-        if (mFlashButton != null) mFlashButton.setVisibility(View.GONE);
     }
 
     @Override

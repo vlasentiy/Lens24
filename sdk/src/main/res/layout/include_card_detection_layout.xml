@@ -7,7 +7,7 @@
 
     <lens24.camera.widget.CameraPreviewLayout
         android:id="@+id/card_recognition_view"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:clipToPadding="true"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -37,14 +37,15 @@
 
         <TextView
             android:id="@+id/tvHint"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="16dp"
-            tools:text="@string/hint_position_card_in_frame"
+            android:gravity="center"
+            android:padding="24dp"
             android:textColor="@android:color/white"
             android:textSize="16dp"
             app:layout_cardAlignGravity="top|center_horizontal"
-            tools:ignore="SpUsage" />
+            tools:ignore="SpUsage"
+            tools:text="@string/hint_position_card_in_frame" />
 
     </lens24.camera.widget.CameraPreviewLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

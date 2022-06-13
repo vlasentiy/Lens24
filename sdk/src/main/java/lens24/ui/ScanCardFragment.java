@@ -2,18 +2,23 @@ package lens24.ui;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
 import android.hardware.Camera;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.os.VibrationEffect;
 import android.os.Vibrator;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.io.ByteArrayOutputStream;
@@ -21,6 +26,8 @@ import java.io.ByteArrayOutputStream;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import lens24.camera.ScanManager;
@@ -49,7 +56,9 @@ public class ScanCardFragment extends Fragment {
     private ViewGroup mMainContent;
 
     @Nullable
-    private ImageView mFlashButton;
+    private Menu toolbarMenu;
+
+    boolean isFlashSupported = false;
 
     @Nullable
     private ScanManager mScanManager;
@@ -100,7 +109,6 @@ public class ScanCardFragment extends Fragment {
 
         mCameraPreviewLayout = root.findViewById(R.id.card_recognition_view);
         mMainContent = root.findViewById(R.id.main_content);
-        mFlashButton = root.findViewById(R.id.iv_flash);
 
         initView(root);
 
@@ -122,13 +130,12 @@ public class ScanCardFragment extends Fragment {
 
             @Override
             public void onCameraOpened(Camera.Parameters cameraParameters) {
-                boolean isFlashSupported = (cameraParameters.getSupportedFlashModes() != null
+                isFlashSupported = (cameraParameters.getSupportedFlashModes() != null
                         && !cameraParameters.getSupportedFlashModes().isEmpty());
                 if (getView() == null) return;
                 mProgressBar.hideSlow();
                 mCameraPreviewLayout.setBackgroundDrawable(null);
-                if (mFlashButton != null)
-                    mFlashButton.setVisibility(isFlashSupported ? View.VISIBLE : View.GONE);
+                setHasOptionsMenu(isFlashSupported);
             }
 
             @Override
@@ -179,8 +186,9 @@ public class ScanCardFragment extends Fragment {
 
             @Override
             public void onTorchStatusChanged(boolean turnTorchOn) {
-                if (mFlashButton != null && getContext() != null) {
-                    mFlashButton.setImageDrawable(ContextCompat.getDrawable(getContext(), turnTorchOn ? R.drawable.ic_flash_on : R.drawable.ic_flash_off));
+                if (getContext() != null && toolbarMenu.findItem(R.id.flash) != null) {
+                    new Handler(Looper.getMainLooper()).post(() ->
+                            toolbarMenu.findItem(R.id.flash).setIcon(ContextCompat.getDrawable(getContext(), turnTorchOn ? R.drawable.ic_flash_on : R.drawable.ic_flash_off)));
                 }
             }
 
@@ -231,20 +239,49 @@ public class ScanCardFragment extends Fragment {
     }
 
     private void initView(View view) {
-        view.findViewById(R.id.tv_enter_card_number_id).setOnClickListener(v -> {
+        view.findViewById(R.id.bManual).setOnClickListener(v -> {
             if (v.isEnabled()) {
                 v.setEnabled(false);
                 if (mListener != null)
                     mListener.onScanCardCanceled(ScanCardIntent.ADD_MANUALLY_PRESSED);
             }
         });
-        if (mFlashButton != null) {
-            mFlashButton.setOnClickListener(v -> {
-                if (mScanManager != null) mScanManager.toggleFlash();
-            });
-        }
+
         mHint = view.findViewById(R.id.tvHint);
         mHint.setText(mRequest.getHint());
+
+        initToolbar(view);
+    }
+
+    private void initToolbar(View view) {
+        Toolbar mToolbar = (Toolbar) view.findViewById(R.id.toolbar);
+        //mToolbar.setTitle("Scan card");
+        ((AppCompatActivity) getActivity()).setSupportActionBar(mToolbar);
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+        Drawable drawable = mToolbar.getNavigationIcon();
+        drawable.setColorFilter(ContextCompat.getColor(getActivity(), R.color.arrow_back), PorterDuff.Mode.SRC_IN);
+        mToolbar.setNavigationOnClickListener(v -> {
+            if (mListener != null)
+                mListener.onScanCardCanceled(ScanCardIntent.ADD_MANUALLY_PRESSED);
+            getActivity().onBackPressed();
+        });
+
+        mToolbar.setOnMenuItemClickListener(item -> {
+            if (item.getItemId() == R.id.flash) {
+                if (mScanManager != null) mScanManager.toggleFlash();
+            }
+
+            return false;
+        });
+    }
+
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        inflater.inflate(R.menu.menu, menu);
+        toolbarMenu = menu;
+        super.onCreateOptionsMenu(menu, inflater);
     }
 
     private void showMainContent() {
