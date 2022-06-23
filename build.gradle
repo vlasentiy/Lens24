@@ -35,4 +35,5 @@ ext {
     appCompatVersion = '1.4.2'
     materialVersion = '1.6.1'
     constraintlayoutVersion = '2.1.4'
+    lottieVersion = '5.2.0'
 }

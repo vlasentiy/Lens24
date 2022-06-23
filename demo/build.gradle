@@ -43,4 +43,5 @@ dependencies {
     //releaseCompile project(path: ":sdk", configuration: 'release')
     implementation "androidx.appcompat:appcompat:$rootProject.ext.appCompatVersion"
     implementation "com.google.android.material:material:$rootProject.ext.materialVersion"
+    implementation "com.airbnb.android:lottie:$rootProject.ext.lottieVersion"
 }

@@ -11,6 +11,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.airbnb.lottie.LottieAnimationView;
+
 import java.lang.ref.WeakReference;
 
 import androidx.annotation.NonNull;
@@ -24,6 +26,7 @@ import lens24.camera.widget.CameraPreviewLayout;
 import lens24.intent.ScanCardIntent;
 import lens24.ndk.RecognitionCore;
 import lens24.sdk.R;
+import lens24.ui.views.ProgressBarIndeterminate;
 
 @RestrictTo(RestrictTo.Scope.LIBRARY)
 public final class InitLibraryFragment extends Fragment {
@@ -34,11 +37,21 @@ public final class InitLibraryFragment extends Fragment {
 
     private static final int REQUEST_CAMERA_PERMISSION_CODE = 1;
 
-    private View mProgressBar;
+    private ProgressBarIndeterminate mProgressBar;
+    private LottieAnimationView mLottieView;
     private CameraPreviewLayout mCameraPreviewLayout;
     private ViewGroup mMainContent;
 
     private DeployCoreTask mDeployCoreTask;
+
+    private String mLottieJsonAnimation;
+
+    public InitLibraryFragment() {
+    }
+
+    public InitLibraryFragment(String lottieJsonAnimation) {
+        this.mLottieJsonAnimation = lottieJsonAnimation;
+    }
 
     @Override
     public void onAttach(@NonNull Context context) {
@@ -57,6 +70,7 @@ public final class InitLibraryFragment extends Fragment {
 
         mMainContent = root.findViewById(R.id.main_content);
         mProgressBar = root.findViewById(R.id.progress_bar);
+        mLottieView = root.findViewById(R.id.lottieView);
         mCameraPreviewLayout = root.findViewById(R.id.card_recognition_view);
 
         View enterManuallyButton = root.findViewById(R.id.bManual);
@@ -71,7 +85,7 @@ public final class InitLibraryFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        mProgressBar.setVisibility(View.GONE);
+        showLoader(false);
         mMainContent.setVisibility(View.VISIBLE);
         mCameraPreviewLayout.setVisibility(View.VISIBLE);
         mCameraPreviewLayout.getSurfaceView().setVisibility(View.GONE);
@@ -84,7 +98,7 @@ public final class InitLibraryFragment extends Fragment {
         RecognitionAvailabilityChecker.Result checkResult = RecognitionAvailabilityChecker.doCheck(getContext());
         if (checkResult.isFailedOnCameraPermission()) {
             if (savedInstanceState == null) {
-                requestPermissions(new String[] {Manifest.permission.CAMERA}, REQUEST_CAMERA_PERMISSION_CODE);
+                requestPermissions(new String[]{Manifest.permission.CAMERA}, REQUEST_CAMERA_PERMISSION_CODE);
             }
         } else {
             subscribeToInitCore(getActivity());
@@ -105,8 +119,21 @@ public final class InitLibraryFragment extends Fragment {
         }
     }
 
+    private void showLoader(boolean enable) {
+        if (mLottieJsonAnimation != null) {
+            mLottieView.setAnimationFromJson(mLottieJsonAnimation, null);
+            mLottieView.setVisibility(enable ? View.VISIBLE : View.GONE);
+        } else {
+            if (enable) {
+                mProgressBar.setVisibility(View.VISIBLE);
+            } else {
+                mProgressBar.hideSlow();
+            }
+        }
+    }
+
     private void subscribeToInitCore(Context context) {
-        if (mProgressBar != null) mProgressBar.setVisibility(View.VISIBLE);
+        showLoader(true);
         if (mDeployCoreTask != null) mDeployCoreTask.cancel(false);
         mDeployCoreTask = new DeployCoreTask(this);
         mDeployCoreTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
@@ -125,7 +152,7 @@ public final class InitLibraryFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         mProgressBar = null;
-
+        mLottieView = null;
     }
 
     @Override
@@ -136,7 +163,9 @@ public final class InitLibraryFragment extends Fragment {
 
     public interface InteractionListener {
         void onScanCardCanceled(@ScanCardIntent.CancelReason int actionId);
+
         void onInitLibraryFailed(Throwable e);
+
         void onInitLibraryComplete();
     }
 
@@ -175,9 +204,10 @@ public final class InitLibraryFragment extends Fragment {
             InitLibraryFragment fragment = fragmentRef.get();
             if (fragment == null
                     || fragment.mProgressBar == null
+                    || fragment.mLottieView == null
                     || fragment.mListener == null) return;
 
-            fragment.mProgressBar.setVisibility(View.GONE);
+            fragment.showLoader(false);
             if (lastError == null) {
                 fragment.mListener.onInitLibraryComplete();
             } else {

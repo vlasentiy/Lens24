@@ -3,19 +3,19 @@ package lens24.ui;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
-import androidx.annotation.Nullable;
-import androidx.annotation.RestrictTo;
-import androidx.fragment.app.Fragment;
-import androidx.core.view.ViewCompat;
-import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 import android.view.WindowManager;
 
-import lens24.intent.Card;
-import lens24.intent.ScanCardIntent;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.ViewCompat;
+import androidx.fragment.app.Fragment;
 import lens24.camera.RecognitionAvailabilityChecker;
 import lens24.camera.RecognitionCoreUtils;
 import lens24.camera.RecognitionUnavailableException;
+import lens24.intent.Card;
+import lens24.intent.ScanCardIntent;
 
 public class ScanCardActivity extends AppCompatActivity implements ScanCardFragment.InteractionListener,
         InitLibraryFragment.InteractionListener {
@@ -46,7 +46,7 @@ public class ScanCardActivity extends AppCompatActivity implements ScanCardFragm
     }
 
     private void showInitLibrary() {
-        Fragment fragment = new InitLibraryFragment();
+        Fragment fragment = new InitLibraryFragment(getScanRequest().getLottieJsonAnimation());
         getSupportFragmentManager().beginTransaction()
                 .replace(android.R.id.content, fragment, InitLibraryFragment.TAG)
                 .setCustomAnimations(0, 0)

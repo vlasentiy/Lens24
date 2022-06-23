@@ -56,6 +56,8 @@ public final class ScanCardIntent {
 
         private String mManualInputButton;
 
+        private String lottieJsonAnimation;
+
         public Builder(Context context) {
             mContext = context;
         }
@@ -128,10 +130,21 @@ public final class ScanCardIntent {
             return this;
         }
 
+        /**
+         * Defines Lottie animation instead ProgressBar.
+         *
+         * @param jsonAnimation Defines json animation data for Lottie animation. Default:
+         *                      <b>null</b>
+         */
+        public Builder setLottieJsonAnimation(String jsonAnimation) {
+            lottieJsonAnimation = jsonAnimation;
+            return this;
+        }
+
         public Intent build() {
             Intent intent = new Intent(mContext, ScanCardActivity.class);
             ScanCardRequest request = new ScanCardRequest(mEnableVibration, mScanExpirationDate,
-                    mScanCardHolder, mGrabCardImage, mHint, mTitle, mManualInputButton);
+                    mScanCardHolder, mGrabCardImage, mHint, mTitle, mManualInputButton, lottieJsonAnimation);
             intent.putExtra(KEY_SCAN_CARD_REQUEST, request);
 
             return intent;

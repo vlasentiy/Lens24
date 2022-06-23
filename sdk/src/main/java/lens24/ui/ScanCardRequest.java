@@ -3,8 +3,6 @@ package lens24.ui;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import java.util.Objects;
-
 import androidx.annotation.RestrictTo;
 
 @RestrictTo(RestrictTo.Scope.LIBRARY)
@@ -32,9 +30,11 @@ public final class ScanCardRequest implements Parcelable {
 
     private final String mManualInputButtonLabel;
 
+    private final String mLottieJsonAnimation;
+
     private static final ScanCardRequest sDefaultInstance = new ScanCardRequest(
             DEFAULT_ENABLE_VIBRATION, DEFAULT_SCAN_EXPIRATION_DATE, DEFAULT_SCAN_CARD_HOLDER,
-            DEFAULT_GRAB_CARD_IMAGE, null, null, null);
+            DEFAULT_GRAB_CARD_IMAGE, null, null, null, null);
 
     public static ScanCardRequest getDefault() {
         return sDefaultInstance;
@@ -46,7 +46,8 @@ public final class ScanCardRequest implements Parcelable {
                            boolean grabCardImage,
                            String hint,
                            String title,
-                           String manualInputButtonLabel) {
+                           String manualInputButtonLabel,
+                           String lottieJsonAnimation) {
         this.mEnableVibration = enableVibration;
         this.mScanExpirationDate = scanExpirationDate;
         this.mScanCardHolder = scanCardHolder;
@@ -54,6 +55,7 @@ public final class ScanCardRequest implements Parcelable {
         this.mHint = hint;
         this.mTitle = title;
         this.mManualInputButtonLabel = manualInputButtonLabel;
+        this.mLottieJsonAnimation = lottieJsonAnimation;
     }
 
     public boolean isVibrationEnabled() { return mEnableVibration; }
@@ -82,6 +84,10 @@ public final class ScanCardRequest implements Parcelable {
         return mManualInputButtonLabel;
     }
 
+    public String getLottieJsonAnimation() {
+        return mLottieJsonAnimation;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -93,9 +99,11 @@ public final class ScanCardRequest implements Parcelable {
         if (mScanExpirationDate != that.mScanExpirationDate) return false;
         if (mScanCardHolder != that.mScanCardHolder) return false;
         if (mGrabCardImage != that.mGrabCardImage) return false;
-        if (!Objects.equals(mHint, that.mHint)) return false;
-        if (!Objects.equals(mTitle, that.mTitle)) return false;
-        return Objects.equals(mManualInputButtonLabel, that.mManualInputButtonLabel);
+        if (mHint != null ? !mHint.equals(that.mHint) : that.mHint != null) return false;
+        if (mTitle != null ? !mTitle.equals(that.mTitle) : that.mTitle != null) return false;
+        if (mManualInputButtonLabel != null ? !mManualInputButtonLabel.equals(that.mManualInputButtonLabel) : that.mManualInputButtonLabel != null)
+            return false;
+        return mLottieJsonAnimation != null ? mLottieJsonAnimation.equals(that.mLottieJsonAnimation) : that.mLottieJsonAnimation == null;
     }
 
     @Override
@@ -107,8 +115,10 @@ public final class ScanCardRequest implements Parcelable {
         result = 31 * result + (mHint != null ? mHint.hashCode() : 0);
         result = 31 * result + (mTitle != null ? mTitle.hashCode() : 0);
         result = 31 * result + (mManualInputButtonLabel != null ? mManualInputButtonLabel.hashCode() : 0);
+        result = 31 * result + (mLottieJsonAnimation != null ? mLottieJsonAnimation.hashCode() : 0);
         return result;
     }
+
 
     @Override
     public int describeContents() {
@@ -124,6 +134,7 @@ public final class ScanCardRequest implements Parcelable {
         dest.writeString(this.mHint);
         dest.writeString(this.mTitle);
         dest.writeString(this.mManualInputButtonLabel);
+        dest.writeString(this.mLottieJsonAnimation);
     }
 
     private ScanCardRequest(Parcel in) {
@@ -134,9 +145,10 @@ public final class ScanCardRequest implements Parcelable {
         this.mHint = in.readString();
         this.mTitle = in.readString();
         this.mManualInputButtonLabel = in.readString();
+        this.mLottieJsonAnimation = in.readString();
     }
 
-    public static final Parcelable.Creator<ScanCardRequest> CREATOR = new Parcelable.Creator<ScanCardRequest>() {
+    public static final Creator<ScanCardRequest> CREATOR = new Creator<ScanCardRequest>() {
         @Override
         public ScanCardRequest createFromParcel(Parcel source) {
             return new ScanCardRequest(source);
