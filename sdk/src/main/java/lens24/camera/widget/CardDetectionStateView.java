@@ -16,6 +16,7 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
 
+import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import lens24.ndk.RecognitionConstants;
 import lens24.ndk.RecognitionResult;
@@ -137,16 +138,16 @@ public class CardDetectionStateView extends View {
         return paint;
     }
 
-    public static Bitmap drawableToBitmap (Drawable drawable) {
+    public Bitmap drawableToBitmap(Drawable drawable) {
         Bitmap bitmap;
         if (drawable instanceof BitmapDrawable) {
             BitmapDrawable bitmapDrawable = (BitmapDrawable) drawable;
-            if(bitmapDrawable.getBitmap() != null) {
+            if (bitmapDrawable.getBitmap() != null) {
                 return bitmapDrawable.getBitmap();
             }
         }
-        if(drawable.getIntrinsicWidth() <= 0 || drawable.getIntrinsicHeight() <= 0) {
-            bitmap = Bitmap.createBitmap(1, 1, Bitmap.Config.ARGB_8888); // Single color bitmap will be created of 1x1 pixel
+        if (drawable.getIntrinsicWidth() <= 0 || drawable.getIntrinsicHeight() <= 0) {
+            bitmap = Bitmap.createBitmap(1, 1, Bitmap.Config.ARGB_8888);
         } else {
             bitmap = Bitmap.createBitmap(drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
         }
@@ -158,7 +159,7 @@ public class CardDetectionStateView extends View {
     }
 
     private void initCornerDrawables(Context context) {
-        Drawable topLeftCorner = ContextCompat.getDrawable(context, R.drawable.ic_top_corner);
+        Drawable topLeftCorner = ContextCompat.getDrawable(context, R.drawable.ic_top_left_rounded_corner);
         Matrix m = new Matrix();
 
         Bitmap bitmap = drawableToBitmap(topLeftCorner);
@@ -322,24 +323,26 @@ public class CardDetectionStateView extends View {
         // Lines
         //// +24 was + mLineTopDrawable.getIntrinsicHeight() +0
         int offset = (int) mCornerRadius;
+        int shift = dpToPx(getContext(), 4);
+
         mLineTopDrawable.setBounds(
                 left1 + offset,
                 top1,
                 left2 + rectWidth - offset,
-                top1 + 24);
+                top1 + shift);
         mLineLeftDrawable.setBounds(
                 left1,
                 top1 + offset,
-                left1 + 24,
+                left1 + shift,
                 top2 + rectHeight - offset);
         mLineRightDrawable.setBounds(
-                left2 + rectWidth - 24,
+                left2 + rectWidth - shift,
                 top1 + offset,
                 left2 + rectWidth,
                 top2 + rectHeight - offset);
         mLineBottomDrawable.setBounds(
                 left1 + offset,
-                top2 + rectHeight - 24,
+                top2 + rectHeight - shift,
                 left2 + rectWidth - offset,
                 top2 + rectHeight);
     }
@@ -387,13 +390,21 @@ public class CardDetectionStateView extends View {
     }
 
     void setCameraParameters(int previewSizeWidth,
-                                    int previewSizeHeight,
-                                    int rotation,
-                                    Rect cardFrame) {
+                             int previewSizeHeight,
+                             int rotation,
+                             Rect cardFrame) {
         boolean changed = mCardFrame.setCameraParameters(previewSizeWidth, previewSizeHeight, rotation, cardFrame);
         if (changed) {
             refreshCardRectCoords();
             invalidate();
         }
+    }
+
+    private int dpToPx(@NonNull Context context, float dp) {
+        return (int) (dp * context.getResources().getDisplayMetrics().density);
+    }
+
+    private int pxToDp(@NonNull Context context, float px) {
+        return (int) (px / context.getResources().getDisplayMetrics().density);
     }
 }

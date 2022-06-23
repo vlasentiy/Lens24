@@ -18,15 +18,16 @@
         android:layout_marginRight="16dp"
         android:layout_marginBottom="16dp"
         android:background="@drawable/ripple"
-        tools:text="@string/button_enter_card_number"
+        android:enabled="false"
         android:textAllCaps="false"
         android:textColor="@color/accent"
         android:textSize="16sp"
-        android:visibility="invisible"
-        tools:visibility="visible"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/main_content"
-        app:layout_constraintStart_toEndOf="@+id/main_content" />
+        app:layout_constraintStart_toEndOf="@+id/main_content"
+        tools:text="@string/button_enter_card_number"
+        tools:visibility="visible" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/main_content"

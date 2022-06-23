@@ -242,14 +242,15 @@ public class ScanCardFragment extends Fragment {
         bManual.setOnClickListener(v -> {
             if (v.isEnabled()) {
                 v.setEnabled(false);
-                if (mListener != null)
-                    bManual.setVisibility(View.INVISIBLE);
-                mListener.onScanCardCanceled(ScanCardIntent.ADD_MANUALLY_PRESSED);
+                if (mListener != null) {
+                    bManual.setVisibility(View.GONE);
+                    mListener.onScanCardCanceled(ScanCardIntent.ADD_MANUALLY_PRESSED);
+                }
             }
         });
-        bManual.setVisibility(mRequest.getManualInputButtonLabel() == null ? View.INVISIBLE : View.VISIBLE);
+        bManual.setVisibility(mRequest.getManualInputButtonLabel() == null ? View.GONE : View.VISIBLE);
         bManual.setText(mRequest.getManualInputButtonLabel());
-
+        bManual.setEnabled(true);
         TextView mHint = view.findViewById(R.id.tvHint);
         mHint.setText(mRequest.getHint());
 
