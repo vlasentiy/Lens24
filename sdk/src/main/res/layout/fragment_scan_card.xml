@@ -18,10 +18,12 @@
         android:layout_marginRight="16dp"
         android:layout_marginBottom="16dp"
         android:background="@drawable/ripple"
-        android:text="@string/button_enter_card_number"
+        tools:text="@string/button_enter_card_number"
         android:textAllCaps="false"
         android:textColor="@color/accent"
         android:textSize="16sp"
+        android:visibility="invisible"
+        tools:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/main_content"
         app:layout_constraintStart_toEndOf="@+id/main_content" />
@@ -58,7 +60,7 @@
             app:navigationContentDescription="@android:string/cancel"
             app:subtitleTextAppearance="@style/ScannerToolbarTitleStyle"
             app:titleTextAppearance="@style/ScannerToolbarTitleStyle"
-            app:title="@string/title" />
+            tools:title="@string/title" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

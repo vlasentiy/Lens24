@@ -144,6 +144,8 @@ public class CardDetailsActivity extends AppCompatActivity {
     private void scanCard() {
         Intent intent = new ScanCardIntent.Builder(this)
                 .setHint(getString(R.string.hint_position_card_in_frame))
+                .setToolbarTitle("Scan card")
+                .setManualInputButtonText("Manual input")
                 .build();
         startActivityForResult(intent, REQUEST_CODE_SCAN_CARD);
     }

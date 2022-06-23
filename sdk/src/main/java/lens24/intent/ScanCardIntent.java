@@ -52,6 +52,9 @@ public final class ScanCardIntent {
 
         private String mHint;
 
+        private String mTitle;
+
+        private String mManualInputButton;
 
         public Builder(Context context) {
             mContext = context;
@@ -104,10 +107,31 @@ public final class ScanCardIntent {
             return this;
         }
 
+        /**
+         * Defines toolbar title.
+         *
+         * @param text Defines toolbar title text. Default: <b>R.string.title</b>
+         */
+        public Builder setToolbarTitle(String text) {
+            mTitle = text;
+            return this;
+        }
+
+        /**
+         * Defines if the manual input button exists.
+         *
+         * @param label Defines manual input button text. If null there will not be a button.
+         *              Default: <b>null</b>
+         */
+        public Builder setManualInputButtonText(String label) {
+            mManualInputButton = label;
+            return this;
+        }
+
         public Intent build() {
             Intent intent = new Intent(mContext, ScanCardActivity.class);
             ScanCardRequest request = new ScanCardRequest(mEnableVibration, mScanExpirationDate,
-                    mScanCardHolder, mGrabCardImage, mHint);
+                    mScanCardHolder, mGrabCardImage, mHint, mTitle, mManualInputButton);
             intent.putExtra(KEY_SCAN_CARD_REQUEST, request);
 
             return intent;

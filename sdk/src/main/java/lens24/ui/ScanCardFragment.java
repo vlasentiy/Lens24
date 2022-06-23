@@ -19,6 +19,7 @@ import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.io.ByteArrayOutputStream;
@@ -62,8 +63,6 @@ public class ScanCardFragment extends Fragment {
 
     @Nullable
     private ScanManager mScanManager;
-
-    private TextView mHint;
 
     private InteractionListener mListener;
 
@@ -239,23 +238,28 @@ public class ScanCardFragment extends Fragment {
     }
 
     private void initView(View view) {
-        view.findViewById(R.id.bManual).setOnClickListener(v -> {
+        Button bManual = view.findViewById(R.id.bManual);
+        bManual.setOnClickListener(v -> {
             if (v.isEnabled()) {
                 v.setEnabled(false);
                 if (mListener != null)
-                    mListener.onScanCardCanceled(ScanCardIntent.ADD_MANUALLY_PRESSED);
+                    bManual.setVisibility(View.INVISIBLE);
+                mListener.onScanCardCanceled(ScanCardIntent.ADD_MANUALLY_PRESSED);
             }
         });
+        bManual.setVisibility(mRequest.getManualInputButtonLabel() == null ? View.INVISIBLE : View.VISIBLE);
+        bManual.setText(mRequest.getManualInputButtonLabel());
 
-        mHint = view.findViewById(R.id.tvHint);
+        TextView mHint = view.findViewById(R.id.tvHint);
         mHint.setText(mRequest.getHint());
+
 
         initToolbar(view);
     }
 
     private void initToolbar(View view) {
-        Toolbar mToolbar = (Toolbar) view.findViewById(R.id.toolbar);
-        //mToolbar.setTitle("Scan card");
+        Toolbar mToolbar = view.findViewById(R.id.toolbar);
+        mToolbar.setTitle(mRequest.getTitle() == null ? "" : mRequest.getTitle());
         ((AppCompatActivity) getActivity()).setSupportActionBar(mToolbar);
         ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -264,7 +268,7 @@ public class ScanCardFragment extends Fragment {
         drawable.setColorFilter(ContextCompat.getColor(getActivity(), R.color.arrow_back), PorterDuff.Mode.SRC_IN);
         mToolbar.setNavigationOnClickListener(v -> {
             if (mListener != null)
-                mListener.onScanCardCanceled(ScanCardIntent.ADD_MANUALLY_PRESSED);
+                mListener.onScanCardCanceled(ScanCardIntent.BACK_PRESSED);
             getActivity().onBackPressed();
         });
 
