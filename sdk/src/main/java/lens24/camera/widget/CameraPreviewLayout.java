@@ -89,11 +89,11 @@ public final class CameraPreviewLayout extends FrameLayout {
     private List<View> getAllViews(View v) {
         if (!(v instanceof ViewGroup) || ((ViewGroup) v).getChildCount() == 0) // It's a leaf
         {
-            List<View> r = new ArrayList<View>();
+            List<View> r = new ArrayList<>();
             r.add(v);
             return r;
         } else {
-            List<View> list = new ArrayList<View>();
+            List<View> list = new ArrayList<>();
             list.add(v); // If it's an internal node add itself
             int children = ((ViewGroup) v).getChildCount();
             for (int i = 0; i < children; ++i) {

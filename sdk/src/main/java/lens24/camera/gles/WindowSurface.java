@@ -17,7 +17,6 @@ package lens24.camera.gles;
 
 import android.graphics.Bitmap;
 import android.opengl.GLES20;
-import androidx.annotation.RestrictTo;
 import android.util.Log;
 import android.view.Surface;
 import android.view.SurfaceHolder;
@@ -31,6 +30,8 @@ import java.nio.ByteOrder;
 
 import javax.microedition.khronos.egl.EGL10;
 import javax.microedition.khronos.egl.EGLSurface;
+
+import androidx.annotation.RestrictTo;
 
 /**
  * Recordable EGL window surface.

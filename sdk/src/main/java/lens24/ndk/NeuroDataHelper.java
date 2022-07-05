@@ -25,7 +25,7 @@ final class NeuroDataHelper {
     public NeuroDataHelper(Context context) {
         Context appContext = context.getApplicationContext();
         mAssetManager = appContext.getAssets();
-        mDataBasePath = new File(context.getCacheDir(), Constants.MODEL_DIR + "/" + String.valueOf(Constants.NEURO_DATA_VERSION));
+        mDataBasePath = new File(context.getCacheDir(), Constants.MODEL_DIR + "/" + Constants.NEURO_DATA_VERSION);
     }
 
     public void unpackAssets() throws IOException {

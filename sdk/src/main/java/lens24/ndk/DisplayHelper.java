@@ -21,7 +21,7 @@ final class DisplayHelper {
      */
     public static int getCameraRotationToNatural(int displayRotation, int cameraOrientation, boolean compensateMirror) {
         if (DBG) Log.d(TAG, "getCameraRotationToNatural() called with: " +  "displayRotation = [" + displayRotation + "], cameraOrientation = [" + cameraOrientation + "], compensateMirror = [" + compensateMirror + "]");
-        int result = 0;
+        int result;
         if (compensateMirror) {
             result = (cameraOrientation + displayRotation) % 360;
             result = (360 - result) % 360;	// compensate the mirror

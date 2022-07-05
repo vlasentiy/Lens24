@@ -1,18 +1,15 @@
 package lens24.camera;
 
-import android.annotation.TargetApi;
 import android.hardware.Camera;
-import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
-import androidx.annotation.Nullable;
-import androidx.annotation.RestrictTo;
 import android.util.Log;
 
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 import lens24.utils.Constants;
 
 import static android.hardware.Camera.AutoFocusCallback;
-import static android.hardware.Camera.AutoFocusMoveCallback;
 
 @RestrictTo(RestrictTo.Scope.LIBRARY)
 public final class AutoFocusManager {
@@ -55,7 +52,7 @@ public final class AutoFocusManager {
             mFocusManager.start();
             if (DBG) Log.d(TAG, "start(): focus with manual reset");
         } else {
-            // Focus is fixed. Ignore
+            Log.d(TAG, "Focus is fixed. Ignore");
         }
     }
 
@@ -119,18 +116,13 @@ public final class AutoFocusManager {
 
         private static boolean sFocusCompleteWorking;
 
-        @TargetApi(16)
+        ////@TargetApi(16)
         public ManualFocusManagerImpl(Camera camera, @Nullable FocusMoveCallback callback, Handler handler) {
             this.mCamera = camera;
             this.mCallback = callback;
             this.mHandler = handler;
             if (this.mCallback != null) {
-                mCamera.setAutoFocusMoveCallback(new AutoFocusMoveCallback() {
-                    @Override
-                    public void onAutoFocusMoving(boolean start, Camera camera) {
-                        mCallback.onAutoFocusMoving(start, camera);
-                    }
-                });
+                mCamera.setAutoFocusMoveCallback((start, camera1) -> mCallback.onAutoFocusMoving(start, camera1));
             }
         }
 
@@ -220,18 +212,15 @@ public final class AutoFocusManager {
 
         private boolean mCameraMoving;
 
-        @TargetApi(16)
+        ////@TargetApi(16)
         public AutoFocusManagerImpl(Camera camera, @Nullable FocusMoveCallback callback, Handler handler) {
             this.mCamera = camera;
             this.mCallback = callback;
             this.mHandler = handler;
             if (this.mCallback != null) {
-                mCamera.setAutoFocusMoveCallback(new AutoFocusMoveCallback() {
-                    @Override
-                    public void onAutoFocusMoving(boolean start, Camera camera) {
-                        mCallback.onAutoFocusMoving(start, camera);
-                        mCameraMoving = start;
-                    }
+                mCamera.setAutoFocusMoveCallback((start, camera1) -> {
+                    mCallback.onAutoFocusMoving(start, camera1);
+                    mCameraMoving = start;
                 });
             }
         }
@@ -271,15 +260,12 @@ public final class AutoFocusManager {
             }
         }
 
-        private final Runnable mResetFocusRunnable = new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    resumeAutoFocus();
-                    restartCounter(FOCUS_RESET_DELAY);
-                } catch (final Exception ignored) {
-                    // ignore
-                }
+        private final Runnable mResetFocusRunnable = () -> {
+            try {
+                resumeAutoFocus();
+                restartCounter(FOCUS_RESET_DELAY);
+            } catch (final Exception ignored) {
+                // ignore
             }
         };
 

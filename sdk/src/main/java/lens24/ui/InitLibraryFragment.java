@@ -177,7 +177,7 @@ public final class InitLibraryFragment extends Fragment {
         private final Context appContext;
 
         DeployCoreTask(InitLibraryFragment parent) {
-            this.fragmentRef = new WeakReference<InitLibraryFragment>(parent);
+            this.fragmentRef = new WeakReference<>(parent);
             this.appContext = parent.getContext().getApplicationContext();
         }
 

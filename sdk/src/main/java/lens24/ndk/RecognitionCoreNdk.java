@@ -7,14 +7,14 @@ import android.graphics.Rect;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
-import androidx.annotation.Keep;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.WorkerThread;
 import android.util.Log;
 
 import java.io.IOException;
 
+import androidx.annotation.Keep;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.WorkerThread;
 import lens24.ndk.RecognitionConstants.DetectedBorderFlags;
 import lens24.ndk.RecognitionConstants.RecognitionMode;
 
@@ -61,25 +61,22 @@ final class RecognitionCoreNdk implements RecognitionCoreImpl {
             Log.e("CardRecognizerCore", "initialization failed", e);
         }
 
-        mMainThreadHandler = new Handler(Looper.getMainLooper(), new Handler.Callback() {
-            @Override
-            public boolean handleMessage(Message msg) {
-                switch (msg.what) {
-                    case MESSAGE_RESULT_RECEIVED:
-                        if (mStatusListener != null) {
-                            RecognitionResult result = (RecognitionResult)msg.obj;
-                            mStatusListener.onRecognitionComplete(result);
-                        }
-                        return true;
-                    case MESSAGE_CARD_IMAGE_RECEIVED:
-                        if (mStatusListener != null) {
-                            Bitmap bitmap = (Bitmap)msg.obj;
-                            mStatusListener.onCardImageReceived(bitmap);
-                        }
-                        return true;
-                }
-                return false;
+        mMainThreadHandler = new Handler(Looper.getMainLooper(), msg -> {
+            switch (msg.what) {
+                case MESSAGE_RESULT_RECEIVED:
+                    if (mStatusListener != null) {
+                        RecognitionResult result = (RecognitionResult) msg.obj;
+                        mStatusListener.onRecognitionComplete(result);
+                    }
+                    return true;
+                case MESSAGE_CARD_IMAGE_RECEIVED:
+                    if (mStatusListener != null) {
+                        Bitmap bitmap = (Bitmap) msg.obj;
+                        mStatusListener.onCardImageReceived(bitmap);
+                    }
+                    return true;
             }
+            return false;
         });
     }
 

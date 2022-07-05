@@ -27,39 +27,39 @@
  */
 package lens24.camera;
 
-import androidx.annotation.NonNull;
-
 import java.util.concurrent.TimeUnit;
+
+import androidx.annotation.NonNull;
 
 final class FpsCounter {
 
     private int fpsUpdateFramesInterval;
     private long fpsStartTime, fpsLastUpdateTime, fpsLastPeriod, fpsTotalDuration;
-    private int  fpsTotalFrames;
+    private int fpsTotalFrames;
     private float fpsLast, fpsTotal;
     private float fpsLastTickTime;
 
-    /** Creates a disabled instance */
+    /**
+     * Creates a disabled instance
+     */
     public FpsCounter() {
         setUpdateFPSFrames(0);
     }
 
     /**
-     * Increases total frame count and updates values if feature is enabled and
-     * update interval is reached.<br>
-     *
-     *
+     * Increases total frame count and updates values if feature is enabled and update interval is
+     * reached.<br>
      */
-    public final synchronized void tickFPS() {
+    public synchronized void tickFPS() {
         final long now = TimeUnit.NANOSECONDS.toMillis(System.nanoTime());
         if (fpsUpdateFramesInterval == 0) return;
 
         fpsTotalFrames++;
 
-        if(fpsTotalFrames%fpsUpdateFramesInterval == 0) {
+        if (fpsTotalFrames % fpsUpdateFramesInterval == 0) {
             fpsLastPeriod = now - fpsLastUpdateTime;
             fpsLastPeriod = Math.max(fpsLastPeriod, 1); // div 0
-            fpsLast = ( fpsUpdateFramesInterval * 1000f ) / ( fpsLastPeriod ) ;
+            fpsLast = (fpsUpdateFramesInterval * 1000f) / (fpsLastPeriod ) ;
 
             fpsTotalDuration = now - fpsStartTime;
             fpsTotalDuration = Math.max(fpsTotalDuration, 1); // div 0
@@ -111,49 +111,50 @@ final class FpsCounter {
         return toString(null).toString();
     }
 
-    public final synchronized void setUpdateFPSFrames(final int frames) {
+    public synchronized void setUpdateFPSFrames(final int frames) {
         fpsUpdateFramesInterval = frames;
         resetFPSCounter();
     }
 
-    public final synchronized void resetFPSCounter() {
+    public synchronized void resetFPSCounter() {
         fpsStartTime = TimeUnit.NANOSECONDS.toMillis(System.nanoTime()); // overwrite startTime to real init one
-        fpsLastUpdateTime   = fpsStartTime;
-        fpsLastPeriod = 0;
+        fpsLastUpdateTime = fpsStartTime;
         fpsTotalFrames = 0;
-        fpsLast = 0f; fpsTotal = 0f;
-        fpsLastPeriod = 0; fpsTotalDuration=0;
+        fpsLast = 0f;
+        fpsTotal = 0f;
+        fpsLastPeriod = 0;
+        fpsTotalDuration = 0;
     }
 
-    public final synchronized int getUpdateFPSFrames() {
+    public synchronized int getUpdateFPSFrames() {
         return fpsUpdateFramesInterval;
     }
 
-    public final synchronized long getFPSStartTime()   {
+    public synchronized long getFPSStartTime() {
         return fpsStartTime;
     }
 
-    public final synchronized long getLastFPSUpdateTime() {
+    public synchronized long getLastFPSUpdateTime() {
         return fpsLastUpdateTime;
     }
 
-    public final synchronized long getLastFPSPeriod() {
+    public synchronized long getLastFPSPeriod() {
         return fpsLastPeriod;
     }
 
-    public final synchronized float getLastFPS() {
+    public synchronized float getLastFPS() {
         return fpsLast;
     }
 
-    public final synchronized int getTotalFPSFrames() {
+    public synchronized int getTotalFPSFrames() {
         return fpsTotalFrames;
     }
 
-    public final synchronized long getTotalFPSDuration() {
+    public synchronized long getTotalFPSDuration() {
         return fpsTotalDuration;
     }
 
-    public final synchronized float getTotalFPS() {
+    public synchronized float getTotalFPS() {
         return fpsTotal;
     }
 }

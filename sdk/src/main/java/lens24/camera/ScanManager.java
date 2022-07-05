@@ -12,7 +12,6 @@ import android.util.Log;
 import android.view.Display;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
-import android.view.View;
 import android.view.WindowManager;
 
 import java.util.Locale;
@@ -22,7 +21,6 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
 import lens24.camera.widget.CameraPreviewLayout;
 import lens24.camera.widget.CardDetectionStateView;
-import lens24.camera.widget.OnWindowFocusChangedListener;
 import lens24.ndk.DisplayConfigurationImpl;
 import lens24.ndk.RecognitionConstants;
 import lens24.ndk.RecognitionCore;
@@ -180,20 +178,10 @@ public final class ScanManager {
         handler.sendOrientationChanged(CameraUtils.getBackCameraDataRotation(getDisplay()));
         handler.sendUnfreeze();
 
-        mPreviewLayout.setOnWindowFocusChangedListener(new OnWindowFocusChangedListener() {
-            @Override
-            public void onWindowFocusChanged(View view, boolean hasWindowFocus) {
-                setRecognitionCoreIdle(!hasWindowFocus);
-            }
-        });
+        mPreviewLayout.setOnWindowFocusChangedListener((view, hasWindowFocus) -> setRecognitionCoreIdle(!hasWindowFocus));
 
         startShakeDetector();
-        mWindowRotationListener.register(mAppContext, getDisplay(), new WindowRotationListener.RotationListener() {
-            @Override
-            public void onWindowRotationChanged() {
-                refreshDisplayOrientation();
-            }
-        });
+        mWindowRotationListener.register(mAppContext, getDisplay(), () -> refreshDisplayOrientation());
         getCardDetectionStateView().setRecognitionResult(RecognitionResult.empty());
         setRecognitionCoreIdle(false);
     }

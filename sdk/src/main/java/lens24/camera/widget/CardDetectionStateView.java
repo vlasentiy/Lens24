@@ -124,8 +124,8 @@ public class CardDetectionStateView extends View {
             mDetectionState = TOP_EDGE | BOTTOM_EDGE | LEFT_EDGE | RIGHT_EDGE;
 
             mRecognitionResultCardNumber = CardUtils.prettyPrintCardNumber("1234123412341234");
-            mRecognitionResultDate = "05/22";
-            mRecognitionResultHolder = "CARDHOLDER NAME";
+            mRecognitionResultDate = "07/22";
+            mRecognitionResultHolder = "VLAS ARTANOV";
         }
     }
 
@@ -185,7 +185,7 @@ public class CardDetectionStateView extends View {
     private void initLineDrawables(Context context) {
         GradientDrawable gd = new GradientDrawable();
         gd.setShape(GradientDrawable.RECTANGLE);
-        gd.setColor(Color.parseColor("#8DC641"));
+        gd.setColor(ContextCompat.getColor(context, R.color.primary));
         gd.setSize(2, 2);
 
         Matrix m = new Matrix();

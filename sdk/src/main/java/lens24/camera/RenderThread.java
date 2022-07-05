@@ -224,12 +224,9 @@ public final class RenderThread extends Thread {
             finishSurfaceSetup();
         }
 
-        mCameraTexture.setOnFrameAvailableListener(new SurfaceTexture.OnFrameAvailableListener() {
-            @Override
-            public void onFrameAvailable(SurfaceTexture surfaceTexture) {
-                // SurfaceTexture.OnFrameAvailableListener; runs on arbitrary thread
-                mHandler.sendFrameAvailable();
-            }
+        mCameraTexture.setOnFrameAvailableListener(surfaceTexture -> {
+            // SurfaceTexture.OnFrameAvailableListener; runs on arbitrary thread
+            mHandler.sendFrameAvailable();
         });
     }
 
@@ -423,7 +420,7 @@ public final class RenderThread extends Thread {
          * Call from render thread.
          */
         public RenderHandler(RenderThread rt) {
-            mWeakRenderThread = new WeakReference<RenderThread>(rt);
+            mWeakRenderThread = new WeakReference<>(rt);
         }
 
         /**

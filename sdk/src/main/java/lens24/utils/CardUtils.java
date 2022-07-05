@@ -1,8 +1,9 @@
 package lens24.utils;
 
+import android.text.TextUtils;
+
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
-import android.text.TextUtils;
 
 @RestrictTo(RestrictTo.Scope.LIBRARY)
 public final class CardUtils {
@@ -35,7 +36,7 @@ public final class CardUtils {
         }
         if (cardNumber.length() == 16) {
             final String beginNumber = cardNumber.substring(0, 6);
-            final String endNumber = cardNumber.substring(cardNumber.length() - 2, cardNumber.length());
+            final String endNumber = cardNumber.substring(cardNumber.length() - 2);
             final StringBuilder stringBuilder = new StringBuilder(beginNumber + "********" + endNumber);
             stringBuilder.insert(4, " ");
             stringBuilder.insert(9, " ");
@@ -43,7 +44,7 @@ public final class CardUtils {
             return stringBuilder.toString();
         } else if (cardNumber.length() == 15) {
             final String beginNumber = cardNumber.substring(0, 6);
-            final String endNumber = cardNumber.substring(cardNumber.length() - 1, cardNumber.length());
+            final String endNumber = cardNumber.substring(cardNumber.length() - 1);
             final StringBuilder stringBuilder = new StringBuilder(beginNumber + "********" + endNumber);
             stringBuilder.insert(4, " ");
             stringBuilder.insert(11, " ");

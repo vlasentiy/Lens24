@@ -1,12 +1,12 @@
 package lens24.camera;
 
 import android.graphics.Rect;
-import androidx.annotation.Nullable;
-import androidx.annotation.RestrictTo;
 import android.util.Log;
 import android.view.Display;
 import android.view.Surface;
 
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 import lens24.sdk.BuildConfig;
 
 @RestrictTo(RestrictTo.Scope.LIBRARY)
@@ -25,7 +25,7 @@ public final class OrientationHelper {
     // http://developer.android.com/intl/ru/reference/android/hardware/Camera.html#setDisplayOrientation%28int%29
     public static int getCameraRotationToNatural(int displayRotation, int cameraOrientation, boolean compensateMirror) {
         if (DBG) Log.d(TAG, "getCameraRotationToNatural() called with: " +  "displayRotation = [" + displayRotation + "], cameraOrientation = [" + cameraOrientation + "], compensateMirror = [" + compensateMirror + "]");
-        int result = 0;
+        int result;
         if (compensateMirror) {
             result = (cameraOrientation + displayRotation) % 360;
             result = (360 - result) % 360;	// compensate the mirror
@@ -68,7 +68,7 @@ public final class OrientationHelper {
             dst.set(offset4, offset1, offset4 + src.height(), offset1 + src.width());
         }
 
-        if (DBG) Log.v(TAG, "rotateRect() degrees: " + degrees + "src: " + src.toString() + "; res: " + dst.toString());
+        if (DBG) Log.v(TAG, "rotateRect() degrees: " + degrees + "src: " + src + "; res: " + dst);
         return dst;
     }
 }
