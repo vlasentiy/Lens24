@@ -93,7 +93,7 @@ public class CardDetailsActivity extends AppCompatActivity {
             } else if (resultCode == Activity.RESULT_CANCELED) {
                 @CancelReason final int reason;
                 if (data != null) {
-                    reason = data.getIntExtra(ScanCardIntent.RESULT_CANCEL_REASON, ScanCardIntent.BACK_PRESSED);
+                    reason = data.getIntExtra(ScanCardIntent.RESULT_LENS24_CANCEL_REASON, ScanCardIntent.BACK_PRESSED);
                 } else {
                     reason = ScanCardIntent.BACK_PRESSED;
                 }

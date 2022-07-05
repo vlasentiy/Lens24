@@ -94,7 +94,7 @@ public class ScanCardActivity extends AppCompatActivity implements ScanCardFragm
     @Override
     public void onScanCardCanceled(@ScanCardIntent.CancelReason int actionId) {
         Intent intent = new Intent();
-        intent.putExtra(ScanCardIntent.RESULT_CANCEL_REASON, actionId);
+        intent.putExtra(ScanCardIntent.RESULT_LENS24_CANCEL_REASON, actionId);
         setResult(RESULT_CANCELED, intent);
         finish();
     }

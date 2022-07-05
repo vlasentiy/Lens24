@@ -21,16 +21,17 @@ public final class ScanCardIntent {
 
     public static final int RESULT_CODE_ERROR = Activity.RESULT_FIRST_USER;
 
-    public static final String RESULT_LENS24_CARD = "RESULT_LENS24_CARD";
-    public static final String RESULT_CARD_IMAGE = "RESULT_CARD_IMAGE";
-    public static final String RESULT_CANCEL_REASON = "RESULT_CANCEL_REASON";
+    public static final String RESULT_LENS24_CARD_DATA = "RESULT_LENS24_CARD_DATA";
+    public static final String RESULT_LENS24_CARD_IMAGE = "RESULT_LENS24_CARD_IMAGE";
+    public static final String RESULT_LENS24_CANCEL_REASON = "RESULT_LENS24_CANCEL_REASON";
 
     public static final int BACK_PRESSED = 1;
     public static final int ADD_MANUALLY_PRESSED = 2;
 
     @Retention(RetentionPolicy.SOURCE)
     @IntDef(value = {BACK_PRESSED, ADD_MANUALLY_PRESSED})
-    public @interface CancelReason {}
+    public @interface CancelReason {
+    }
 
     @RestrictTo(RestrictTo.Scope.LIBRARY)
     public static final String KEY_SCAN_CARD_REQUEST = "lens24.ui.ScanCardActivity.SCAN_CARD_REQUEST";
