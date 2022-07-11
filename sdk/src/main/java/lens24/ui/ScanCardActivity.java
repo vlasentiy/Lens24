@@ -78,8 +78,8 @@ public class ScanCardActivity extends AppCompatActivity implements ScanCardFragm
     @RestrictTo(RestrictTo.Scope.LIBRARY)
     public void onScanCardFinished(Card card, @Nullable byte[] cardImage) {
         Intent intent = new Intent();
-        intent.putExtra(ScanCardIntent.RESULT_LENS24_CARD_DATA, (Parcelable) card);
-        if (cardImage != null) intent.putExtra(ScanCardIntent.RESULT_LENS24_CARD_IMAGE, cardImage);
+        intent.putExtra(ScanCardIntent.RESULT_CARD_DATA, (Parcelable) card);
+        if (cardImage != null) intent.putExtra(ScanCardIntent.RESULT_CARD_IMAGE, cardImage);
         setResult(RESULT_OK, intent);
         finish();
     }
@@ -94,7 +94,7 @@ public class ScanCardActivity extends AppCompatActivity implements ScanCardFragm
     @Override
     public void onScanCardCanceled(@ScanCardIntent.CancelReason int actionId) {
         Intent intent = new Intent();
-        intent.putExtra(ScanCardIntent.RESULT_LENS24_CANCEL_REASON, actionId);
+        intent.putExtra(ScanCardIntent.RESULT_CANCEL_REASON, actionId);
         setResult(RESULT_CANCELED, intent);
         finish();
     }

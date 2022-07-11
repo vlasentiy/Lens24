@@ -56,20 +56,29 @@ extern "C" {
 
     static inline PayCardsRecognizerOrientation getFromJOrientation(int jWorkAreaOrientation) {
         switch (jWorkAreaOrientation) {
-            case 1 : return PayCardsRecognizerOrientationPortrait; // WORK_AREA_ORIENTATION_PORTAIT
-            case 2 : return PayCardsRecognizerOrientationPortraitUpsideDown; // WORK_AREA_ORIENTATION_PORTAIT_UPSIDE_DOWN
-            case 3 : return PayCardsRecognizerOrientationLandscapeRight; // WORK_AREA_ORIENTATION_LANDSCAPE_RIGHT
-            case 4 : return PayCardsRecognizerOrientationLandscapeLeft; // WORK_AREA_ORIENTATION_LANDSCAPE_LEFT
-            default: return PayCardsRecognizerOrientationUnknown;
+            case 1 :
+                return PayCardsRecognizerOrientationPortrait; // WORK_AREA_ORIENTATION_PORTRAIT
+            case 2 :
+                return PayCardsRecognizerOrientationPortraitUpsideDown; // WORK_AREA_ORIENTATION_PORTRAIT_UPSIDE_DOWN
+            case 3 :
+                return PayCardsRecognizerOrientationLandscapeRight; // WORK_AREA_ORIENTATION_LANDSCAPE_RIGHT
+            case 4 :
+                return PayCardsRecognizerOrientationLandscapeLeft; // WORK_AREA_ORIENTATION_LANDSCAPE_LEFT
+            default:
+                return PayCardsRecognizerOrientationUnknown;
         }
     }
 
     static inline const char *woOrientationName(PayCardsRecognizerOrientation v) {
         switch (v) {
-            case PayCardsRecognizerOrientationPortrait: return "Portait";
-            case PayCardsRecognizerOrientationPortraitUpsideDown: return "Portait Upside-down";
-            case PayCardsRecognizerOrientationLandscapeRight: return "Landscape right";
-            case PayCardsRecognizerOrientationLandscapeLeft: return "Landscape left";
+            case PayCardsRecognizerOrientationPortrait:
+                return "Portrait";
+            case PayCardsRecognizerOrientationPortraitUpsideDown:
+                return "Portrait Upside-down";
+            case PayCardsRecognizerOrientationLandscapeRight:
+                return "Landscape right";
+            case PayCardsRecognizerOrientationLandscapeLeft:
+                return "Landscape left";
             case PayCardsRecognizerOrientationUnknown:
             default:
                 return "Unknown";

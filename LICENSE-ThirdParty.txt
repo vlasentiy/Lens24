@@ -1,6 +1,10 @@
 This document contains the list of Third Party Software included with 
 Lens24 library, along with the license information.
 
+Project: PayCards_Android
+URL: https://pay.cards/pages/sdk.html
+Reference: https://pay.cards/pages/terms.html
+
 Project: Caffe
 URL: http://caffe.berkeleyvision.org/
 Developers: Berkeley AI Research (BAIR) and community contributors.

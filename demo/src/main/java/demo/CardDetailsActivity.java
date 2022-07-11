@@ -88,15 +88,15 @@ public class CardDetailsActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == REQUEST_CODE_SCAN_CARD) {
             if (resultCode == Activity.RESULT_OK) {
-                Card card = data.getParcelableExtra(ScanCardIntent.RESULT_LENS24_CARD_DATA);
-                byte[] cardImage = data.getByteArrayExtra(ScanCardIntent.RESULT_LENS24_CARD_IMAGE);
+                Card card = data.getParcelableExtra(ScanCardIntent.RESULT_CARD_DATA);
+                byte[] cardImage = data.getByteArrayExtra(ScanCardIntent.RESULT_CARD_IMAGE);
                 Bitmap bitmap = BitmapFactory.decodeByteArray(cardImage, 0, cardImage.length);
                 if (BuildConfig.DEBUG) Log.i(TAG, "Card info: " + card);
                 setCard(card);
             } else if (resultCode == Activity.RESULT_CANCELED) {
                 @CancelReason final int reason;
                 if (data != null) {
-                    reason = data.getIntExtra(ScanCardIntent.RESULT_LENS24_CANCEL_REASON, ScanCardIntent.BACK_PRESSED);
+                    reason = data.getIntExtra(ScanCardIntent.RESULT_CANCEL_REASON, ScanCardIntent.BACK_PRESSED);
                 } else {
                     reason = ScanCardIntent.BACK_PRESSED;
                 }

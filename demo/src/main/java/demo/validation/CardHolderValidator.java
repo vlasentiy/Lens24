@@ -13,7 +13,7 @@ public class CardHolderValidator implements FieldValidator<CharSequence> {
         if (TextUtils.isEmpty(value)) {
             return fail(R.string.validation_error_fill_in_card_holder_name);
         }
-        if (!value.toString().trim().contains(" ")) {
+        if (!value.toString().matches("^((?:[A-Za-z]+ ?){1,3})$")) {
             return fail(R.string.validation_error_invalid_card_holder_name);
         }
         return valid();
