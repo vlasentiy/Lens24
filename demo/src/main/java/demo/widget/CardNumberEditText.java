@@ -1,11 +1,14 @@
 package demo.widget;
 
-import android.content.Context;
 import com.google.android.material.textfield.TextInputEditText;
+
+import android.content.Context;
 import android.text.InputFilter;
 import android.text.InputType;
 import android.text.method.DigitsKeyListener;
 import android.util.AttributeSet;
+
+import java.util.Objects;
 
 public class CardNumberEditText extends TextInputEditText {
 
@@ -53,7 +56,7 @@ public class CardNumberEditText extends TextInputEditText {
     }
 
     public String getCardNumber() {
-        return getText().toString().replaceAll(" ", "");
+        return Objects.requireNonNull(getText()).toString().replaceAll(" ", "");
     }
 
 }

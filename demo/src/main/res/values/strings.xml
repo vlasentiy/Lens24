@@ -2,8 +2,10 @@
     <string name="app_name">Lens24</string>
 
     <string name="all_button_next">Next</string>
+    <string name="validate">Validate</string>
 
-    <string name="intro_tagline">Best way to recognize number, holder name and expiration date from bank card offline</string>
+
+    <string name="intro_tagline">Easy way to scan and recognize credit or payment card number, holder name and expiration date offline</string>
 
     <string name="carddetails_card_title">Card details</string>
     <string name="carddetails_subhead">Verify and complete your card information</string>
@@ -17,6 +19,6 @@
     <string name="validation_error_invalid_card_holder_name">Invalid card holder name</string>
     <string name="validation_error_fill_in_card_number">Fill in card number</string>
     <string name="validation_error_invalid_card_number">Invalid card number</string>
-    <string name="scan">Scan card</string>
+    <string name="scan">Scan card again</string>
 
 </resources>

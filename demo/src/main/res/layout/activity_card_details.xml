@@ -16,9 +16,10 @@
             android:background="?selectableItemBackground"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_gravity="right"
+            android:layout_gravity="end"
             android:layout_margin="0dp"
-            android:text="@string/all_button_next" />
+            android:textAllCaps="false"
+            android:text="@string/validate" />
 
     </androidx.appcompat.widget.Toolbar>
 
@@ -43,15 +44,20 @@
                 style="@style/TextAppearance.AppCompat.Display2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginLeft="4dp"
                 android:layout_marginTop="12dp"
                 android:layout_marginBottom="12dp"
                 android:includeFontPadding="false"
                 android:text="@string/carddetails_card_title"
-                android:textColor="?android:textColorPrimary" />
+                android:textColor="?android:textColorPrimary"
+                android:textSize="20sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginLeft="4dp"
                 android:layout_marginBottom="4dp"
                 android:text="@string/carddetails_subhead" />
 
@@ -64,7 +70,7 @@
                 <demo.widget.CardNumberEditText
                     android:id="@+id/card_number_field_text"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="48dp"
                     android:hint="@string/carddetails_card_number_field_label"
                     tools:text="1234 5678 9012 3456" />
 
@@ -79,7 +85,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/cardholder_field_text"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="48dp"
                     android:hint="@string/carddetails_cardholder_field_label"
                     android:imeOptions="actionNext|flagNoExtractUi"
                     android:inputType="textVisiblePassword|textCapCharacters"
@@ -96,10 +102,10 @@
                 <demo.widget.CardDateEditText
                     android:id="@+id/expiry_date_field_text"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="48dp"
                     android:hint="@string/carddetails_expiry_date_field_label"
                     android:imeOptions="actionDone|flagNoExtractUi"
-                    tools:text="01/21" />
+                    tools:text="02/22" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -110,10 +116,12 @@
     <Button
         android:id="@+id/scan_button"
         style="@style/Widget.AppCompat.Button.Colored"
-        android:background="@drawable/ripple_button"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_gravity="center"
         android:layout_margin="16dp"
-        android:text="@string/scan" />
+        android:background="@drawable/ripple_button"
+        android:text="@string/scan"
+        android:textAllCaps="false"
+        tools:ignore="TouchTargetSizeCheck" />
 </LinearLayout>
