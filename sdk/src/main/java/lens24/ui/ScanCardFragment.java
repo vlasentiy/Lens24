@@ -2,8 +2,6 @@ package lens24.ui;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.PorterDuff;
-import android.graphics.drawable.Drawable;
 import android.hardware.Camera;
 import android.os.Build;
 import android.os.Bundle;
@@ -287,8 +285,7 @@ public class ScanCardFragment extends Fragment {
         ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-        Drawable drawable = mToolbar.getNavigationIcon();
-        drawable.setColorFilter(ContextCompat.getColor(getActivity(), R.color.arrow_back), PorterDuff.Mode.SRC_IN);
+        mToolbar.setNavigationIcon(R.drawable.ic_close);
         mToolbar.setNavigationOnClickListener(v -> {
             if (mListener != null)
                 mListener.onScanCardCanceled(ScanCardIntent.BACK_PRESSED);
