@@ -10,7 +10,9 @@
         tools:ignore="GoogleAppIndexingWarning">
         <activity
             android:name="demo.IntroActivity"
-            android:exported="true">
+            android:screenOrientation="portrait"
+            android:exported="true"
+            tools:ignore="LockedOrientationActivity">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,9 +23,10 @@
         <activity
             android:name="demo.CardDetailsActivity"
             android:exported="true"
+            android:screenOrientation="portrait"
             android:parentActivityName="demo.IntroActivity"
             android:windowSoftInputMode="adjustResize"
-            tools:ignore="UnusedAttribute">
+            tools:ignore="LockedOrientationActivity,UnusedAttribute">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="demo.IntroActivity" />
