@@ -14,6 +14,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
@@ -116,11 +117,11 @@ public class ScanCardFragment extends Fragment {
         }
         mCameraPreviewLayout = root.findViewById(R.id.card_recognition_view);
         mMainContent = root.findViewById(R.id.main_content);
+
         showLoader(true);
-
         initView(root);
-
         showMainContent();
+
         return root;
     }
 
@@ -205,9 +206,10 @@ public class ScanCardFragment extends Fragment {
 
             @Override
             public void onTorchStatusChanged(boolean turnTorchOn) {
-                if (getContext() != null && toolbarMenu.findItem(R.id.flash) != null) {
+                MenuItem menuItem = toolbarMenu != null ? toolbarMenu.findItem(R.id.flash) : null;
+                if (getContext() != null && menuItem != null) {
                     new Handler(Looper.getMainLooper()).post(() ->
-                            toolbarMenu.findItem(R.id.flash).setIcon(ContextCompat.getDrawable(getContext(), turnTorchOn ? R.drawable.ic_flash_on : R.drawable.ic_flash_off)));
+                            menuItem.setIcon(ContextCompat.getDrawable(getContext(), turnTorchOn ? R.drawable.ic_flash_on : R.drawable.ic_flash_off)));
                 }
             }
 
@@ -281,9 +283,10 @@ public class ScanCardFragment extends Fragment {
     private void initToolbar(View view) {
         Toolbar mToolbar = view.findViewById(R.id.toolbar);
         mToolbar.setTitle(mRequest.getTitle() == null ? "" : mRequest.getTitle());
-        ((AppCompatActivity) getActivity()).setSupportActionBar(mToolbar);
-        ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayShowHomeEnabled(true);
+        AppCompatActivity appCompatActivity = ((AppCompatActivity) getActivity());
+        appCompatActivity.setSupportActionBar(mToolbar);
+        appCompatActivity.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        appCompatActivity.getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         mToolbar.setNavigationIcon(R.drawable.ic_close);
         mToolbar.setNavigationOnClickListener(v -> {

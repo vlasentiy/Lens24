@@ -321,7 +321,6 @@ public class CardDetectionStateView extends View {
         mCornerBottomRightDrawable.setBounds(left2, top2, left2 + rectWidth, top2 + rectHeight);
 
         // Lines
-        //// +24 was + mLineTopDrawable.getIntrinsicHeight() +0
         int offset = (int) mCornerRadius;
         int shift = dpToPx(getContext(), 4);
 
@@ -402,9 +401,5 @@ public class CardDetectionStateView extends View {
 
     private int dpToPx(@NonNull Context context, float dp) {
         return (int) (dp * context.getResources().getDisplayMetrics().density);
-    }
-
-    private int pxToDp(@NonNull Context context, float px) {
-        return (int) (px / context.getResources().getDisplayMetrics().density);
     }
 }
