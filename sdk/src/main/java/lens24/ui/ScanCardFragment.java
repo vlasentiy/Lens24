@@ -21,8 +21,6 @@ import android.view.animation.Animation;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.airbnb.lottie.LottieAnimationView;
-
 import java.io.ByteArrayOutputStream;
 
 import androidx.annotation.NonNull;
@@ -38,7 +36,6 @@ import lens24.intent.Card;
 import lens24.intent.ScanCardIntent;
 import lens24.ndk.RecognitionResult;
 import lens24.sdk.R;
-import lens24.ui.views.ProgressBarIndeterminate;
 import lens24.utils.Constants;
 
 import static lens24.ndk.RecognitionConstants.RECOGNIZER_MODE_DATE;
@@ -53,8 +50,7 @@ public class ScanCardFragment extends Fragment {
 
     private CameraPreviewLayout mCameraPreviewLayout;
 
-    private ProgressBarIndeterminate mProgressBar;
-    private LottieAnimationView mLottieView;
+    private Button bManual;
 
     private ViewGroup mMainContent;
 
@@ -69,8 +65,6 @@ public class ScanCardFragment extends Fragment {
     private InteractionListener mListener;
 
     private ScanCardRequest mRequest;
-
-    private boolean useLottieLoader = false;
 
     @Override
     public void onAttach(@NonNull Context context) {
@@ -90,7 +84,6 @@ public class ScanCardFragment extends Fragment {
             mRequest = getArguments().getParcelable(ScanCardIntent.KEY_SCAN_CARD_REQUEST);
         }
         if (mRequest == null) mRequest = ScanCardRequest.getDefault();
-        useLottieLoader = mRequest.getLottieJsonAnimation() != null;
     }
 
     @Override
@@ -109,32 +102,13 @@ public class ScanCardFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_scan_card, container, false);
 
-        mProgressBar = root.findViewById(R.id.progress_bar);
-        mLottieView = root.findViewById(R.id.lottieView);
-
-        if (useLottieLoader) {
-            mLottieView.setAnimationFromJson(mRequest.getLottieJsonAnimation(), null);
-        }
         mCameraPreviewLayout = root.findViewById(R.id.card_recognition_view);
         mMainContent = root.findViewById(R.id.main_content);
 
-        showLoader(true);
         initView(root);
         showMainContent();
 
         return root;
-    }
-
-    private void showLoader(boolean enable) {
-        if (useLottieLoader) {
-            mLottieView.setVisibility(enable ? View.VISIBLE : View.GONE);
-        } else {
-            if (enable) {
-                mProgressBar.setVisibility(View.VISIBLE);
-            } else {
-                mProgressBar.hideSlow();
-            }
-        }
     }
 
     @Override
@@ -153,14 +127,12 @@ public class ScanCardFragment extends Fragment {
                 isFlashSupported = (cameraParameters.getSupportedFlashModes() != null
                         && !cameraParameters.getSupportedFlashModes().isEmpty());
                 if (getView() == null) return;
-                showLoader(false);
                 mCameraPreviewLayout.setBackgroundDrawable(null);
                 setHasOptionsMenu(isFlashSupported);
             }
 
             @Override
             public void onOpenCameraError(Exception exception) {
-                showLoader(false);
                 hideMainContent();
                 finishWithError(exception);
             }
@@ -260,7 +232,7 @@ public class ScanCardFragment extends Fragment {
     }
 
     private void initView(View view) {
-        Button bManual = view.findViewById(R.id.bManual);
+        bManual = view.findViewById(R.id.bManual);
         bManual.setOnClickListener(v -> {
             if (v.isEnabled()) {
                 v.setEnabled(false);
@@ -275,7 +247,6 @@ public class ScanCardFragment extends Fragment {
         bManual.setEnabled(true);
         TextView mHint = view.findViewById(R.id.tvHint);
         mHint.setText(mRequest.getHint());
-
 
         initToolbar(view);
     }

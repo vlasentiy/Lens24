@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.airbnb.lottie.LottieAnimationView;
 
@@ -41,6 +42,7 @@ public final class InitLibraryFragment extends Fragment {
     private LottieAnimationView mLottieView;
     private CameraPreviewLayout mCameraPreviewLayout;
     private ViewGroup mMainContent;
+    private Button enterManuallyButton;
 
     private DeployCoreTask mDeployCoreTask;
 
@@ -73,8 +75,8 @@ public final class InitLibraryFragment extends Fragment {
         mLottieView = root.findViewById(R.id.lottieView);
         mCameraPreviewLayout = root.findViewById(R.id.card_recognition_view);
 
-        View enterManuallyButton = root.findViewById(R.id.bManual);
-        enterManuallyButton.setVisibility(View.VISIBLE);
+        enterManuallyButton = root.findViewById(R.id.bManual);
+
         enterManuallyButton.setOnClickListener(v -> {
             if (mListener != null)
                 mListener.onScanCardCanceled(ScanCardIntent.ADD_MANUALLY_PRESSED);
