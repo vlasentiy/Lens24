@@ -7,28 +7,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="lens24.ui.ScanCardActivity">
 
-    <Button
-        android:id="@+id/bManual"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_gravity="bottom|center"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginBottom="16dp"
-        android:background="@drawable/ripple"
-        android:enabled="false"
-        android:textAllCaps="false"
-        android:textColor="@color/accent"
-        android:textSize="16sp"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/main_content"
-        app:layout_constraintStart_toEndOf="@+id/main_content"
-        tools:text="@string/button_enter_card_number"
-        tools:visibility="visible" />
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/main_content"
         android:layout_width="match_parent"
@@ -57,9 +35,9 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:titleMarginStart="8dp"
             app:navigationContentDescription="@android:string/cancel"
             app:subtitleTextAppearance="@style/ScannerToolbarTitleStyle"
+            app:titleMarginStart="8dp"
             app:titleTextAppearance="@style/ScannerToolbarTitleStyle"
             tools:title="@string/title" />
 
@@ -70,7 +48,8 @@
         android:layout_width="64dp"
         android:layout_height="64dp"
         android:layout_gravity="center"
-        android:visibility="gone" />
+        android:visibility="gone"
+        tools:visibility="visible" />
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/lottieView"
@@ -78,8 +57,31 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:visibility="gone"
-        tools:visibility="visible"
+        app:lottie_autoPlay="true"
         app:lottie_loop="true"
-        app:lottie_autoPlay="true" />
+        tools:visibility="visible" />
+
+    <Button
+        android:id="@+id/bManual"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_gravity="bottom|center"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/ripple_background"
+        android:enabled="false"
+        android:textAllCaps="false"
+        android:textColor="@color/accent_color"
+        android:textSize="16sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/main_content"
+        app:layout_constraintStart_toEndOf="@+id/main_content"
+        tools:ignore="TouchTargetSizeCheck"
+        tools:text="@string/button_enter_card_number"
+        tools:visibility="visible" />
 
 </FrameLayout>

@@ -185,7 +185,7 @@ public class CardDetectionStateView extends View {
     private void initLineDrawables(Context context) {
         GradientDrawable gd = new GradientDrawable();
         gd.setShape(GradientDrawable.RECTANGLE);
-        gd.setColor(ContextCompat.getColor(context, R.color.primary));
+        gd.setColor(ContextCompat.getColor(context, R.color.primary_color));
         gd.setSize(2, 2);
 
         Matrix m = new Matrix();
