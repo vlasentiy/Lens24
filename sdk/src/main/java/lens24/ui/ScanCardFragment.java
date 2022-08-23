@@ -10,6 +10,9 @@ import android.os.Looper;
 import android.os.VibrationEffect;
 import android.os.Vibrator;
 import android.text.TextUtils;
+import android.transition.Fade;
+import android.transition.Transition;
+import android.transition.TransitionManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -237,7 +240,7 @@ public class ScanCardFragment extends Fragment {
             if (v.isEnabled()) {
                 v.setEnabled(false);
                 if (mListener != null) {
-                    bManual.setVisibility(View.GONE);
+                    hide(bManual);
                     mListener.onScanCardCanceled(ScanCardIntent.ADD_MANUALLY_PRESSED);
                 }
             }
@@ -308,6 +311,23 @@ public class ScanCardFragment extends Fragment {
             v.vibrate(VibrationEffect.createOneShot(200, VibrationEffect.DEFAULT_AMPLITUDE));
         } else {
             v.vibrate(200);
+        }
+    }
+
+    private void hide(View view) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            Transition transition = new Fade();
+            transition.setDuration(900);
+            transition.addTarget(view);
+            TransitionManager.beginDelayedTransition((ViewGroup) view.getParent(), transition);
+            view.setVisibility(View.GONE);
+        } else {
+            view
+                    .animate()
+                    .alpha(0f)
+                    .withEndAction(() -> view.setVisibility(View.GONE))
+                    .setDuration(900)
+                    .start();
         }
     }
 
