@@ -6,22 +6,26 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true">
 
-
-    <ImageView
-        android:id="@+id/imageView"
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottieView"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:alpha="1"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
         android:contentDescription="@null"
-        android:rotation="0"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/lens24_title"
         app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintEnd_toStartOf="@+id/guideline4"
-        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.33"
-        app:srcCompat="@drawable/ic_lens24_logo"
-        tools:ignore="ImageContrastCheck" />
+        app:layout_constraintVertical_bias="0.0"
+        app:lottie_autoPlay="true"
+        app:lottie_rawRes="@raw/lens24_animation"
+        app:layout_constraintVertical_chainStyle="packed" />
 
     <TextView
         android:id="@+id/lens24_title"
@@ -30,16 +34,16 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:gravity="center_horizontal"
         android:text="@string/app_name"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/button_next"
+        app:layout_constraintBottom_toTopOf="@+id/text1"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/lottieView"
         app:layout_constraintVertical_bias="0.0"
         tools:ignore="HardcodedText" />
 
@@ -60,6 +64,7 @@
         android:textColor="?android:textColorSecondary"
         app:layout_constraintBottom_toTopOf="@+id/button_next"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lens24_title"
         app:layout_constraintVertical_bias="0.0" />
@@ -77,23 +82,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:layout_constraintVertical_bias="1.0"
         tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.33" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.66" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
