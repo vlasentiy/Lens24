@@ -46,7 +46,7 @@ public class ScanCardActivity extends AppCompatActivity implements ScanCardFragm
     }
 
     private void showInitLibrary() {
-        Fragment fragment = new InitLibraryFragment(getScanRequest().getLottieJsonAnimation());
+        Fragment fragment = new InitLibraryFragment(getScanRequest());
         getSupportFragmentManager().beginTransaction()
                 .replace(android.R.id.content, fragment, InitLibraryFragment.TAG)
                 .setCustomAnimations(0, 0)

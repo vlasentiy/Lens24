@@ -4,6 +4,8 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.ColorFilter;
+import android.graphics.LightingColorFilter;
 import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.Rect;
@@ -11,13 +13,16 @@ import android.graphics.Typeface;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
+import android.os.Build;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
 
+import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
+import androidx.core.graphics.drawable.DrawableCompat;
 import lens24.ndk.RecognitionConstants;
 import lens24.ndk.RecognitionResult;
 import lens24.sdk.R;
@@ -46,6 +51,8 @@ public class CardDetectionStateView extends View {
     private static final int BOTTOM_EDGE = RecognitionConstants.DETECTED_BORDER_BOTTOM;
     private static final int LEFT_EDGE = RecognitionConstants.DETECTED_BORDER_LEFT;
     private static final int RIGHT_EDGE = RecognitionConstants.DETECTED_BORDER_RIGHT;
+
+    private static int mainColor;
 
     private volatile int mDetectionState;
 
@@ -107,7 +114,7 @@ public class CardDetectionStateView extends View {
         mCornerLineWidth = density * RECT_CORNER_LINE_STROKE_WIDTH;
         mCornerRadius = density * RECT_CORNER_RADIUS;
 
-        mCardGradientDrawable = ContextCompat.getDrawable(context,R.drawable.frame_rect_gradient);
+        mCardGradientDrawable = ContextCompat.getDrawable(context, R.drawable.frame_rect_gradient);
 
         initCornerDrawables(context);
         initLineDrawables(context);
@@ -138,6 +145,12 @@ public class CardDetectionStateView extends View {
         return paint;
     }
 
+    public void setMainColor(Context context, int color) {
+        mainColor = color;
+        initCornerDrawables(context);
+        initLineDrawables(context);
+    }
+
     public Bitmap drawableToBitmap(Drawable drawable) {
         Bitmap bitmap;
         if (drawable instanceof BitmapDrawable) {
@@ -158,11 +171,38 @@ public class CardDetectionStateView extends View {
         return bitmap;
     }
 
+    public Bitmap changeBitmapColor(Bitmap sourceBitmap, int color) {
+        //// weird bug, does not change drawable color, so need to change color of bitmap
+        if (Build.MANUFACTURER.equalsIgnoreCase("xiaomi") &&
+                (Build.VERSION.SDK_INT <= Build.VERSION_CODES.M)) {
+
+            Bitmap resultBitmap = sourceBitmap.copy(sourceBitmap.getConfig(), true);
+            Paint paint = new Paint();
+            ColorFilter filter = new LightingColorFilter(color, 1);
+            paint.setColorFilter(filter);
+            Canvas canvas = new Canvas(resultBitmap);
+            canvas.drawBitmap(resultBitmap, 0, 0, paint);
+
+            return resultBitmap;
+        } else {
+            return sourceBitmap;
+        }
+    }
+
+    public Drawable getTintedDrawable(@NonNull final Context context,
+                                      @DrawableRes int drawableRes, int color) {
+        Drawable d = ContextCompat.getDrawable(context, drawableRes);
+        d = DrawableCompat.wrap(d);
+        DrawableCompat.setTint(d.mutate(), color);
+
+        return d;
+    }
+
     private void initCornerDrawables(Context context) {
-        Drawable topLeftCorner = ContextCompat.getDrawable(context, R.drawable.ic_top_left_rounded_corner);
+        Drawable topLeftCorner = getTintedDrawable(context, R.drawable.ic_top_left_rounded_corner, mainColor);
         Matrix m = new Matrix();
 
-        Bitmap bitmap = drawableToBitmap(topLeftCorner);
+        Bitmap bitmap = changeBitmapColor(drawableToBitmap(topLeftCorner), mainColor);
 
         m.setRotate(0);
         mCornerTopLeftDrawable = new BitmapDrawable(context.getResources(),
@@ -185,7 +225,7 @@ public class CardDetectionStateView extends View {
     private void initLineDrawables(Context context) {
         GradientDrawable gd = new GradientDrawable();
         gd.setShape(GradientDrawable.RECTANGLE);
-        gd.setColor(ContextCompat.getColor(context, R.color.primary_color));
+        gd.setColor(mainColor);
         gd.setSize(2, 2);
 
         Matrix m = new Matrix();
@@ -294,7 +334,7 @@ public class CardDetectionStateView extends View {
 
     private void refreshCardRectInvalidation() {
         Rect cardRect = mCardFrame.getCardRect();
-        int border = (int)(0.5f + mCornerPaddingLeft) + (int)(0.5f + mCornerLineWidth / 2f);
+        int border = (int) (0.5f + mCornerPaddingLeft) + (int) (0.5f + mCornerLineWidth / 2f);
         mCardRectInvalidation.left = cardRect.left - border;
         mCardRectInvalidation.top = cardRect.top - border;
         mCardRectInvalidation.right = cardRect.right + border;
@@ -307,7 +347,7 @@ public class CardDetectionStateView extends View {
 
         int rectWidth = mCornerTopLeftDrawable.getIntrinsicWidth();
         int rectHeight = mCornerTopLeftDrawable.getIntrinsicHeight();
-        int cornerStroke = (int)(0.5f + mCornerLineWidth / 2f);
+        int cornerStroke = (int) (0.5f + mCornerLineWidth / 2f);
 
         int left1 = Math.round(cardRect.left - mCornerPaddingLeft - cornerStroke);
         int left2 = Math.round(cardRect.right - rectWidth + mCornerPaddingLeft + cornerStroke);
@@ -359,12 +399,12 @@ public class CardDetectionStateView extends View {
                     mCardRectInvalidation.top,
                     mCardRectInvalidation.right,
                     mCardRectInvalidation.bottom
-                    );
+            );
         }
     }
 
     public synchronized void setRecognitionResult(RecognitionResult result) {
-        if (DBG) Log.d(TAG, "setRecognitionResult() called with: " +  "result = [" + result + "]");
+        if (DBG) Log.d(TAG, "setRecognitionResult() called with: " + "result = [" + result + "]");
 
         if (!TextUtils.isEmpty(result.getNumber())) {
             mRecognitionResultCardNumber = CardUtils.prettyPrintCardNumber(result.getNumber());

@@ -47,5 +47,19 @@
             tools:ignore="SpUsage"
             tools:text="@string/hint_position_card_in_frame" />
 
+        <TextView
+            android:id="@+id/tvBottomHint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="24dp"
+            android:textColor="@android:color/white"
+            android:textSize="16dp"
+            android:visibility="gone"
+            app:layout_cardAlignGravity="bottom|center_horizontal"
+            tools:ignore="SpUsage"
+            tools:text="@string/hint_position_card_in_frame"
+            tools:visibility="visible" />
+
     </lens24.camera.widget.CameraPreviewLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

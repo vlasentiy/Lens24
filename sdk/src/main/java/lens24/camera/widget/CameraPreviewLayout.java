@@ -70,11 +70,16 @@ public final class CameraPreviewLayout extends FrameLayout {
                                     int previewSizeHeight,
                                     int rotation,
                                     Rect cardFrame) {
-        if (DBG) Log.d(TAG, "setCameraParameters() called with: " +  "previewSizeWidth = [" + previewSizeWidth + "], previewSizeHeight = [" + previewSizeHeight + "], rotation = [" + rotation + "], cardFrame = [" + cardFrame + "]");
+        if (DBG)
+            Log.d(TAG, "setCameraParameters() called with: " + "previewSizeWidth = [" + previewSizeWidth + "], previewSizeHeight = [" + previewSizeHeight + "], rotation = [" + rotation + "], cardFrame = [" + cardFrame + "]");
         mDetectionStateOverlay.setCameraParameters(previewSizeWidth, previewSizeHeight, rotation, cardFrame);
 
         boolean changed = mCardFrame.setCameraParameters(previewSizeWidth, previewSizeHeight, rotation, cardFrame);
         if (changed && !ViewCompat.isInLayout(this)) requestLayout();
+    }
+
+    public void setMainColor(int mainColor) {
+        getDetectionStateOverlay().setMainColor(getContext(), mainColor);
     }
 
     @Override
@@ -185,7 +190,7 @@ public final class CameraPreviewLayout extends FrameLayout {
                 left = cardRect.left + lp.leftMargin;
                 break;
             case Gravity.RIGHT:
-                left = cardRect.right  - childWidth - lp.rightMargin;
+                left = cardRect.right - childWidth - lp.rightMargin;
                 break;
             case Gravity.CENTER_HORIZONTAL:
                 left = cardRect.left + cardRect.width() / 2 - childWidth / 2 + lp.leftMargin - lp.rightMargin;
@@ -254,13 +259,11 @@ public final class CameraPreviewLayout extends FrameLayout {
     }
 
 
-
     public static class LayoutParams extends FrameLayout.LayoutParams {
         public static final int UNSPECIFIED_CARD_GRAVITY = -1;
 
         /**
-         * The gravity to apply with the View to which these layout parameters
-         * are associated.
+         * The gravity to apply with the View to which these layout parameters are associated.
          */
         public int cardGravity = UNSPECIFIED_CARD_GRAVITY;
 

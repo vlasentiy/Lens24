@@ -245,11 +245,16 @@ public class ScanCardFragment extends Fragment {
                 }
             }
         });
+        bManual.setTextColor(mRequest.getMainColor());
         bManual.setVisibility(mRequest.getManualInputButtonLabel() == null ? View.GONE : View.VISIBLE);
         bManual.setText(mRequest.getManualInputButtonLabel());
         bManual.setEnabled(true);
         TextView mHint = view.findViewById(R.id.tvHint);
         mHint.setText(mRequest.getHint());
+        mHint.setVisibility(mRequest.getHint() != null ? View.VISIBLE : View.GONE);
+        TextView mBottomHint = view.findViewById(R.id.tvBottomHint);
+        mBottomHint.setText(mRequest.getBottomHint());
+        mBottomHint.setVisibility(mRequest.getBottomHint() != null ? View.VISIBLE : View.GONE);
 
         initToolbar(view);
     }

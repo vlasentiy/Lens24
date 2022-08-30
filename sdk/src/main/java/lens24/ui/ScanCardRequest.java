@@ -3,6 +3,8 @@ package lens24.ui;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.util.Objects;
+
 import androidx.annotation.RestrictTo;
 
 @RestrictTo(RestrictTo.Scope.LIBRARY)
@@ -32,9 +34,57 @@ public final class ScanCardRequest implements Parcelable {
 
     private final String mLottieJsonAnimation;
 
+    private final int mMainColor;
+
+    private final String mBottomHint;
+
     private static final ScanCardRequest sDefaultInstance = new ScanCardRequest(
             DEFAULT_ENABLE_VIBRATION, DEFAULT_SCAN_EXPIRATION_DATE, DEFAULT_SCAN_CARD_HOLDER,
-            DEFAULT_GRAB_CARD_IMAGE, null, null, null, null);
+            DEFAULT_GRAB_CARD_IMAGE, null, null, null, null, 0, null);
+
+    private ScanCardRequest(Parcel in) {
+        mEnableVibration = in.readByte() != 0;
+        mScanExpirationDate = in.readByte() != 0;
+        mScanCardHolder = in.readByte() != 0;
+        mGrabCardImage = in.readByte() != 0;
+        mHint = in.readString();
+        mTitle = in.readString();
+        mManualInputButtonLabel = in.readString();
+        mLottieJsonAnimation = in.readString();
+        mMainColor = in.readInt();
+        mBottomHint = in.readString();
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeByte((byte) (mEnableVibration ? 1 : 0));
+        dest.writeByte((byte) (mScanExpirationDate ? 1 : 0));
+        dest.writeByte((byte) (mScanCardHolder ? 1 : 0));
+        dest.writeByte((byte) (mGrabCardImage ? 1 : 0));
+        dest.writeString(mHint);
+        dest.writeString(mTitle);
+        dest.writeString(mManualInputButtonLabel);
+        dest.writeString(mLottieJsonAnimation);
+        dest.writeInt(mMainColor);
+        dest.writeString(mBottomHint);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    public static final Creator<ScanCardRequest> CREATOR = new Creator<>() {
+        @Override
+        public ScanCardRequest createFromParcel(Parcel in) {
+            return new ScanCardRequest(in);
+        }
+
+        @Override
+        public ScanCardRequest[] newArray(int size) {
+            return new ScanCardRequest[size];
+        }
+    };
 
     public static ScanCardRequest getDefault() {
         return sDefaultInstance;
@@ -47,7 +97,9 @@ public final class ScanCardRequest implements Parcelable {
                            String hint,
                            String title,
                            String manualInputButtonLabel,
-                           String lottieJsonAnimation) {
+                           String lottieJsonAnimation,
+                           int mainColor,
+                           String bottomHint) {
         this.mEnableVibration = enableVibration;
         this.mScanExpirationDate = scanExpirationDate;
         this.mScanCardHolder = scanCardHolder;
@@ -56,9 +108,13 @@ public final class ScanCardRequest implements Parcelable {
         this.mTitle = title;
         this.mManualInputButtonLabel = manualInputButtonLabel;
         this.mLottieJsonAnimation = lottieJsonAnimation;
+        this.mMainColor = mainColor;
+        this.mBottomHint = bottomHint;
     }
 
-    public boolean isVibrationEnabled() { return mEnableVibration; }
+    public boolean isVibrationEnabled() {
+        return mEnableVibration;
+    }
 
     public boolean isScanExpirationDateEnabled() {
         return mScanExpirationDate;
@@ -88,6 +144,14 @@ public final class ScanCardRequest implements Parcelable {
         return mLottieJsonAnimation;
     }
 
+    public int getMainColor() {
+        return mMainColor;
+    }
+
+    public String getBottomHint() {
+        return mBottomHint;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -99,11 +163,14 @@ public final class ScanCardRequest implements Parcelable {
         if (mScanExpirationDate != that.mScanExpirationDate) return false;
         if (mScanCardHolder != that.mScanCardHolder) return false;
         if (mGrabCardImage != that.mGrabCardImage) return false;
-        if (mHint != null ? !mHint.equals(that.mHint) : that.mHint != null) return false;
-        if (mTitle != null ? !mTitle.equals(that.mTitle) : that.mTitle != null) return false;
-        if (mManualInputButtonLabel != null ? !mManualInputButtonLabel.equals(that.mManualInputButtonLabel) : that.mManualInputButtonLabel != null)
+        if (mMainColor != that.mMainColor) return false;
+        if (!Objects.equals(mHint, that.mHint)) return false;
+        if (!Objects.equals(mTitle, that.mTitle)) return false;
+        if (!Objects.equals(mManualInputButtonLabel, that.mManualInputButtonLabel))
             return false;
-        return mLottieJsonAnimation != null ? mLottieJsonAnimation.equals(that.mLottieJsonAnimation) : that.mLottieJsonAnimation == null;
+        if (!Objects.equals(mLottieJsonAnimation, that.mLottieJsonAnimation))
+            return false;
+        return Objects.equals(mBottomHint, that.mBottomHint);
     }
 
     @Override
@@ -116,47 +183,8 @@ public final class ScanCardRequest implements Parcelable {
         result = 31 * result + (mTitle != null ? mTitle.hashCode() : 0);
         result = 31 * result + (mManualInputButtonLabel != null ? mManualInputButtonLabel.hashCode() : 0);
         result = 31 * result + (mLottieJsonAnimation != null ? mLottieJsonAnimation.hashCode() : 0);
+        result = 31 * result + mMainColor;
+        result = 31 * result + (mBottomHint != null ? mBottomHint.hashCode() : 0);
         return result;
     }
-
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeByte(this.mEnableVibration ? (byte) 1 : (byte) 0);
-        dest.writeByte(this.mScanExpirationDate ? (byte) 1 : (byte) 0);
-        dest.writeByte(this.mScanCardHolder ? (byte) 1 : (byte) 0);
-        dest.writeByte(this.mGrabCardImage ? (byte) 1 : (byte) 0);
-        dest.writeString(this.mHint);
-        dest.writeString(this.mTitle);
-        dest.writeString(this.mManualInputButtonLabel);
-        dest.writeString(this.mLottieJsonAnimation);
-    }
-
-    private ScanCardRequest(Parcel in) {
-        this.mEnableVibration = in.readByte() != 0;
-        this.mScanExpirationDate = in.readByte() != 0;
-        this.mScanCardHolder = in.readByte() != 0;
-        this.mGrabCardImage = in.readByte() != 0;
-        this.mHint = in.readString();
-        this.mTitle = in.readString();
-        this.mManualInputButtonLabel = in.readString();
-        this.mLottieJsonAnimation = in.readString();
-    }
-
-    public static final Creator<ScanCardRequest> CREATOR = new Creator<ScanCardRequest>() {
-        @Override
-        public ScanCardRequest createFromParcel(Parcel source) {
-            return new ScanCardRequest(source);
-        }
-
-        @Override
-        public ScanCardRequest[] newArray(int size) {
-            return new ScanCardRequest[size];
-        }
-    };
 }

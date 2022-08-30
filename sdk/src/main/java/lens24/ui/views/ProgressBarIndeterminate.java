@@ -2,10 +2,11 @@ package lens24.ui.views;
 
 import android.animation.Animator;
 import android.content.Context;
-import androidx.annotation.RestrictTo;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ProgressBar;
+
+import androidx.annotation.RestrictTo;
 
 @RestrictTo(RestrictTo.Scope.LIBRARY)
 public class ProgressBarIndeterminate extends ProgressBar {
@@ -29,6 +30,11 @@ public class ProgressBarIndeterminate extends ProgressBar {
         if (v == View.VISIBLE) {
             setAlpha(1);
         }
+    }
+
+    public void setColor(int color) {
+        getIndeterminateDrawable().setColorFilter(color,
+                android.graphics.PorterDuff.Mode.MULTIPLY);
     }
 
     public void hideSlow() {

@@ -42,17 +42,18 @@ public final class InitLibraryFragment extends Fragment {
     private LottieAnimationView mLottieView;
     private CameraPreviewLayout mCameraPreviewLayout;
     private ViewGroup mMainContent;
-    private Button enterManuallyButton;
+    private Button bEnterManually;
 
     private DeployCoreTask mDeployCoreTask;
 
-    private String mLottieJsonAnimation;
+    private ScanCardRequest mScanCardRequest;
 
     public InitLibraryFragment() {
+        this.mScanCardRequest = ScanCardRequest.getDefault();
     }
 
-    public InitLibraryFragment(String lottieJsonAnimation) {
-        this.mLottieJsonAnimation = lottieJsonAnimation;
+    public InitLibraryFragment(ScanCardRequest scanCardRequest) {
+        this.mScanCardRequest = scanCardRequest;
     }
 
     @Override
@@ -74,10 +75,11 @@ public final class InitLibraryFragment extends Fragment {
         mProgressBar = root.findViewById(R.id.progress_bar);
         mLottieView = root.findViewById(R.id.lottieView);
         mCameraPreviewLayout = root.findViewById(R.id.card_recognition_view);
+        bEnterManually = root.findViewById(R.id.bManual);
 
-        enterManuallyButton = root.findViewById(R.id.bManual);
+        mProgressBar.setColor(mScanCardRequest.getMainColor());
 
-        enterManuallyButton.setOnClickListener(v -> {
+        bEnterManually.setOnClickListener(v -> {
             if (mListener != null)
                 mListener.onScanCardCanceled(ScanCardIntent.ADD_MANUALLY_PRESSED);
         });
@@ -92,6 +94,7 @@ public final class InitLibraryFragment extends Fragment {
         mCameraPreviewLayout.setVisibility(View.VISIBLE);
         mCameraPreviewLayout.getSurfaceView().setVisibility(View.GONE);
         mCameraPreviewLayout.setBackgroundColor(Color.BLACK);
+        mCameraPreviewLayout.setMainColor(mScanCardRequest.getMainColor());
     }
 
     @Override
@@ -122,8 +125,8 @@ public final class InitLibraryFragment extends Fragment {
     }
 
     private void showLoader(boolean enable) {
-        if (mLottieJsonAnimation != null) {
-            mLottieView.setAnimationFromJson(mLottieJsonAnimation, null);
+        if (mScanCardRequest.getLottieJsonAnimation() != null) {
+            mLottieView.setAnimationFromJson(mScanCardRequest.getLottieJsonAnimation(), null);
             mLottieView.setVisibility(enable ? View.VISIBLE : View.GONE);
         } else {
             if (enable) {

@@ -9,6 +9,8 @@ import java.lang.annotation.RetentionPolicy;
 
 import androidx.annotation.IntDef;
 import androidx.annotation.RestrictTo;
+import androidx.core.content.ContextCompat;
+import lens24.sdk.R;
 import lens24.ui.ScanCardActivity;
 import lens24.ui.ScanCardRequest;
 
@@ -57,7 +59,11 @@ public final class ScanCardIntent {
 
         private String mManualInputButton;
 
-        private String lottieJsonAnimation;
+        private String mLottieJsonAnimation;
+
+        private int mMainColor;
+
+        private String mBottomHint;
 
         public Builder(Context context) {
             mContext = context;
@@ -137,14 +143,46 @@ public final class ScanCardIntent {
          *                      <b>null</b>
          */
         public Builder setLottieJsonAnimation(String jsonAnimation) {
-            lottieJsonAnimation = jsonAnimation;
+            mLottieJsonAnimation = jsonAnimation;
+            return this;
+        }
+
+        /**
+         * Defines main color of UI.
+         *
+         * @param mainColor Defines color of frame borders, frame lines, button text and
+         *                  progressBar. Default:
+         *                  <b>#8DC641</b>
+         */
+        public Builder setMainColor(int mainColor) {
+            mMainColor = mainColor;
+            return this;
+        }
+
+        /**
+         * Defines bottom hint below card frame.
+         *
+         * @param text Defines hint text under card frame. Default: <b>null</b>
+         */
+        public Builder setBottomHint(String text) {
+            mBottomHint = text;
             return this;
         }
 
         public Intent build() {
             Intent intent = new Intent(mContext, ScanCardActivity.class);
-            ScanCardRequest request = new ScanCardRequest(mEnableVibration, mScanExpirationDate,
-                    mScanCardHolder, mGrabCardImage, mHint, mTitle, mManualInputButton, lottieJsonAnimation);
+            ScanCardRequest request = new ScanCardRequest(
+                    mEnableVibration,
+                    mScanExpirationDate,
+                    mScanCardHolder,
+                    mGrabCardImage,
+                    mHint,
+                    mTitle,
+                    mManualInputButton,
+                    mLottieJsonAnimation,
+                    ContextCompat.getColor(mContext, mMainColor == 0 ? R.color.primary_color : mMainColor),
+                    mBottomHint
+            );
             intent.putExtra(KEY_SCAN_CARD_REQUEST, request);
 
             return intent;
