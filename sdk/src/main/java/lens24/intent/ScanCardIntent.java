@@ -118,7 +118,7 @@ public final class ScanCardIntent {
         /**
          * Defines toolbar title.
          *
-         * @param text Defines toolbar title text. Default: <b>R.string.title</b>
+         * @param text Defines toolbar title text. Default: <b>null</b>
          */
         public Builder setToolbarTitle(String text) {
             mTitle = text;
@@ -128,8 +128,8 @@ public final class ScanCardIntent {
         /**
          * Defines if the manual input button exists.
          *
-         * @param label Defines manual input button text. If null there will not be a button.
-         *              Default: <b>null</b>
+         * @param label Defines manual input button text. If null button will be invisible. Default:
+         *              <b>null</b>
          */
         public Builder setManualInputButtonText(String label) {
             mManualInputButton = label;
@@ -151,7 +151,7 @@ public final class ScanCardIntent {
          * Defines main color of UI.
          *
          * @param mainColor Defines color of frame borders, frame lines, button text and
-         *                  progressBar. Default:
+         *                  progressBar. Not recommended to use color with transparency. Default:
          *                  <b>#8DC641</b>
          */
         public Builder setMainColor(int mainColor) {
