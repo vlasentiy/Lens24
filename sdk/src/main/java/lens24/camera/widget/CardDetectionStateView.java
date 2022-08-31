@@ -173,9 +173,9 @@ public class CardDetectionStateView extends View {
 
     public Bitmap changeBitmapColor(Bitmap sourceBitmap, int color) {
         //// weird bug, does not change drawable color, so need to change color of bitmap
-        if (Build.MANUFACTURER.equalsIgnoreCase("xiaomi") &&
-                (Build.VERSION.SDK_INT <= Build.VERSION_CODES.M)) {
-
+        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.M) {
+            return sourceBitmap;
+        } else {
             Bitmap resultBitmap = sourceBitmap.copy(sourceBitmap.getConfig(), true);
             Paint paint = new Paint();
             ColorFilter filter = new LightingColorFilter(color, 1);
@@ -184,8 +184,6 @@ public class CardDetectionStateView extends View {
             canvas.drawBitmap(resultBitmap, 0, 0, paint);
 
             return resultBitmap;
-        } else {
-            return sourceBitmap;
         }
     }
 

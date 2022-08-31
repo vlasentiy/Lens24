@@ -62,6 +62,17 @@
         app:lottie_loop="true"
         tools:visibility="visible" />
 
+    <View
+        android:id="@+id/view"
+        android:layout_width="wrap_content"
+        android:layout_height="56dp"
+        android:layout_gravity="bottom|center"
+        android:background="@drawable/toolbar_gradient"
+        android:rotation="180"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <Button
         android:id="@+id/bManual"
         android:layout_width="match_parent"
