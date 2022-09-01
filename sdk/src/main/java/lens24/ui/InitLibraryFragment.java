@@ -69,13 +69,13 @@ public final class InitLibraryFragment extends Fragment {
     @NonNull
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.fragment_scan_card, container, false);
+        View root = inflater.inflate(R.layout.lens24_fragment_scan_card, container, false);
 
-        mMainContent = root.findViewById(R.id.main_content);
-        mProgressBar = root.findViewById(R.id.progress_bar);
-        mLottieView = root.findViewById(R.id.lottieView);
+        mMainContent = root.findViewById(R.id.lens24_main_content);
+        mProgressBar = root.findViewById(R.id.lens24_progress_bar);
+        mLottieView = root.findViewById(R.id.lens24_lottieView);
         mCameraPreviewLayout = root.findViewById(R.id.card_recognition_view);
-        bEnterManually = root.findViewById(R.id.bManual);
+        bEnterManually = root.findViewById(R.id.lens24_bManual);
 
         mProgressBar.setColor(mScanCardRequest.getMainColor());
 

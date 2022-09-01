@@ -4,8 +4,8 @@
 
     <item
         android:id="@+id/flash"
-        android:icon="@drawable/ic_flash_off"
+        android:icon="@drawable/lens24_ic_flash_off"
         app:showAsAction="always"
-        android:contentDescription="@string/toggle_flash"
-        android:title="@string/toggle_flash" />
+        android:contentDescription="@string/lens24_toggle_flash"
+        android:title="@string/lens24_toggle_flash" />
 </menu>

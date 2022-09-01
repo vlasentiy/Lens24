@@ -275,9 +275,9 @@ public final class CameraPreviewLayout extends FrameLayout {
             // inflation.  This is not needed if you don't care about
             // changing the layout behavior in XML.
             @SuppressLint("CustomViewStyleable")
-            TypedArray a = c.obtainStyledAttributes(attrs, R.styleable.cameraPreviewLayout_Layout);
-            if (a.hasValue(R.styleable.cameraPreviewLayout_Layout_layout_cardAlignGravity)) {
-                cardGravity = a.getInt(R.styleable.cameraPreviewLayout_Layout_layout_cardAlignGravity, Gravity.CENTER);
+            TypedArray a = c.obtainStyledAttributes(attrs, R.styleable.lens24_cameraPreviewLayout_Layout);
+            if (a.hasValue(R.styleable.lens24_cameraPreviewLayout_Layout_lens24_layout_cardAlignGravity)) {
+                cardGravity = a.getInt(R.styleable.lens24_cameraPreviewLayout_Layout_lens24_layout_cardAlignGravity, Gravity.CENTER);
             }
             a.recycle();
         }

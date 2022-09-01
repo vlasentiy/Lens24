@@ -2,22 +2,22 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/fl"
+    android:id="@+id/lens24_fl"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:keepScreenOn="true"
     tools:context="lens24.ui.ScanCardActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/main_content"
+        android:id="@+id/lens24_main_content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="invisible"
         tools:visibility="visible">
 
         <include
-            android:id="@+id/include"
-            layout="@layout/include_card_detection_layout"
+            android:id="@+id/lens24_include"
+            layout="@layout/lens24_include_card_detection_layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -26,10 +26,10 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
+            android:id="@+id/lens24_toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/toolbar_gradient"
+            android:background="@drawable/lens24_toolbar_gradient"
             app:contentInsetLeft="16dp"
             app:contentInsetStart="16dp"
             app:contentInsetStartWithNavigation="0dp"
@@ -37,15 +37,15 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:navigationContentDescription="@android:string/cancel"
-            app:subtitleTextAppearance="@style/ScannerToolbarTitleStyle"
+            app:subtitleTextAppearance="@style/lens24_ScannerToolbarTitleStyle"
             app:titleMarginStart="8dp"
-            app:titleTextAppearance="@style/ScannerToolbarTitleStyle"
-            tools:title="@string/title" />
+            app:titleTextAppearance="@style/lens24_ScannerToolbarTitleStyle"
+            tools:title="@string/lens24_title" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <lens24.ui.views.ProgressBarIndeterminate
-        android:id="@+id/progress_bar"
+        android:id="@+id/lens24_progress_bar"
         android:layout_width="64dp"
         android:layout_height="64dp"
         android:layout_gravity="center"
@@ -53,7 +53,7 @@
         tools:visibility="visible" />
 
     <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/lottieView"
+        android:id="@+id/lens24_lottieView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -63,18 +63,18 @@
         tools:visibility="visible" />
 
     <View
-        android:id="@+id/view"
+        android:id="@+id/lens24_view"
         android:layout_width="wrap_content"
         android:layout_height="56dp"
         android:layout_gravity="bottom|center"
-        android:background="@drawable/toolbar_gradient"
+        android:background="@drawable/lens24_toolbar_gradient"
         android:rotation="180"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/bManual"
+        android:id="@+id/lens24_bManual"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_gravity="bottom|center"
@@ -83,17 +83,17 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="16dp"
-        android:background="@drawable/ripple_background"
+        android:background="@drawable/lens24_ripple_background"
         android:enabled="false"
         android:textAllCaps="false"
-        android:textColor="@color/accent_color"
+        android:textColor="@color/lens24_accent_color"
         android:textSize="16sp"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/main_content"
-        app:layout_constraintStart_toEndOf="@+id/main_content"
+        app:layout_constraintEnd_toStartOf="@+id/lens24_main_content"
+        app:layout_constraintStart_toEndOf="@+id/lens24_main_content"
         tools:ignore="TouchTargetSizeCheck"
-        tools:text="@string/button_enter_card_number"
+        tools:text="@string/lens24_button_enter_card_number"
         tools:visibility="visible" />
 
 </FrameLayout>

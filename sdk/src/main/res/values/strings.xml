@@ -1,8 +1,6 @@
 <resources>
-    <!-- Scan Card screen -->
-    <string name="hint_position_card_in_frame">Position your card in this frame</string>
-    <string name="button_enter_card_number">Enter card details manually</string>
-    <string name="toggle_flash">Toggle flash</string>
-    <string name="title">Scan card</string>
-
+    <string name="lens24_hint_position_card_in_frame">Position your card in this frame</string>
+    <string name="lens24_button_enter_card_number">Enter card details manually</string>
+    <string name="lens24_toggle_flash">Toggle flash</string>
+    <string name="lens24_title">Scan card</string>
 </resources>

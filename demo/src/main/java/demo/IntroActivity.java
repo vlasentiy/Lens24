@@ -16,7 +16,7 @@ public class IntroActivity extends AppCompatActivity {
         setContentView(R.layout.activity_intro);
 
         findViewById(R.id.button_next).setOnClickListener(view -> goToCardDetails());
-        LottieAnimationView lottie = findViewById(R.id.lottieView);
+        LottieAnimationView lottie = findViewById(R.id.lens24_lottieView);
         lottie.setOnLongClickListener(view -> {
             lottie.playAnimation();
             return true;

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <declare-styleable name="cameraPreviewLayout_Layout">
-        <attr name="layout_cardAlignGravity">
+    <declare-styleable name="lens24_cameraPreviewLayout_Layout">
+        <attr name="lens24_layout_cardAlignGravity">
             <!-- Push object to the top of its container, not changing its size. -->
             <flag name="top" value="0x30" />
             <!-- Push object to the bottom of its container, not changing its size. -->

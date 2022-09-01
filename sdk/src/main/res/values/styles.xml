@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Theme.Base" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="colorPrimary">@color/primary_color</item>
-        <item name="colorPrimaryDark">@color/primary_color_dark</item>
-        <item name="colorAccent">@color/accent_color</item>
-        <item name="android:windowBackground">@color/default_window_background</item>
+    <style name="lens24_Theme.Base" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/lens24_primary_color</item>
+        <item name="colorPrimaryDark">@color/lens24_primary_color_dark</item>
+        <item name="colorAccent">@color/lens24_accent_color</item>
+        <item name="android:windowBackground">@color/lens24_default_window_background</item>
     </style>
 
-    <style name="Theme.TransparentStatusBar" parent="Theme.Base" />
+    <style name="lens24_Theme.TransparentStatusBar" parent="lens24_Theme.Base" />
 
-    <style name="Theme" parent="Theme.TransparentStatusBar" />
+    <style name="lens24_Theme" parent="lens24_Theme.TransparentStatusBar" />
 
-    <style name="ScannerToolbarTitleStyle">
+    <style name="lens24_ScannerToolbarTitleStyle">
         <item name="android:textSize">20sp</item>
         <item name="fontFamily">sans-serif-medium</item>
         <item name="android:textColor">#FFFFFF</item>

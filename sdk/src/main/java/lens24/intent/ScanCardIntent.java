@@ -7,6 +7,7 @@ import android.content.Intent;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
+import androidx.annotation.ColorRes;
 import androidx.annotation.IntDef;
 import androidx.annotation.RestrictTo;
 import androidx.core.content.ContextCompat;
@@ -154,7 +155,7 @@ public final class ScanCardIntent {
          *                  progressBar. Not recommended to use color with transparency. Default:
          *                  <b>#8DC641</b>
          */
-        public Builder setMainColor(int mainColor) {
+        public Builder setMainColor(@ColorRes int mainColor) {
             mMainColor = mainColor;
             return this;
         }
@@ -180,7 +181,7 @@ public final class ScanCardIntent {
                     mTitle,
                     mManualInputButton,
                     mLottieJsonAnimation,
-                    ContextCompat.getColor(mContext, mMainColor == 0 ? R.color.primary_color : mMainColor),
+                    ContextCompat.getColor(mContext, mMainColor == 0 ? R.color.lens24_primary_color : mMainColor),
                     mBottomHint
             );
             intent.putExtra(KEY_SCAN_CARD_REQUEST, request);

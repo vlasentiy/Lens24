@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="Theme.TransparentStatusBar" parent="Theme.Base">
+    <style name="lens24_Theme.TransparentStatusBar" parent="lens24_Theme.Base">
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="windowNoTitle">true</item>

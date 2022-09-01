@@ -16,7 +16,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:showIn="@layout/fragment_scan_card">
+        tools:showIn="@layout/lens24_fragment_scan_card">
 
         <SurfaceView
             android:id="@+id/surface_view"
@@ -43,9 +43,9 @@
             android:padding="24dp"
             android:textColor="@android:color/white"
             android:textSize="16dp"
-            app:layout_cardAlignGravity="top|center_horizontal"
+            app:lens24_layout_cardAlignGravity="top|center_horizontal"
             tools:ignore="SpUsage"
-            tools:text="@string/hint_position_card_in_frame" />
+            tools:text="@string/lens24_hint_position_card_in_frame" />
 
         <TextView
             android:id="@+id/tvBottomHint"
@@ -56,9 +56,9 @@
             android:textColor="@android:color/white"
             android:textSize="16dp"
             android:visibility="gone"
-            app:layout_cardAlignGravity="bottom|center_horizontal"
+            app:lens24_layout_cardAlignGravity="bottom|center_horizontal"
             tools:ignore="SpUsage"
-            tools:text="@string/hint_position_card_in_frame"
+            tools:text="@string/lens24_hint_position_card_in_frame"
             tools:visibility="visible" />
 
     </lens24.camera.widget.CameraPreviewLayout>

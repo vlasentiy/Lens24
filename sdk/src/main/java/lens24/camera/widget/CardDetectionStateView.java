@@ -107,14 +107,14 @@ public class CardDetectionStateView extends View {
 
         mCardFrame = new CardRectCoordsMapper();
 
-        int mBackgroundDrawableColor = context.getResources().getColor(R.color.card_shadow_color);
+        int mBackgroundDrawableColor = context.getResources().getColor(R.color.lens24_card_shadow_color);
 
         mCornerPaddingTop = density * RECT_CORNER_PADDING_TOP;
         mCornerPaddingLeft = density * RECT_CORNER_PADDING_LEFT;
         mCornerLineWidth = density * RECT_CORNER_LINE_STROKE_WIDTH;
         mCornerRadius = density * RECT_CORNER_RADIUS;
 
-        mCardGradientDrawable = ContextCompat.getDrawable(context, R.drawable.frame_rect_gradient);
+        mCardGradientDrawable = ContextCompat.getDrawable(context, R.drawable.lens24_frame_rect_gradient);
 
         initCornerDrawables(context);
         initLineDrawables(context);
@@ -197,7 +197,7 @@ public class CardDetectionStateView extends View {
     }
 
     private void initCornerDrawables(Context context) {
-        Drawable topLeftCorner = getTintedDrawable(context, R.drawable.ic_top_left_rounded_corner, mainColor);
+        Drawable topLeftCorner = getTintedDrawable(context, R.drawable.lens24_ic_top_left_rounded_corner, mainColor);
         Matrix m = new Matrix();
 
         Bitmap bitmap = changeBitmapColor(drawableToBitmap(topLeftCorner), mainColor);

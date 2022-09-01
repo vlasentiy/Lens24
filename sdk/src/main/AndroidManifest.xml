@@ -19,7 +19,7 @@
         <activity
             android:name="lens24.ui.ScanCardActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme" />
+            android:theme="@style/lens24_Theme" />
     </application>
 
 

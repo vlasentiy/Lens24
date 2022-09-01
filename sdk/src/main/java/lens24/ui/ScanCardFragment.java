@@ -103,10 +103,10 @@ public class ScanCardFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.fragment_scan_card, container, false);
+        View root = inflater.inflate(R.layout.lens24_fragment_scan_card, container, false);
 
         mCameraPreviewLayout = root.findViewById(R.id.card_recognition_view);
-        mMainContent = root.findViewById(R.id.main_content);
+        mMainContent = root.findViewById(R.id.lens24_main_content);
 
         initView(root);
         showMainContent();
@@ -184,7 +184,7 @@ public class ScanCardFragment extends Fragment {
                 MenuItem menuItem = toolbarMenu != null ? toolbarMenu.findItem(R.id.flash) : null;
                 if (getContext() != null && menuItem != null) {
                     new Handler(Looper.getMainLooper()).post(() ->
-                            menuItem.setIcon(ContextCompat.getDrawable(getContext(), turnTorchOn ? R.drawable.ic_flash_on : R.drawable.ic_flash_off)));
+                            menuItem.setIcon(ContextCompat.getDrawable(getContext(), turnTorchOn ? R.drawable.lens24_ic_flash_on : R.drawable.lens24_ic_flash_off)));
                 }
             }
 
@@ -235,7 +235,7 @@ public class ScanCardFragment extends Fragment {
     }
 
     private void initView(View view) {
-        bManual = view.findViewById(R.id.bManual);
+        bManual = view.findViewById(R.id.lens24_bManual);
         bManual.setOnClickListener(v -> {
             if (v.isEnabled()) {
                 v.setEnabled(false);
@@ -260,14 +260,14 @@ public class ScanCardFragment extends Fragment {
     }
 
     private void initToolbar(View view) {
-        Toolbar mToolbar = view.findViewById(R.id.toolbar);
+        Toolbar mToolbar = view.findViewById(R.id.lens24_toolbar);
         mToolbar.setTitle(mRequest.getTitle() == null ? "" : mRequest.getTitle());
         AppCompatActivity appCompatActivity = ((AppCompatActivity) getActivity());
         appCompatActivity.setSupportActionBar(mToolbar);
         appCompatActivity.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         appCompatActivity.getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-        mToolbar.setNavigationIcon(R.drawable.ic_close);
+        mToolbar.setNavigationIcon(R.drawable.lens24_ic_close);
         mToolbar.setNavigationOnClickListener(v -> {
             if (mListener != null)
                 mListener.onScanCardCanceled(ScanCardIntent.BACK_PRESSED);
@@ -285,7 +285,7 @@ public class ScanCardFragment extends Fragment {
 
     @Override
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
-        inflater.inflate(R.menu.menu, menu);
+        inflater.inflate(R.menu.lens24_menu, menu);
         toolbarMenu = menu;
         super.onCreateOptionsMenu(menu, inflater);
     }
