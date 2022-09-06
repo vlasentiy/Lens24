@@ -28,7 +28,7 @@ public:
     virtual shared_ptr<INeuralNetworkResultList> Process(cv::Mat& frame, vector<cv::Mat>& samples, std::string& postprocessedName) = 0;
     virtual bool Deploy() = 0;
     
-    virtual void SetRecognitionMode(PayCardsRecognizerMode flag) = 0;
+    virtual void SetRecognitionMode(Lens24RecognizerMode flag) = 0;
     
     virtual void SetDelegate(const shared_ptr<IRecognitionCoreDelegate>& delegate) = 0;
     

@@ -28,7 +28,7 @@ public:
     virtual shared_ptr<INeuralNetworkResultList> Process(cv::Mat& frame, vector<cv::Mat>& samples, cv::Rect& boundingRect);
     virtual bool Deploy();
 
-    virtual void SetRecognitionMode(PayCardsRecognizerMode flag);
+    virtual void SetRecognitionMode(Lens24RecognizerMode flag);
     
     virtual void SetPathDateRecognitionModel(const string& path);
     virtual void SetPathDateRecognitionStruct(const string& path);
@@ -77,7 +77,7 @@ private:
     string _pathDateLocalization1Struct;
     string _pathDateLocalizationViola;
     
-    PayCardsRecognizerMode _mode;
+    Lens24RecognizerMode _mode;
 };
 
 

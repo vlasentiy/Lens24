@@ -24,7 +24,7 @@ public:
 
     virtual Rect GetInternalWindowRect() const;
     
-    virtual const Rect CalcWorkingArea(Size frameSize, int captureAreaWidth, PayCardsRecognizerOrientation orienation);
+    virtual const Rect CalcWorkingArea(Size frameSize, int captureAreaWidth, Lens24RecognizerOrientation orienation);
     virtual const DetectedLineFlags DetectEdges(Mat& rawFrame, vector<ParametricLine>& edges, Mat& resultFrame);
     
 private:
@@ -39,7 +39,7 @@ private:
 
     Rect _internalWindowRect;
     
-    PayCardsRecognizerOrientation _orientation;
+    Lens24RecognizerOrientation _orientation;
 };
 
 #endif /* EdgeDetector_h */

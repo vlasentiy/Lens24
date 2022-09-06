@@ -39,7 +39,7 @@ public:
                             const shared_ptr<IRecognitionCoreDelegate>& recognitionDelegate,
                             const shared_ptr<ITorchDelegate>& torchDelegate);
     
-    virtual void SetRecognitionMode(PayCardsRecognizerMode flag) = 0;
+    virtual void SetRecognitionMode(Lens24RecognizerMode flag) = 0;
     
     virtual void Deploy() = 0;
     
@@ -73,7 +73,7 @@ public:
     
     virtual void SetPathNameListTxt(const string& path) = 0;
     
-    virtual void SetOrientation(PayCardsRecognizerOrientation orientation) = 0;
+    virtual void SetOrientation(Lens24RecognizerOrientation orientation) = 0;
     
 
     virtual bool IsIdle() const = 0;

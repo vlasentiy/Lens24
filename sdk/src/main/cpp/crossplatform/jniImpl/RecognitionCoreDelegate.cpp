@@ -69,7 +69,7 @@ CRecognitionCoreDelegate::CRecognitionCoreDelegate(void * env)
 
 }
 
-void CRecognitionCoreDelegate::RecognitionDidFinish(const shared_ptr<IRecognitionResult> &result, PayCardsRecognizerMode resultFlags)
+void CRecognitionCoreDelegate::RecognitionDidFinish(const shared_ptr<IRecognitionResult> &result, Lens24RecognizerMode resultFlags)
 {
     JNIEnv *jenv = nullptr;
     jstring jnumber = nullptr;
@@ -86,10 +86,10 @@ void CRecognitionCoreDelegate::RecognitionDidFinish(const shared_ptr<IRecognitio
 
     try {
         // isFirst
-        jisFirst = (jboolean) (resultFlags & PayCardsRecognizerModeNumber ? JNI_TRUE : JNI_FALSE);
+        jisFirst = (jboolean) (resultFlags & Lens24RecognizerModeNumber ? JNI_TRUE : JNI_FALSE);
 
         // isFinal
-        jisFinal = (jboolean) (resultFlags & PayCardsRecognizerModeName ? JNI_TRUE : JNI_FALSE);
+        jisFinal = (jboolean) (resultFlags & Lens24RecognizerModeName ? JNI_TRUE : JNI_FALSE);
 
         // number
         shared_ptr<INeuralNetworkResultList> numberResult = result->GetNumberResult();

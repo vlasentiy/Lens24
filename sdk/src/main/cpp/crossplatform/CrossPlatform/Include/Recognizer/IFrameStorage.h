@@ -36,18 +36,18 @@ public:
     
 public:
 
-    virtual bool SetRawFrame(const Mat& rawFrame, const vector<ParametricLine>& edges, PayCardsRecognizerOrientation orientation) = 0;
+    virtual bool SetRawFrame(const Mat& rawFrame, const vector<ParametricLine>& edges, Lens24RecognizerOrientation orientation) = 0;
     
     virtual bool NormalizeMatrix(const Mat& matrix, const vector<ParametricLine>& edges, Mat& resultMatrix) = 0;
     
-    virtual void SetRawY(const void* rawY, const void* rawUV, const vector<ParametricLine>& edges, PayCardsRecognizerOrientation orientation) = 0;
+    virtual void SetRawY(const void* rawY, const void* rawUV, const vector<ParametricLine>& edges, Lens24RecognizerOrientation orientation) = 0;
     
     virtual bool GetCurrentFrame(Mat& mat) = 0;
     virtual void PopFrame() = 0;
     virtual const void* GetUVMat() = 0;
     virtual const void* GetYMat() = 0;
     virtual const vector<ParametricLine> GetEdges() = 0;
-    virtual const PayCardsRecognizerOrientation GetYUVOrientation() = 0;
+    virtual const Lens24RecognizerOrientation GetYUVOrientation() = 0;
 };
 
 

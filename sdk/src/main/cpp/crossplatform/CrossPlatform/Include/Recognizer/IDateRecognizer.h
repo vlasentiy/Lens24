@@ -28,7 +28,7 @@ public:
     virtual shared_ptr<INeuralNetworkResultList> Process(cv::Mat& frame, vector<cv::Mat>& samples, cv::Rect& boundingRect) = 0;
     virtual bool Deploy() = 0;
     
-    virtual void SetRecognitionMode(PayCardsRecognizerMode flag) = 0;
+    virtual void SetRecognitionMode(Lens24RecognizerMode flag) = 0;
     
     virtual void SetPathDateRecognitionModel(const string& path) = 0;
     virtual void SetPathDateRecognitionStruct(const string& path) = 0;

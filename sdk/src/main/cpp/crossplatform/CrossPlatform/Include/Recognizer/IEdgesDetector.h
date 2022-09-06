@@ -25,7 +25,7 @@ public:
     
     virtual cv::Rect GetInternalWindowRect() const = 0;
     
-    virtual const cv::Rect CalcWorkingArea(cv::Size frameSize, int captureAreaWidth, PayCardsRecognizerOrientation orientation) = 0;
+    virtual const cv::Rect CalcWorkingArea(cv::Size frameSize, int captureAreaWidth, Lens24RecognizerOrientation orientation) = 0;
     virtual const DetectedLineFlags DetectEdges(Mat& rawFrame,
                                                 vector<ParametricLine>& edges, Mat& resultFrame) = 0;
 };

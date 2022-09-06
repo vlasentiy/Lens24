@@ -24,7 +24,7 @@
 #define kVerticalAngle ((float)CV_PI)
 #define kMaxAngleDeviationAllowed ((float)(5.0f * (CV_PI / 180.0f)))
 
-CEdgesDetector::CEdgesDetector(shared_ptr<IFrameStorage> frameStorage) : _lineFlags(DetectedLineNoneFlag), _orientation(PayCardsRecognizerOrientationUnknown)
+CEdgesDetector::CEdgesDetector(shared_ptr<IFrameStorage> frameStorage) : _lineFlags(DetectedLineNoneFlag), _orientation(Lens24RecognizerOrientationUnknown)
 {
 }
 
@@ -38,7 +38,7 @@ Rect CEdgesDetector::GetInternalWindowRect() const
 }
 
 const Rect CEdgesDetector::CalcWorkingArea(Size frameSize, int captureAreaWidth,
-                                           PayCardsRecognizerOrientation orienation)
+                                           Lens24RecognizerOrientation orienation)
 {
     _orientation = orienation;
     
@@ -53,7 +53,7 @@ const Rect CEdgesDetector::CalcWorkingArea(Size frameSize, int captureAreaWidth,
     cv::Rect windowRect;
     int x, y;
     
-    if (orienation == PayCardsRecognizerOrientationPortrait || orienation == PayCardsRecognizerOrientationPortraitUpsideDown) {
+    if (orienation == Lens24RecognizerOrientationPortrait || orienation == Lens24RecognizerOrientationPortraitUpsideDown) {
         
         x = (frameSize.height - height)/2;
         y = (frameSize.width - width)/2;
@@ -74,7 +74,7 @@ const Rect CEdgesDetector::CalcWorkingArea(Size frameSize, int captureAreaWidth,
 
 const DetectedLineFlags CEdgesDetector::DetectEdges(Mat& rawFrame, vector<ParametricLine>& edges, Mat& resultFrame)
 {
-    if (_orientation == PayCardsRecognizerOrientationUnknown)
+    if (_orientation == Lens24RecognizerOrientationUnknown)
         return DetectedLineNoneFlag;
     
     const Mat windowMat = rawFrame(_internalWindowRect);
@@ -98,7 +98,7 @@ const DetectedLineFlags CEdgesDetector::DetectEdges(Mat& rawFrame, vector<Parame
     ParametricLine topLine;
     if(BestLine(&topLine, topEdge, false)) {
         
-        if (_orientation == PayCardsRecognizerOrientationPortrait || _orientation == PayCardsRecognizerOrientationPortraitUpsideDown) {
+        if (_orientation == Lens24RecognizerOrientationPortrait || _orientation == Lens24RecognizerOrientationPortraitUpsideDown) {
             _lineFlags |= DetectedLineTopFlag;
         }
         else {
@@ -109,7 +109,7 @@ const DetectedLineFlags CEdgesDetector::DetectEdges(Mat& rawFrame, vector<Parame
     ParametricLine bottomLine;
     if(BestLine(&bottomLine, bottomEdge, false)) {
         
-        if (_orientation == PayCardsRecognizerOrientationPortrait || _orientation == PayCardsRecognizerOrientationPortraitUpsideDown) {
+        if (_orientation == Lens24RecognizerOrientationPortrait || _orientation == Lens24RecognizerOrientationPortraitUpsideDown) {
             _lineFlags |= DetectedLineBottomFlag;
         }
         else {
@@ -120,7 +120,7 @@ const DetectedLineFlags CEdgesDetector::DetectEdges(Mat& rawFrame, vector<Parame
     ParametricLine leftLine;
     if(BestLine(&leftLine, leftEdge, true)) {
         
-        if (_orientation == PayCardsRecognizerOrientationPortrait || _orientation == PayCardsRecognizerOrientationPortraitUpsideDown) {
+        if (_orientation == Lens24RecognizerOrientationPortrait || _orientation == Lens24RecognizerOrientationPortraitUpsideDown) {
             _lineFlags |= DetectedLineLeftFlag;
         }
         else {
@@ -131,7 +131,7 @@ const DetectedLineFlags CEdgesDetector::DetectEdges(Mat& rawFrame, vector<Parame
     ParametricLine rightLine;
     if(BestLine(&rightLine, rightEdge, true)) {
         
-        if (_orientation == PayCardsRecognizerOrientationPortrait || _orientation == PayCardsRecognizerOrientationPortraitUpsideDown) {
+        if (_orientation == Lens24RecognizerOrientationPortrait || _orientation == Lens24RecognizerOrientationPortraitUpsideDown) {
             _lineFlags |= DetectedLineRightFlag;
         }
         else {

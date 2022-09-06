@@ -39,7 +39,7 @@ CNumberRecognizer::~CNumberRecognizer()
 {
 }
 
-void CNumberRecognizer::SetRecognitionMode(PayCardsRecognizerMode flag)
+void CNumberRecognizer::SetRecognitionMode(Lens24RecognizerMode flag)
 {
     _mode = flag;
 }

@@ -9,21 +9,21 @@
 #ifndef Enums_h
 #define Enums_h
 
-typedef enum PayCardsRecognizerOrientation {
-    PayCardsRecognizerOrientationUnknown = 0,
-    PayCardsRecognizerOrientationPortrait = 1,
-    PayCardsRecognizerOrientationPortraitUpsideDown = 2,
-    PayCardsRecognizerOrientationLandscapeRight = 3,
-    PayCardsRecognizerOrientationLandscapeLeft = 4
-} PayCardsRecognizerOrientation;
+typedef enum Lens24RecognizerOrientation {
+    Lens24RecognizerOrientationUnknown = 0,
+    Lens24RecognizerOrientationPortrait = 1,
+    Lens24RecognizerOrientationPortraitUpsideDown = 2,
+    Lens24RecognizerOrientationLandscapeRight = 3,
+    Lens24RecognizerOrientationLandscapeLeft = 4
+} Lens24RecognizerOrientation;
 
-typedef enum PayCardsRecognizerMode {
-    PayCardsRecognizerModeNone = 0,
-    PayCardsRecognizerModeNumber = 1,
-    PayCardsRecognizerModeDate = 2,
-    PayCardsRecognizerModeName = 4,
-    PayCardsRecognizerModeGrabCardImage = 8
-} PayCardsRecognizerMode;
+typedef enum Lens24RecognizerMode {
+    Lens24RecognizerModeNone = 0,
+    Lens24RecognizerModeNumber = 1,
+    Lens24RecognizerModeDate = 2,
+    Lens24RecognizerModeName = 4,
+    Lens24RecognizerModeGrabCardImage = 8
+} Lens24RecognizerMode;
 
 
 #endif /* Enums_h */

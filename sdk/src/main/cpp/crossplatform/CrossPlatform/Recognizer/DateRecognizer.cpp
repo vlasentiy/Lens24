@@ -25,7 +25,7 @@ CDateRecognizer::~CDateRecognizer()
 {
 }
 
-void CDateRecognizer::SetRecognitionMode(PayCardsRecognizerMode flag)
+void CDateRecognizer::SetRecognitionMode(Lens24RecognizerMode flag)
 {
     _mode = flag;
 }

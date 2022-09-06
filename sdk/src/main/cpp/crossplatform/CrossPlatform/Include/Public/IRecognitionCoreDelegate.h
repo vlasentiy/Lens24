@@ -27,7 +27,7 @@ public:
     
     static bool GetInstance(shared_ptr<IRecognitionCoreDelegate> &recognitionDelegate, void* platformDelegate = NULL, void* recognizer = NULL);
     
-    virtual void RecognitionDidFinish(const shared_ptr<IRecognitionResult>& result, PayCardsRecognizerMode resultFlags) = 0;
+    virtual void RecognitionDidFinish(const shared_ptr<IRecognitionResult>& result, Lens24RecognizerMode resultFlags) = 0;
     virtual void CardImageDidExtract(cv::Mat cardImage) = 0;
     
 //    virtual void NameRecognitionDidFinish(vector<pair<cv::Mat,std::string>> result) = 0;

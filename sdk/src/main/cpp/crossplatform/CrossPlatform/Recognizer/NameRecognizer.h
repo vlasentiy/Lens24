@@ -33,7 +33,7 @@ public:
     
     virtual bool Deploy();
     
-    virtual void SetRecognitionMode(PayCardsRecognizerMode flag);
+    virtual void SetRecognitionMode(Lens24RecognizerMode flag);
     
     virtual void SetDelegate(const shared_ptr<IRecognitionCoreDelegate>& delegate);
     
@@ -73,7 +73,7 @@ private:
     string _pathNameDictPath;
     std::istringstream _namesDict;
     
-    PayCardsRecognizerMode _mode;
+    Lens24RecognizerMode _mode;
 };
 
 

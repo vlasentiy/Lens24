@@ -36,7 +36,7 @@ CNameRecognizer::~CNameRecognizer()
 {
 }
 
-void CNameRecognizer::SetRecognitionMode(PayCardsRecognizerMode flag)
+void CNameRecognizer::SetRecognitionMode(Lens24RecognizerMode flag)
 {
     _mode = flag;
 }

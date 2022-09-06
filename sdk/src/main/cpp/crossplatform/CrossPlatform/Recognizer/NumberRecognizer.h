@@ -30,7 +30,7 @@ public:
     
     virtual bool Deploy();
 
-    virtual void SetRecognitionMode(PayCardsRecognizerMode flag);
+    virtual void SetRecognitionMode(Lens24RecognizerMode flag);
     
     virtual void SetPathNumberRecognitionModel(const string& path);
     virtual void SetPathNumberRecognitionStruct(const string& path);
@@ -84,7 +84,7 @@ private:
     string _pathNumberLocalizationYModel;
     string _pathNumberLocalizationYStruct;
     
-    PayCardsRecognizerMode _mode;
+    Lens24RecognizerMode _mode;
 };
 
 #endif /* NumberRecognizer_h */
