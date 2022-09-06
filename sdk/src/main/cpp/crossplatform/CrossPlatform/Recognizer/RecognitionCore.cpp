@@ -69,12 +69,14 @@ void CRecognitionCore::SetRecognitionMode(Lens24RecognizerMode flag)
             numberRecognizer->SetRecognitionMode(flag);
         }
     }
+//// disable date recognition
     if (_mode & Lens24RecognizerModeDate) {
         _dateRecognizer = _serviceContainerPtr->resolve<IDateRecognizer>();
         if(auto dateRecognizer = _dateRecognizer.lock()) {
             dateRecognizer->SetRecognitionMode(flag);
         }
     }
+//// disable name recognition
     if (_mode & Lens24RecognizerModeName) {
         _nameRecognizer = _serviceContainerPtr->resolve<INameRecognizer>();
         if(auto nameRecognizer = _nameRecognizer.lock()) {
