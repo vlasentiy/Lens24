@@ -4,7 +4,7 @@ Lens24 library, along with the license information.
 Project: PayCards_Android
 URL: https://pay.cards/pages/sdk.html
 License: MIT License
-Reference: https://pay.cards/pages/terms.html
+Reference: https://github.com/faceterteam/PayCards_Android#license
 
 Project: Caffe
 URL: http://caffe.berkeleyvision.org/
