@@ -7,11 +7,11 @@
 
     <string name="intro_tagline">Easy way to scan and recognize credit or payment card number, holder name and expiration date offline</string>
 
-    <string name="carddetails_card_title">Card details</string>
-    <string name="carddetails_subhead">Verify and complete your card information</string>
-    <string name="carddetails_card_number_field_label">Card number</string>
-    <string name="carddetails_cardholder_field_label">Cardholder name</string>
-    <string name="carddetails_expiry_date_field_label">Expiry date</string>
+    <string name="card_details_card_title">Card details</string>
+    <string name="card_details_subhead">Verify and complete your card information</string>
+    <string name="card_details_card_number_field_label">Card number</string>
+    <string name="card_details_cardholder_field_label">Cardholder name</string>
+    <string name="card_details_expiry_date_field_label">Expiry date</string>
 
     <string name="validation_error_fill_in_expiry_date">Fill in expiration date</string>
     <string name="validation_error_invalid_expiry_date">Invalid expiration date</string>

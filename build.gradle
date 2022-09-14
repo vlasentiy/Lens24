@@ -28,12 +28,14 @@ task clean(type: Delete) {
 ext {
     // Sdk and tools
     minSdkVersion = 16
+    minDemoSdkVersion = 19
     targetSdkVersion = 32
     compileSdkVersion = 32
 
     // App dependencies
-    appCompatVersion = '1.5.0'
+    appCompatVersion = '1.5.1'
     materialVersion = '1.6.1'
     constraintlayoutVersion = '2.1.4'
     lottieVersion = '5.2.0'
+    adsVersion = '21.2.0'
 }

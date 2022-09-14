@@ -5,12 +5,13 @@ android {
 
     defaultConfig {
         applicationId "lens24.demo"
-        minSdkVersion rootProject.ext.minSdkVersion
+        minSdkVersion rootProject.ext.minDemoSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode Integer.parseInt(DEMO_APP_VERSION_CODE)
         versionName DEMO_APP_VERSION_NAME
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         resConfigs "en"
+        multiDexEnabled true
     }
     signingConfigs {
         release
@@ -44,4 +45,5 @@ dependencies {
     implementation "androidx.appcompat:appcompat:$rootProject.ext.appCompatVersion"
     implementation "com.google.android.material:material:$rootProject.ext.materialVersion"
     implementation "com.airbnb.android:lottie:$rootProject.ext.lottieVersion"
+    implementation "com.google.android.gms:play-services-ads-lite:$rootProject.ext.adsVersion"
 }

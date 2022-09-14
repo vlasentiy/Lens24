@@ -1,22 +1,17 @@
 package demo;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.google.android.material.textfield.TextInputLayout;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.os.ResultReceiver;
 import android.util.Log;
-import android.view.View;
 import android.view.WindowManager;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.EditText;
 import android.widget.Toast;
-
-import java.lang.reflect.Method;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -56,6 +51,10 @@ public class CardDetailsActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE);
         setContentView(R.layout.activity_card_details);
 
+        AdView mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
         mToolbar = findViewById(R.id.lens24_toolbar);
         mCardNumberField = findViewById(R.id.card_number_field);
         mCardholderField = findViewById(R.id.cardholder_field);
@@ -72,7 +71,6 @@ public class CardDetailsActivity extends AppCompatActivity {
 
     private void setupToolbar() {
         setSupportActionBar(mToolbar);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
         mToolbar.findViewById(R.id.button_next).setOnClickListener(view -> {
             Card card = readForm();
             ValidationResult validationResult = validateForm(card);
@@ -102,7 +100,7 @@ public class CardDetailsActivity extends AppCompatActivity {
                 }
 
                 if (reason == ScanCardIntent.ADD_MANUALLY_PRESSED) {
-                    showIme(mCardNumberField.getEditText());
+                    if (BuildConfig.DEBUG) Log.i(TAG, "reason: ADD_MANUALLY_PRESSED");
                 }
             } else if (resultCode == ScanCardIntent.RESULT_CODE_ERROR) {
                 Log.i(TAG, "Scan failed");
@@ -159,22 +157,4 @@ public class CardDetailsActivity extends AppCompatActivity {
                 .build();
         startActivityForResult(intent, REQUEST_CODE_SCAN_CARD);
     }
-
-    private static void showIme(@Nullable View view) {
-        if (view == null) return;
-        if (view instanceof EditText) view.requestFocus();
-        InputMethodManager imm = (InputMethodManager) view.getContext().getSystemService
-                (Context.INPUT_METHOD_SERVICE);
-        if (imm == null) return;
-        try {
-            Method showSoftInputUnchecked = InputMethodManager.class.getMethod(
-                    "showSoftInputUnchecked", int.class, ResultReceiver.class);
-            showSoftInputUnchecked.setAccessible(true);
-            showSoftInputUnchecked.invoke(imm, 0, null);
-        } catch (Exception e) {
-            // ho hum
-            imm.showSoftInput(view, 0);
-        }
-    }
-
 }

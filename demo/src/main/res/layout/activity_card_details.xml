@@ -1,4 +1,5 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:ads="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,18 +9,20 @@
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/lens24_toolbar"
         android:layout_width="match_parent"
-        android:layout_height="?actionBarSize">
+        android:layout_height="?actionBarSize"
+        ads:title="@string/card_details_card_title">
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/button_next"
             style="@style/Widget.AppCompat.Button.Borderless.Colored"
-            android:background="?selectableItemBackground"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="end"
             android:layout_margin="0dp"
+            android:background="?selectableItemBackground"
+            android:text="@string/validate"
             android:textAllCaps="false"
-            android:text="@string/validate" />
+            tools:ignore="TextContrastCheck" />
 
     </androidx.appcompat.widget.Toolbar>
 
@@ -32,7 +35,6 @@
         android:overScrollMode="never"
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin"
-        android:paddingBottom="@dimen/activity_vertical_margin"
         android:scrollbars="none">
 
         <LinearLayout
@@ -41,25 +43,10 @@
             android:orientation="vertical">
 
             <TextView
-                style="@style/TextAppearance.AppCompat.Display2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
-                android:layout_marginLeft="4dp"
-                android:layout_marginTop="12dp"
-                android:layout_marginBottom="12dp"
-                android:includeFontPadding="false"
-                android:text="@string/carddetails_card_title"
-                android:textColor="?android:textColorPrimary"
-                android:textSize="20sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
-                android:layout_marginLeft="4dp"
-                android:layout_marginBottom="4dp"
-                android:text="@string/carddetails_subhead" />
+                android:text="@string/card_details_subhead" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/card_number_field"
@@ -71,7 +58,7 @@
                     android:id="@+id/card_number_field_text"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
-                    android:hint="@string/carddetails_card_number_field_label"
+                    android:hint="@string/card_details_card_number_field_label"
                     tools:text="1234 5678 9012 3456" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -86,7 +73,7 @@
                     android:id="@+id/cardholder_field_text"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
-                    android:hint="@string/carddetails_cardholder_field_label"
+                    android:hint="@string/card_details_cardholder_field_label"
                     android:imeOptions="actionNext|flagNoExtractUi"
                     android:inputType="textVisiblePassword|textCapCharacters"
                     tools:text="CARDHOLDER NAME" />
@@ -103,11 +90,21 @@
                     android:id="@+id/expiry_date_field_text"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
-                    android:hint="@string/carddetails_expiry_date_field_label"
+                    android:hint="@string/card_details_expiry_date_field_label"
                     android:imeOptions="actionDone|flagNoExtractUi"
                     tools:text="02/22" />
 
             </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.gms.ads.AdView
+                android:id="@+id/adView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="16dp"
+                ads:adSize="MEDIUM_RECTANGLE"
+                ads:adUnitId="ca-app-pub-3940256099942544/6300978111">
+
+            </com.google.android.gms.ads.AdView>
 
         </LinearLayout>
 
@@ -123,5 +120,6 @@
         android:background="@drawable/ripple_button"
         android:text="@string/scan"
         android:textAllCaps="false"
-        tools:ignore="TouchTargetSizeCheck" />
+        tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
+
 </LinearLayout>
