@@ -1,5 +1,9 @@
 apply plugin: 'com.android.application'
 
+def localPropertiesFile = rootProject.file("local.properties")
+def localProperties = new Properties()
+localProperties.load(new FileInputStream(localPropertiesFile))
+
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
 
@@ -22,10 +26,14 @@ android {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             //signingConfig signingConfigs.release // Linux
+            resValue 'string', "adUnitId", localProperties['adUnitId']
+            resValue 'string', "adMobApiKey", localProperties['adMobApiKey']
         }
         debug {
             minifyEnabled false
             jniDebuggable true
+            resValue 'string', "adUnitId", localProperties['adUnitIdDebug']
+            resValue 'string', "adMobApiKey", localProperties['adMobApiKeyDebug']
         }
         profiling {
             initWith debug
