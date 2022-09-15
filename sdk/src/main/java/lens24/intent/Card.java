@@ -79,9 +79,9 @@ public class Card implements Serializable, Parcelable {
     @Override
     public String toString() {
         return "Card{" +
-                "mCardNumber='" + getCardNumberRedacted() + '\'' +
-                ", mCardHolder='" + mCardHolder + '\'' +
-                ", mExpirationDate='" + mExpirationDate + '\'' +
+                "CardNumber='" + getCardNumberRedacted() + '\'' +
+                ", CardHolder='" + mCardHolder + '\'' +
+                ", ExpirationDate='" + mExpirationDate + '\'' +
                 '}';
     }
 
@@ -104,7 +104,7 @@ public class Card implements Serializable, Parcelable {
         this.mExpirationDate = in.readString();
     }
 
-    public static final Creator<Card> CREATOR = new Creator<Card>() {
+    public static final Creator<Card> CREATOR = new Creator<>() {
         @Override
         public Card createFromParcel(Parcel source) {
             return new Card(source);

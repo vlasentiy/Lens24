@@ -49,12 +49,13 @@ public class CardDetailsActivity extends AppCompatActivity {
     ActivityResultLauncher<Intent> startActivityIntent = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
             result -> {
+                String tag = ScanCardIntent.class.getSimpleName();
                 if (result.getResultCode() == Activity.RESULT_OK) {
                     assert result.getData() != null;
                     Card card = result.getData().getParcelableExtra(ScanCardIntent.RESULT_CARD_DATA);
                     byte[] cardImage = result.getData().getByteArrayExtra(ScanCardIntent.RESULT_CARD_IMAGE);
                     Bitmap bitmap = BitmapFactory.decodeByteArray(cardImage, 0, cardImage.length);
-                    if (BuildConfig.DEBUG) Log.i(TAG, "Card info: " + card);
+                    Log.i(tag, "Card info: " + card.toString());
                     setCard(card);
                 } else if (result.getResultCode() == Activity.RESULT_CANCELED) {
                     @CancelReason final int reason;
@@ -63,12 +64,11 @@ public class CardDetailsActivity extends AppCompatActivity {
                     } else {
                         reason = ScanCardIntent.BACK_PRESSED;
                     }
-
                     if (reason == ScanCardIntent.ADD_MANUALLY_PRESSED) {
-                        if (BuildConfig.DEBUG) Log.i(TAG, "reason: ADD_MANUALLY_PRESSED");
+                        Log.i(tag, "reason: ADD_MANUALLY_PRESSED");
                     }
                 } else if (result.getResultCode() == ScanCardIntent.RESULT_CODE_ERROR) {
-                    Log.i(TAG, "Scan failed");
+                    Log.i(tag, "Scan failed");
                 }
             });
 
