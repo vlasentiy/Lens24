@@ -57,6 +57,53 @@ override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) 
 }
 ```
 
+```java
+class MyActivity extends AppCompatActivity {
+
+    ActivityResultLauncher<Intent> startActivityIntent = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            result -> {
+                if (result.getResultCode() == Activity.RESULT_OK) {
+                    assert result.getData() != null;
+                    Card card = result.getData().getParcelableExtra(ScanCardIntent.RESULT_CARD_DATA);
+                    byte[] cardImage = result.getData().getByteArrayExtra(ScanCardIntent.RESULT_CARD_IMAGE);
+                    Bitmap bitmap = BitmapFactory.decodeByteArray(cardImage, 0, cardImage.length);
+                    if (BuildConfig.DEBUG) Log.i(TAG, "Card info: " + card);
+                    setCard(card);
+                } else if (result.getResultCode() == Activity.RESULT_CANCELED) {
+                    @CancelReason final int reason;
+                    if (result.getData() != null) {
+                        reason = result.getData().getIntExtra(ScanCardIntent.RESULT_CANCEL_REASON, ScanCardIntent.BACK_PRESSED);
+                    } else {
+                        reason = ScanCardIntent.BACK_PRESSED;
+                    }
+
+                    if (reason == ScanCardIntent.ADD_MANUALLY_PRESSED) {
+                        if (BuildConfig.DEBUG) Log.i(TAG, "reason: ADD_MANUALLY_PRESSED");
+                    }
+                } else if (result.getResultCode() == ScanCardIntent.RESULT_CODE_ERROR) {
+                    Log.i(TAG, "Scan failed");
+                }
+            });
+
+    private void scanCard() {
+        Intent intent = new ScanCardIntent.Builder(this)
+                .setScanCardHolder(true)
+                .setScanExpirationDate(true)
+                .setHint(getString(R.string.hint))
+                .setToolbarTitle("Scan card")
+                .setSaveCard(true)
+                .setManualInputButtonText("Manual input")
+                .setBottomHint("bottom hint")
+                .setMainColor(R.color.primary_color_dark)
+                .setLottieJsonAnimation("lottie json data")
+                .build();
+
+        startActivityIntent.launch(intent);
+    }
+}
+```
+
 ### License
 
 ```
