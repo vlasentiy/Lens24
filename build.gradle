@@ -7,7 +7,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.2.2'
+        classpath 'com.android.tools.build:gradle:7.3.1'
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
@@ -28,13 +28,13 @@ ext {
     // Sdk and tools
     minSdkVersion = 16
     minDemoSdkVersion = 19
-    targetSdkVersion = 32
-    compileSdkVersion = 32
+    targetSdkVersion = 33
+    compileSdkVersion = 33
 
     // App dependencies
     appCompatVersion = '1.5.1'
-    materialVersion = '1.6.1'
+    materialVersion = '1.7.0'
     constraintlayoutVersion = '2.1.4'
     lottieVersion = '5.2.0'
-    adsVersion = '21.2.0'
+    adsVersion = '21.3.0'
 }

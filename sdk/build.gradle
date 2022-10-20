@@ -57,6 +57,7 @@ android {
     }
 
     resourcePrefix "lens24_"
+    namespace 'lens24.sdk'
 }
 
 dependencies {

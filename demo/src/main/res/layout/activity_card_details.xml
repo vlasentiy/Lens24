@@ -46,13 +46,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
-                android:text="@string/card_details_subhead" />
+                android:text="@string/card_details_subhead"
+                android:visibility="gone"
+                tools:visibility="gone" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/card_number_field"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp">
+                android:layout_marginTop="0dp">
 
                 <demo.widget.CardNumberEditText
                     android:id="@+id/card_number_field_text"
@@ -96,30 +98,43 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
-                android:id="@+id/adView"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="16dp"
-                ads:adSize="MEDIUM_RECTANGLE"
-                ads:adUnitId="@string/adUnitId">
+                android:layout_height="match_parent">
 
-            </com.google.android.gms.ads.AdView>
+                <com.google.android.gms.ads.AdView
+                    android:id="@+id/adView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:adSize="MEDIUM_RECTANGLE"
+                    app:adUnitId="@string/adUnitId"
+                    app:layout_constraintBottom_toTopOf="@+id/scan_button"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                </com.google.android.gms.ads.AdView>
+
+                <Button
+                    android:id="@+id/scan_button"
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/ripple_button"
+                    android:text="@string/scan"
+                    android:textAllCaps="false"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1.0"
+                    tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </LinearLayout>
 
     </ScrollView>
-
-    <Button
-        android:id="@+id/scan_button"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_gravity="center"
-        android:layout_margin="16dp"
-        android:background="@drawable/ripple_button"
-        android:text="@string/scan"
-        android:textAllCaps="false"
-        tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
 
 </LinearLayout>
