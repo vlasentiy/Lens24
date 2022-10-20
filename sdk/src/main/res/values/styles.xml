@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="lens24_Theme.Base" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="lens24_Theme.Base" parent="Theme.AppCompat.DayNight.NoActionBar">
         <item name="colorPrimary">@color/lens24_primary_color</item>
         <item name="colorPrimaryDark">@color/lens24_primary_color_dark</item>
         <item name="colorAccent">@color/lens24_accent_color</item>
