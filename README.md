@@ -1,48 +1,82 @@
 # Lens24
 
-Automatic recognition of bank card data using built-in camera on Android devices.
+Lens24 is SDK for Android that gives you ability to scan various of credit or payment cards in your app offline.
+You can easily integrate the SDK into your app by following the instructions below.
+
+Lens24 is supported on Android SDK version 16 (Android 4.1) or later.
+
+### SDK integration
+
+In your `build.gradle`, add _Lens24_ maven repository to repositories list
+
+```
+    repositories {
+        mavenCentral()
+    }
+```
+
+Add _Lens24_ as a dependency
+
+```
+dependencies {
+    implementation 'io.github.vlasentiy:lens24:1.0.0'
+}
+```
 
 ### Usage
 
 Build an Intent using the `ScanCardIntent.Builder` and start a new activity to perform the scan:
 
-Kotlin
+Kotlin:
 
 ```kotlin
 class MyActivity : AppCompatActivity {
 
-    private var startActivityIntent = registerForActivityResult(StartActivityForResult())
-    { result: ActivityResult ->
-        val tag = ScanCardIntent::class.java.simpleName
-        if (result.resultCode == Activity.RESULT_OK) {
-            val card: Card? = result.data?.getParcelableExtra(ScanCardIntent.RESULT_CARD_DATA)
-            val cardImage = result.data?.getByteArrayExtra(ScanCardIntent.RESULT_CARD_IMAGE)
-            val bitmap: Bitmap = BitmapFactory.decodeByteArray(cardImage, 0, cardImage?.size ?: 0)
-            val cardData = """
+    private var startActivityIntent =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult())
+        { result: ActivityResult ->
+            val tag = ScanCardIntent::class.java.simpleName
+
+            if (result.resultCode == Activity.RESULT_OK) {
+                val card: Card? = if (Build.VERSION.SDK_INT >= TIRAMISU) {
+                    result.data?.getParcelableExtra(
+                        ScanCardIntent.RESULT_CARD_DATA,
+                        Card::class.java
+                    )
+                } else {
+                    result.data?.getParcelableExtra(ScanCardIntent.RESULT_CARD_DATA)
+                }
+
+                val cardImage = result.data?.getByteArrayExtra(ScanCardIntent.RESULT_CARD_IMAGE)
+                val bitmap: Bitmap =
+                    BitmapFactory.decodeByteArray(cardImage, 0, cardImage?.size ?: 0)
+
+                val cardData = """
                     Card number: ${card?.cardNumberRedacted}
                     Card holder: ${card?.cardHolderName}
                     Card expiration date: ${card?.expirationDate}
                     """.trimIndent()
-            Log.i(tag, cardData)
-        } else if (result.resultCode == Activity.RESULT_CANCELED) {
-            @CancelReason val reason: Int = if (result.data != null) {
-                result.data!!.getIntExtra(
-                    ScanCardIntent.RESULT_CANCEL_REASON,
+
+                Log.i(tag, cardData)
+            } else if (result.resultCode == Activity.RESULT_CANCELED) {
+                @ScanCardIntent.CancelReason val reason: Int = if (result.data != null) {
+                    result.data!!.getIntExtra(
+                        ScanCardIntent.RESULT_CANCEL_REASON,
+                        ScanCardIntent.BACK_PRESSED
+                    )
+                } else {
                     ScanCardIntent.BACK_PRESSED
-                )
-            } else {
-                ScanCardIntent.BACK_PRESSED
+                }
+                if (reason == ScanCardIntent.ADD_MANUALLY_PRESSED) {
+                    Log.i(tag, "reason: ADD_MANUALLY_PRESSED")
+                }
+            } else if (result.resultCode == ScanCardIntent.RESULT_CODE_ERROR) {
+                Log.i(tag, "Scan failed")
             }
-            if (reason == ScanCardIntent.ADD_MANUALLY_PRESSED) {
-                Log.i(tag, "reason: ADD_MANUALLY_PRESSED")
-            }
-        } else if (result.resultCode == ScanCardIntent.RESULT_CODE_ERROR) {
-            Log.i(tag, "Scan failed")
         }
-    }
 
     private fun scanCard() {
-        val intent: Intent = ScanCardIntent.Builder(requireContext())
+        val intent: Intent = ScanCardIntent.Builder(this)
             .setScanCardHolder(true)
             .setScanExpirationDate(true)
             .setHint(getString(R.string.hint))
@@ -59,7 +93,7 @@ class MyActivity : AppCompatActivity {
 }
 ```
 
-Java
+Java:
 ```java
 class MyActivity extends AppCompatActivity {
 
@@ -67,14 +101,17 @@ class MyActivity extends AppCompatActivity {
             new ActivityResultContracts.StartActivityForResult(),
             result -> {
                 String tag = ScanCardIntent.class.getSimpleName();
+
                 if (result.getResultCode() == Activity.RESULT_OK) {
                     assert result.getData() != null;
                     Card card = result.getData().getParcelableExtra(ScanCardIntent.RESULT_CARD_DATA);
+
                     byte[] cardImage = result.getData().getByteArrayExtra(ScanCardIntent.RESULT_CARD_IMAGE);
                     Bitmap bitmap = BitmapFactory.decodeByteArray(cardImage, 0, cardImage.length);
+
                     Log.i(tag, "Card info: " + card.toString());
                 } else if (result.getResultCode() == Activity.RESULT_CANCELED) {
-                    @CancelReason final int reason;
+                    @ScanCardIntent.CancelReason final int reason;
                     if (result.getData() != null) {
                         reason = result.getData().getIntExtra(ScanCardIntent.RESULT_CANCEL_REASON, ScanCardIntent.BACK_PRESSED);
                     } else {
