@@ -1,13 +1,26 @@
-# Lens24
+<p align="center" style="margin-bottom: 0px !important;">
+  <img width="200" src="https://github.com/vlasentiy/assets/blob/main/lens24_logo.svg" alt="Lens24 logo" align="center">
+</p>
+<h1 align="center" style="margin-top: 0px;">Lens24</h1>
+
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.github.vlasentiy/lens24/badge.svg)](https://maven-badges.herokuapp.com/maven-central/io.github.vlasentiy/lens24)
+[![API](https://img.shields.io/badge/API-16%2B-blue.svg?style=flat)](https://android-arsenal.com/api?level=16)
+<a href="https://github.com/vlasentiy/Lens24/blob/master/LICENSE.md">
+    <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="Lens24 is released under the MIT license." />
+  </a>
 
 Lens24 is SDK for Android that gives you ability to scan various of credit or payment cards in your app offline.
-You can easily integrate the SDK into your app by following the instructions below.
+You can easily integrate and customize the SDK into your app by following the instructions below.
 
-Lens24 is supported on Android SDK version 16 (Android 4.1) or later.
+<p align="center">
+  <img src="https://github.com/vlasentiy/assets/blob/main/lens24_example_1.gif" width="360" />
+    &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;
+  <img src="https://github.com/vlasentiy/assets/blob/main/lens24_example_4.gif" width="360" /> 
+</p>
 
 ### SDK integration
 
-In your `build.gradle`, add _Lens24_ maven repository to repositories list
+In your `build.gradle`, add maven repository to repositories list
 
 ```
     repositories {
@@ -77,8 +90,10 @@ class MyActivity : AppCompatActivity {
 
     private fun scanCard() {
         val intent: Intent = ScanCardIntent.Builder(this)
+            // customize these values to suit your needs
             .setScanCardHolder(true)
             .setScanExpirationDate(true)
+            .setVibrationEnabled(false)
             .setHint(getString(R.string.hint))
             .setToolbarTitle("Scan card")
             .setSaveCard(true)
@@ -127,8 +142,10 @@ class MyActivity extends AppCompatActivity {
 
     private void scanCard() {
         Intent intent = new ScanCardIntent.Builder(this)
+                // customize these values to suit your needs
                 .setScanCardHolder(true)
                 .setScanExpirationDate(true)
+                .setVibrationEnabled(false)
                 .setHint(getString(R.string.hint))
                 .setToolbarTitle("Scan card")
                 .setSaveCard(true)
