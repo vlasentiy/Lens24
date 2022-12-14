@@ -40,7 +40,7 @@ dependencies {
 
 Build an Intent using the `ScanCardIntent.Builder` and start a new activity to perform the scan:
 
-Kotlin:
+#### Kotlin
 
 ```kotlin
 class MyActivity : AppCompatActivity {
@@ -108,7 +108,7 @@ class MyActivity : AppCompatActivity {
 }
 ```
 
-Java:
+#### Java
 ```java
 class MyActivity extends AppCompatActivity {
 
@@ -159,6 +159,10 @@ class MyActivity extends AppCompatActivity {
     }
 }
 ```
+
+### Support
+<p><a href="https://www.buymeacoffee.com/vlasentiy"> <img align="left" src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" height="50" width="210" alt="vlasentiy" /></a></p><br></br>
+
 
 ### License
 
