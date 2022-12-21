@@ -32,7 +32,6 @@ task clean(type: Delete) {
 ext {
     // Sdk and tools
     minSdkVersion = 16
-    minDemoSdkVersion = 19
     targetSdkVersion = 33
     compileSdkVersion = 33
 
@@ -41,5 +40,5 @@ ext {
     materialVersion = '1.7.0'
     constraintlayoutVersion = '2.1.4'
     lottieVersion = '5.2.0'
-    adsVersion = '21.3.0'
+    adsVersion = '20.6.0' // last version that supports API16
 }

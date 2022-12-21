@@ -4,8 +4,6 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.ColorFilter;
-import android.graphics.LightingColorFilter;
 import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.Rect;
@@ -13,7 +11,6 @@ import android.graphics.Typeface;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
-import android.os.Build;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -131,7 +128,7 @@ public class CardDetectionStateView extends View {
             mDetectionState = TOP_EDGE | BOTTOM_EDGE | LEFT_EDGE | RIGHT_EDGE;
 
             mRecognitionResultCardNumber = CardUtils.prettyPrintCardNumber("1234123412341234");
-            mRecognitionResultDate = "07/22";
+            mRecognitionResultDate = "12/22";
             mRecognitionResultHolder = "VLAS ARTANOV";
         }
     }
@@ -171,22 +168,6 @@ public class CardDetectionStateView extends View {
         return bitmap;
     }
 
-    public Bitmap changeBitmapColor(Bitmap sourceBitmap, int color) {
-        //// weird bug, does not change drawable color, so need to change color of bitmap
-        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.M) {
-            return sourceBitmap;
-        } else {
-            Bitmap resultBitmap = sourceBitmap.copy(sourceBitmap.getConfig(), true);
-            Paint paint = new Paint();
-            ColorFilter filter = new LightingColorFilter(color, 1);
-            paint.setColorFilter(filter);
-            Canvas canvas = new Canvas(resultBitmap);
-            canvas.drawBitmap(resultBitmap, 0, 0, paint);
-
-            return resultBitmap;
-        }
-    }
-
     public Drawable getTintedDrawable(@NonNull final Context context,
                                       @DrawableRes int drawableRes, int color) {
         Drawable d = ContextCompat.getDrawable(context, drawableRes);
@@ -200,7 +181,7 @@ public class CardDetectionStateView extends View {
         Drawable topLeftCorner = getTintedDrawable(context, R.drawable.lens24_ic_top_left_rounded_corner, mainColor);
         Matrix m = new Matrix();
 
-        Bitmap bitmap = changeBitmapColor(drawableToBitmap(topLeftCorner), mainColor);
+        Bitmap bitmap = drawableToBitmap(topLeftCorner);
 
         m.setRotate(0);
         mCornerTopLeftDrawable = new BitmapDrawable(context.getResources(),
