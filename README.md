@@ -32,7 +32,7 @@ Add _Lens24_ as a dependency
 
 ```
 dependencies {
-    implementation 'io.github.vlasentiy:lens24:1.0.0'
+    implementation 'io.github.vlasentiy:lens24:1.0.1'
 }
 ```
 
