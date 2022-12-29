@@ -18,6 +18,11 @@ You can easily integrate and customize the SDK into your app by following the in
   <img src="https://github.com/vlasentiy/assets/blob/main/lens24_example_4.gif" width="360" /> 
 </p>
 
+### Demo
+
+[<img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png' width="210"/>](https://play.google.com/store/apps/details?id=lens24.demo&hl=en&gl=US)
+
+
 ### SDK integration
 
 In your `build.gradle`, add maven repository to repositories list
