@@ -6,8 +6,8 @@
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.github.vlasentiy/lens24/badge.svg)](https://maven-badges.herokuapp.com/maven-central/io.github.vlasentiy/lens24)
 [![API](https://img.shields.io/badge/API-16%2B-blue.svg?style=flat)](https://android-arsenal.com/api?level=16)
 <a href="https://github.com/vlasentiy/Lens24/blob/master/LICENSE.md">
-<img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="Lens24 is released under the MIT license." />
-</a>
+    <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="Lens24 is released under the MIT license." />
+  </a>
 
 Lens24 is SDK for Android that gives you ability to scan various of credit or payment cards in your app offline.
 You can easily integrate and customize the SDK into your app by following the instructions below.
@@ -17,6 +17,11 @@ You can easily integrate and customize the SDK into your app by following the in
     &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;
   <img src="https://github.com/vlasentiy/assets/blob/main/lens24_example_4.gif" width="360" /> 
 </p>
+
+### Demo
+
+[<img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png' width="210"/>](https://play.google.com/store/apps/details?id=lens24.demo&hl=en&gl=US)
+
 
 ### SDK integration
 
