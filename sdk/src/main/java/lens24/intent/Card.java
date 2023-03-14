@@ -3,13 +3,12 @@ package lens24.intent;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-
-import java.io.Serializable;
-import java.util.Objects;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import lens24.utils.CardUtils;
+
+import java.io.Serializable;
+import java.util.Objects;
 
 public class Card implements Serializable, Parcelable {
 

@@ -41,9 +41,9 @@ public class CardDetailsActivity extends AppCompatActivity {
 
     ActivityResultCallback<ActivityResult> activityResultCallback = new ScanCardCallback.Builder()
             .setOnSuccess(this::setCard)
-            .setOnBackPressed(() -> System.out.println("ON_BACK_PRESSED"))
-            .setOnManualInput(() -> System.out.println("MANUAL_INPUT"))
-            .setOnError(() -> System.out.println("ERROR"))
+            .setOnBackPressed(() -> {/*Your code here*/})
+            .setOnManualInput(() -> {/*Your code here*/})
+            .setOnError(() -> {/*Your code here*/})
             .build();
     ActivityResultLauncher<Intent> startActivityIntent =
             registerForActivityResult(

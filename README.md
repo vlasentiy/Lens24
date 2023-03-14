@@ -6,8 +6,8 @@
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.github.vlasentiy/lens24/badge.svg)](https://maven-badges.herokuapp.com/maven-central/io.github.vlasentiy/lens24)
 [![API](https://img.shields.io/badge/API-16%2B-blue.svg?style=flat)](https://android-arsenal.com/api?level=16)
 <a href="https://github.com/vlasentiy/Lens24/blob/master/LICENSE.md">
-    <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="Lens24 is released under the MIT license." />
-  </a>
+<img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="Lens24 is released under the MIT license." />
+</a>
 
 Lens24 is SDK for Android that gives you ability to scan various of credit or payment cards in your app offline.
 You can easily integrate and customize the SDK into your app by following the instructions below.
@@ -32,7 +32,7 @@ Add _Lens24_ as a dependency
 
 ```
 dependencies {
-    implementation 'io.github.vlasentiy:lens24:1.0.0'
+    implementation 'io.github.vlasentiy:lens24:1.1.0'
 }
 ```
 
@@ -45,48 +45,21 @@ Build an Intent using the `ScanCardIntent.Builder` and start a new activity to p
 ```kotlin
 class MyActivity : AppCompatActivity {
 
-    private var startActivityIntent =
-        registerForActivityResult(ActivityResultContracts.StartActivityForResult())
-        { result: ActivityResult ->
-            val tag = ScanCardIntent::class.java.simpleName
+    private var activityResultCallback = ScanCardCallback.Builder()
+        .setOnSuccess { card: Card, bitmap: Bitmap? -> setCard(card, bitmap) }
+        .setOnBackPressed { /*Your code here*/ }
+        .setOnManualInput { /*Your code here*/ }
+        .setOnError { /*Your code here*/ }
+        .build()
 
-            if (result.resultCode == Activity.RESULT_OK) {
-                val card: Card? = if (Build.VERSION.SDK_INT >= TIRAMISU) {
-                    result.data?.getParcelableExtra(
-                        ScanCardIntent.RESULT_CARD_DATA,
-                        Card::class.java
-                    )
-                } else {
-                    result.data?.getParcelableExtra(ScanCardIntent.RESULT_CARD_DATA)
-                }
+    private var startActivityIntent = registerForActivityResult<Intent, ActivityResult>(
+        ActivityResultContracts.StartActivityForResult(),
+        activityResultCallback
+    )
 
-                val cardImage = result.data?.getByteArrayExtra(ScanCardIntent.RESULT_CARD_IMAGE)
-                val bitmap: Bitmap =
-                    BitmapFactory.decodeByteArray(cardImage, 0, cardImage?.size ?: 0)
-
-                val cardData = """
-                    Card number: ${card?.cardNumberRedacted}
-                    Card holder: ${card?.cardHolderName}
-                    Card expiration date: ${card?.expirationDate}
-                    """.trimIndent()
-
-                Log.i(tag, cardData)
-            } else if (result.resultCode == Activity.RESULT_CANCELED) {
-                @ScanCardIntent.CancelReason val reason: Int = if (result.data != null) {
-                    result.data!!.getIntExtra(
-                        ScanCardIntent.RESULT_CANCEL_REASON,
-                        ScanCardIntent.BACK_PRESSED
-                    )
-                } else {
-                    ScanCardIntent.BACK_PRESSED
-                }
-                if (reason == ScanCardIntent.ADD_MANUALLY_PRESSED) {
-                    Log.i(tag, "reason: ADD_MANUALLY_PRESSED")
-                }
-            } else if (result.resultCode == ScanCardIntent.RESULT_CODE_ERROR) {
-                Log.i(tag, "Scan failed")
-            }
-        }
+    private fun setCard(card: Card, bitmap: Bitmap?) {
+        /*Your code here*/
+    }
 
     private fun scanCard() {
         val intent: Intent = ScanCardIntent.Builder(this)
@@ -109,36 +82,25 @@ class MyActivity : AppCompatActivity {
 ```
 
 #### Java
+
 ```java
 class MyActivity extends AppCompatActivity {
 
-    ActivityResultLauncher<Intent> startActivityIntent = registerForActivityResult(
-            new ActivityResultContracts.StartActivityForResult(),
-            result -> {
-                String tag = ScanCardIntent.class.getSimpleName();
+    ActivityResultCallback<ActivityResult> activityResultCallback = new ScanCardCallback.Builder()
+            .setOnSuccess(this::setCard)
+            .setOnBackPressed(() -> {/*Your code here*/})
+            .setOnManualInput(() -> {/*Your code here*/})
+            .setOnError(() -> {/*Your code here*/})
+            .build();
 
-                if (result.getResultCode() == Activity.RESULT_OK) {
-                    assert result.getData() != null;
-                    Card card = result.getData().getParcelableExtra(ScanCardIntent.RESULT_CARD_DATA);
+    ActivityResultLauncher<Intent> startActivityIntent =
+            registerForActivityResult(
+                    new ActivityResultContracts.StartActivityForResult(),
+                    activityResultCallback);
 
-                    byte[] cardImage = result.getData().getByteArrayExtra(ScanCardIntent.RESULT_CARD_IMAGE);
-                    Bitmap bitmap = BitmapFactory.decodeByteArray(cardImage, 0, cardImage.length);
-
-                    Log.i(tag, "Card info: " + card.toString());
-                } else if (result.getResultCode() == Activity.RESULT_CANCELED) {
-                    @ScanCardIntent.CancelReason final int reason;
-                    if (result.getData() != null) {
-                        reason = result.getData().getIntExtra(ScanCardIntent.RESULT_CANCEL_REASON, ScanCardIntent.BACK_PRESSED);
-                    } else {
-                        reason = ScanCardIntent.BACK_PRESSED;
-                    }
-                    if (reason == ScanCardIntent.ADD_MANUALLY_PRESSED) {
-                        Log.i(tag, "reason: ADD_MANUALLY_PRESSED");
-                    }
-                } else if (result.getResultCode() == ScanCardIntent.RESULT_CODE_ERROR) {
-                    Log.i(tag, "Scan failed");
-                }
-            });
+    private void setCard(@NonNull Card card, @Nullable Bitmap bitmap) {
+        /*Your code here*/
+    }
 
     private void scanCard() {
         Intent intent = new ScanCardIntent.Builder(this)
@@ -161,8 +123,8 @@ class MyActivity extends AppCompatActivity {
 ```
 
 ### Support
-<p><a href="https://www.buymeacoffee.com/vlasentiy"> <img align="left" src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" height="50" width="210" alt="vlasentiy" /></a></p><br></br>
 
+<p><a href="https://www.buymeacoffee.com/vlasentiy"> <img align="left" src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" height="50" width="210" alt="vlasentiy" /></a></p><br></br>
 
 ### License
 
