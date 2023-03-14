@@ -6,7 +6,6 @@ localProperties.load(new FileInputStream(localPropertiesFile))
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
-
     defaultConfig {
         applicationId "lens24.demo"
         minSdkVersion rootProject.ext.minSdkVersion
@@ -44,6 +43,11 @@ android {
             excludes += ['META-INF/LICENSE.txt', 'META-INF/NOTICE.txt']
         }
     }
+//    bundle {
+//        storeArchive {
+//            enable = false
+//        }
+//    }
     namespace 'demo'
 }
 

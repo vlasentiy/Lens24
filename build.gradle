@@ -25,7 +25,7 @@ allprojects {
     }
 }
 
-task clean(type: Delete) {
+tasks.register('clean', Delete) {
     delete rootProject.buildDir
 }
 
@@ -36,8 +36,8 @@ ext {
     compileSdkVersion = 33
 
     // App dependencies
-    appCompatVersion = '1.5.1'
-    materialVersion = '1.7.0'
+    appCompatVersion = '1.6.1'
+    materialVersion = '1.8.0'
     constraintlayoutVersion = '2.1.4'
     lottieVersion = '5.2.0'
     adsVersion = '20.6.0' // last version that supports API16

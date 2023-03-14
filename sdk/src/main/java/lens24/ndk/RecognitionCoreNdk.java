@@ -8,15 +8,14 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.util.Log;
-
-import java.io.IOException;
-
 import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.WorkerThread;
 import lens24.ndk.RecognitionConstants.DetectedBorderFlags;
 import lens24.ndk.RecognitionConstants.RecognitionMode;
+
+import java.io.IOException;
 
 final class RecognitionCoreNdk implements RecognitionCoreImpl {
 
@@ -107,10 +106,8 @@ final class RecognitionCoreNdk implements RecognitionCoreImpl {
 
         @Override
         public void handleMessage(Message msg) {
-            switch (msg.what) {
-                case MESSAGE_TORCH_STATUS_CHANGED:
-                    mListener.onTorchStatusChanged(msg.arg1 != 0);
-                    break;
+            if (msg.what == MESSAGE_TORCH_STATUS_CHANGED) {
+                mListener.onTorchStatusChanged(msg.arg1 != 0);
             }
             super.handleMessage(msg);
         }
@@ -161,7 +158,7 @@ final class RecognitionCoreNdk implements RecognitionCoreImpl {
     }
 
     @DetectedBorderFlags
-    public synchronized int processFrameYV12(int width, int height, byte buffer[]) {
+    public synchronized int processFrameYV12(int width, int height, byte[] buffer) {
         int orientation = mDisplayConfiguration.getPreprocessFrameRotation(width, height);
         if (orientation == -1) return 0;
 

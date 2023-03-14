@@ -1,38 +1,31 @@
 package demo;
 
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-import com.google.android.material.textfield.TextInputLayout;
-
-import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.WindowManager;
 import android.widget.Toast;
-
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.material.textfield.TextInputLayout;
 import demo.validation.CardExpiryDateValidator;
 import demo.validation.CardHolderValidator;
 import demo.validation.CardNumberValidator;
 import demo.validation.ValidationResult;
 import demo.widget.CardNumberEditText;
 import lens24.intent.Card;
+import lens24.intent.ScanCardCallback;
 import lens24.intent.ScanCardIntent;
-import lens24.intent.ScanCardIntent.CancelReason;
 
 public class CardDetailsActivity extends AppCompatActivity {
-
-    private static final String TAG = "CardDetailsActivity";
-
-    private static final int REQUEST_CODE_SCAN_CARD = 1;
 
     private Toolbar mToolbar;
 
@@ -46,31 +39,23 @@ public class CardDetailsActivity extends AppCompatActivity {
     private CardHolderValidator mCardHolderValidator;
     private CardExpiryDateValidator mExpiryDateValidator;
 
-    ActivityResultLauncher<Intent> startActivityIntent = registerForActivityResult(
-            new ActivityResultContracts.StartActivityForResult(),
-            result -> {
-                String tag = ScanCardIntent.class.getSimpleName();
-                if (result.getResultCode() == Activity.RESULT_OK) {
-                    assert result.getData() != null;
-                    Card card = result.getData().getParcelableExtra(ScanCardIntent.RESULT_CARD_DATA);
-                    byte[] cardImage = result.getData().getByteArrayExtra(ScanCardIntent.RESULT_CARD_IMAGE);
-                    Bitmap bitmap = BitmapFactory.decodeByteArray(cardImage, 0, cardImage.length);
-                    Log.i(tag, "Card info: " + card.toString());
-                    setCard(card);
-                } else if (result.getResultCode() == Activity.RESULT_CANCELED) {
-                    @CancelReason final int reason;
-                    if (result.getData() != null) {
-                        reason = result.getData().getIntExtra(ScanCardIntent.RESULT_CANCEL_REASON, ScanCardIntent.BACK_PRESSED);
-                    } else {
-                        reason = ScanCardIntent.BACK_PRESSED;
-                    }
-                    if (reason == ScanCardIntent.ADD_MANUALLY_PRESSED) {
-                        Log.i(tag, "reason: ADD_MANUALLY_PRESSED");
-                    }
-                } else if (result.getResultCode() == ScanCardIntent.RESULT_CODE_ERROR) {
-                    Log.i(tag, "Scan failed");
-                }
-            });
+    ActivityResultCallback<ActivityResult> activityResultCallback = new ScanCardCallback.Builder()
+            .setOnSuccess(this::setCard)
+            .setOnBackPressed(() -> System.out.println("ON_BACK_PRESSED"))
+            .setOnManualInput(() -> System.out.println("MANUAL_INPUT"))
+            .setOnError(() -> System.out.println("ERROR"))
+            .build();
+    ActivityResultLauncher<Intent> startActivityIntent =
+            registerForActivityResult(
+                    new ActivityResultContracts.StartActivityForResult(),
+                    activityResultCallback);
+
+    private void setCard(@NonNull Card card, @Nullable Bitmap bitmap) {
+        mCardNumberField.getEditText().setText(card.getCardNumber());
+        mCardholderField.getEditText().setText(card.getCardHolderName());
+        mExpiryField.getEditText().setText(card.getExpirationDate());
+        setValidationResult(ValidationResult.empty());
+    }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -104,6 +89,7 @@ public class CardDetailsActivity extends AppCompatActivity {
                 .setHint(getString(R.string.lens24_hint_position_card_in_frame))
                 .setToolbarTitle("Scan card")
                 .setSaveCard(true)
+                .setVibrationEnabled(true)
                 .setManualInputButtonText("Manual input")
                 .setBottomHint("and wait for a moment")
                 .setMainColor(R.color.lens24_primary_color)
@@ -111,33 +97,6 @@ public class CardDetailsActivity extends AppCompatActivity {
                 .build();
 
         startActivityIntent.launch(intent);
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == REQUEST_CODE_SCAN_CARD) {
-            if (resultCode == Activity.RESULT_OK) {
-                Card card = data.getParcelableExtra(ScanCardIntent.RESULT_CARD_DATA);
-                byte[] cardImage = data.getByteArrayExtra(ScanCardIntent.RESULT_CARD_IMAGE);
-                Bitmap bitmap = BitmapFactory.decodeByteArray(cardImage, 0, cardImage.length);
-                if (BuildConfig.DEBUG) Log.i(TAG, "Card info: " + card);
-                setCard(card);
-            } else if (resultCode == Activity.RESULT_CANCELED) {
-                @CancelReason final int reason;
-                if (data != null) {
-                    reason = data.getIntExtra(ScanCardIntent.RESULT_CANCEL_REASON, ScanCardIntent.BACK_PRESSED);
-                } else {
-                    reason = ScanCardIntent.BACK_PRESSED;
-                }
-
-                if (reason == ScanCardIntent.ADD_MANUALLY_PRESSED) {
-                    if (BuildConfig.DEBUG) Log.i(TAG, "reason: ADD_MANUALLY_PRESSED");
-                }
-            } else if (resultCode == ScanCardIntent.RESULT_CODE_ERROR) {
-                Log.i(TAG, "Scan failed");
-            }
-        }
     }
 
     private void setupToolbar() {
@@ -178,12 +137,5 @@ public class CardDetailsActivity extends AppCompatActivity {
         mCardNumberField.setError(result.getMessage(R.id.card_number_field, getResources()));
         mCardholderField.setError(result.getMessage(R.id.cardholder_field, getResources()));
         mExpiryField.setError(result.getMessage(R.id.expiry_date_field, getResources()));
-    }
-
-    private void setCard(@NonNull Card card) {
-        mCardNumberField.getEditText().setText(card.getCardNumber());
-        mCardholderField.getEditText().setText(card.getCardHolderName());
-        mExpiryField.getEditText().setText(card.getExpirationDate());
-        setValidationResult(ValidationResult.empty());
     }
 }

@@ -3,35 +3,23 @@ package lens24.camera;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Rect;
-import android.hardware.Camera;
-import android.hardware.Sensor;
-import android.hardware.SensorEvent;
-import android.hardware.SensorEventListener;
-import android.hardware.SensorManager;
+import android.hardware.*;
 import android.util.Log;
 import android.view.Display;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.WindowManager;
-
-import java.util.Locale;
-
 import androidx.annotation.MainThread;
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
 import lens24.camera.widget.CameraPreviewLayout;
 import lens24.camera.widget.CardDetectionStateView;
-import lens24.ndk.DisplayConfigurationImpl;
-import lens24.ndk.RecognitionConstants;
-import lens24.ndk.RecognitionCore;
-import lens24.ndk.RecognitionResult;
-import lens24.ndk.RecognitionStatusListener;
+import lens24.ndk.*;
 import lens24.utils.Constants;
 
-import static lens24.ndk.RecognitionConstants.RECOGNIZER_MODE_DATE;
-import static lens24.ndk.RecognitionConstants.RECOGNIZER_MODE_GRAB_CARD_IMAGE;
-import static lens24.ndk.RecognitionConstants.RECOGNIZER_MODE_NAME;
-import static lens24.ndk.RecognitionConstants.RECOGNIZER_MODE_NUMBER;
+import java.util.Locale;
+
+import static lens24.ndk.RecognitionConstants.*;
 
 @RestrictTo(RestrictTo.Scope.LIBRARY)
 public final class ScanManager {
@@ -141,7 +129,7 @@ public final class ScanManager {
 
             @Override
             public void surfaceDestroyed(SurfaceHolder holder) {
-                // In theory we should tell the RenderThread that the surface has been destroyed.
+                // In theory, we should tell the RenderThread that the surface has been destroyed.
                 if (mRenderThread != null) {
                     RenderThread.RenderHandler rh = mRenderThread.getHandler();
                     rh.sendSurfaceDestroyed();

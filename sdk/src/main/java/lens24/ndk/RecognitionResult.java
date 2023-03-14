@@ -7,6 +7,8 @@ import android.os.Parcelable;
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
 
+import java.util.Objects;
+
 @RestrictTo(RestrictTo.Scope.LIBRARY)
 public final class RecognitionResult implements Parcelable {
 
@@ -124,13 +126,13 @@ public final class RecognitionResult implements Parcelable {
 
         if (isFirst != that.isFirst) return false;
         if (isFinal != that.isFinal) return false;
-        if (number != null ? !number.equals(that.number) : that.number != null) return false;
-        if (date != null ? !date.equals(that.date) : that.date != null) return false;
-        if (name != null ? !name.equals(that.name) : that.name != null) return false;
-        if (nameRaw != null ? !nameRaw.equals(that.nameRaw) : that.nameRaw != null) return false;
-        if (numberImageRect != null ? !numberImageRect.equals(that.numberImageRect) : that.numberImageRect != null)
+        if (!Objects.equals(number, that.number)) return false;
+        if (!Objects.equals(date, that.date)) return false;
+        if (!Objects.equals(name, that.name)) return false;
+        if (!Objects.equals(nameRaw, that.nameRaw)) return false;
+        if (!Objects.equals(numberImageRect, that.numberImageRect))
             return false;
-        return cardImage != null ? cardImage.equals(that.cardImage) : that.cardImage == null;
+        return Objects.equals(cardImage, that.cardImage);
     }
 
     @Override
