@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.WindowManager;
 import android.widget.Toast;
+
 import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
@@ -13,9 +14,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.material.textfield.TextInputLayout;
+
 import demo.validation.CardExpiryDateValidator;
 import demo.validation.CardHolderValidator;
 import demo.validation.CardNumberValidator;
@@ -84,8 +87,8 @@ public class CardDetailsActivity extends AppCompatActivity {
 
     private void scanCard() {
         Intent intent = new ScanCardIntent.Builder(this)
-                .setScanCardHolder(true)
-                .setScanExpirationDate(true)
+                //.setScanCardHolder(false)
+                //.setScanExpirationDate(false)
                 .setHint(getString(R.string.lens24_hint_position_card_in_frame))
                 .setToolbarTitle("Scan card")
                 .setSaveCard(true)

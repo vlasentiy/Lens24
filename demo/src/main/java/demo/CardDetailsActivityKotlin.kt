@@ -72,8 +72,8 @@ class CardDetailsActivityKotlin : AppCompatActivity() {
 
     private fun scanCard() {
         val intent = ScanCardIntent.Builder(this)
-            .setScanCardHolder(true)
-            .setScanExpirationDate(true)
+            //.setScanCardHolder(true)
+            //.setScanExpirationDate(true)
             .setHint(getString(R.string.lens24_hint_position_card_in_frame))
             .setToolbarTitle("Scan card")
             .setSaveCard(true)

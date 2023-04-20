@@ -3,18 +3,18 @@ package lens24.ui;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import java.util.Objects;
-
 import androidx.annotation.RestrictTo;
+
+import java.util.Objects;
 
 @RestrictTo(RestrictTo.Scope.LIBRARY)
 public final class ScanCardRequest implements Parcelable {
 
     public static final boolean DEFAULT_ENABLE_VIBRATION = true;
 
-    public static final boolean DEFAULT_SCAN_EXPIRATION_DATE = true;
+    public static final boolean DEFAULT_SCAN_EXPIRATION_DATE = false;
 
-    public static final boolean DEFAULT_SCAN_CARD_HOLDER = true;
+    public static final boolean DEFAULT_SCAN_CARD_HOLDER = false;
 
     public static final boolean DEFAULT_GRAB_CARD_IMAGE = false;
 

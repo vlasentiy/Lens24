@@ -1,24 +1,25 @@
 package lens24.intent;
 
+import static lens24.ui.ScanCardRequest.DEFAULT_ENABLE_VIBRATION;
+import static lens24.ui.ScanCardRequest.DEFAULT_GRAB_CARD_IMAGE;
+import static lens24.ui.ScanCardRequest.DEFAULT_SCAN_CARD_HOLDER;
+import static lens24.ui.ScanCardRequest.DEFAULT_SCAN_EXPIRATION_DATE;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
 
 import androidx.annotation.ColorRes;
 import androidx.annotation.IntDef;
 import androidx.annotation.RestrictTo;
 import androidx.core.content.ContextCompat;
+
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+
 import lens24.sdk.R;
 import lens24.ui.ScanCardActivity;
 import lens24.ui.ScanCardRequest;
-
-import static lens24.ui.ScanCardRequest.DEFAULT_ENABLE_VIBRATION;
-import static lens24.ui.ScanCardRequest.DEFAULT_GRAB_CARD_IMAGE;
-import static lens24.ui.ScanCardRequest.DEFAULT_SCAN_CARD_HOLDER;
-import static lens24.ui.ScanCardRequest.DEFAULT_SCAN_EXPIRATION_DATE;
 
 public final class ScanCardIntent {
 
@@ -73,18 +74,18 @@ public final class ScanCardIntent {
         /**
          * Scan expiration date. Default: <b>true</b>
          */
-        public Builder setScanExpirationDate(boolean scanExpirationDate) {
-            mScanExpirationDate = scanExpirationDate;
-            return this;
-        }
+//        public Builder setScanExpirationDate(boolean scanExpirationDate) {
+//            mScanExpirationDate = scanExpirationDate;
+//            return this;
+//        }
 
         /**
          * Scan the card holder's name. Default: <b>true</b>
          */
-        public Builder setScanCardHolder(boolean scanCardHolder) {
-            mScanCardHolder = scanCardHolder;
-            return this;
-        }
+//        public Builder setScanCardHolder(boolean scanCardHolder) {
+//            mScanCardHolder = scanCardHolder;
+//            return this;
+//        }
 
 
         /**
