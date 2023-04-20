@@ -2,7 +2,7 @@ apply plugin: 'com.android.library'
 
 ext {
     PUBLISH_GROUP_ID = 'io.github.vlasentiy'
-    PUBLISH_VERSION = '1.1.0'
+    PUBLISH_VERSION = '2.0.0'
     PUBLISH_ARTIFACT_ID = 'lens24'
     PUBLISH_DESCRIPTION = 'Lens24 Android SDK'
     PUBLISH_URL = 'https://github.com/vlasentiy/Lens24'
@@ -13,7 +13,7 @@ ext {
     PUBLISH_DEVELOPER_EMAIL = 'vlas.artanov@gmail.com'
     PUBLISH_SCM_CONNECTION = 'scm:git:github.com/vlasentiy/Lens24.git'
     PUBLISH_SCM_DEVELOPER_CONNECTION = 'scm:git:ssh://github.com/vlasentiy/Lens24.git'
-    PUBLISH_SCM_URL = 'https://github.com/vlasentiy/Lens24/tree/master'
+    PUBLISH_SCM_URL = 'https://github.com/vlasentiy/Lens24/tree/master-lite'
 }
 
 apply from: "${rootProject.projectDir}/scripts/publish-module.gradle"
