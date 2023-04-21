@@ -33,11 +33,14 @@ In your `build.gradle`, add maven repository to repositories list
     }
 ```
 
+<i>If you just want to recognize card number, use lightweight version '>=2.0.0' (reduce size up to 33%).<br />
+For full recognition use version '[1.0.0..2.0.0)'<br />
+</i>
+<br />
 Add _Lens24_ as a dependency
-
 ```
 dependencies {
-    implementation 'io.github.vlasentiy:lens24:1.1.0'
+    implementation 'io.github.vlasentiy:lens24:2.0.0'
 }
 ```
 
@@ -69,8 +72,8 @@ class MyActivity : AppCompatActivity {
     private fun scanCard() {
         val intent: Intent = ScanCardIntent.Builder(this)
             // customize these values to suit your needs
-            .setScanCardHolder(true)
-            .setScanExpirationDate(true)
+            .setScanCardHolder(true) // version [1.0.0..2.0.0)
+            .setScanExpirationDate(true) // version [1.0.0..2.0.0)
             .setVibrationEnabled(false)
             .setHint(getString(R.string.hint))
             .setToolbarTitle("Scan card")
@@ -110,8 +113,8 @@ class MyActivity extends AppCompatActivity {
     private void scanCard() {
         Intent intent = new ScanCardIntent.Builder(this)
                 // customize these values to suit your needs
-                .setScanCardHolder(true)
-                .setScanExpirationDate(true)
+                .setScanCardHolder(true) // version [1.0.0..2.0.0)
+                .setScanExpirationDate(true) // version [1.0.0..2.0.0)
                 .setVibrationEnabled(false)
                 .setHint(getString(R.string.hint))
                 .setToolbarTitle("Scan card")
