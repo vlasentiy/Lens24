@@ -1,25 +1,20 @@
 package lens24.intent;
 
-import static lens24.ui.ScanCardRequest.DEFAULT_ENABLE_VIBRATION;
-import static lens24.ui.ScanCardRequest.DEFAULT_GRAB_CARD_IMAGE;
-import static lens24.ui.ScanCardRequest.DEFAULT_SCAN_CARD_HOLDER;
-import static lens24.ui.ScanCardRequest.DEFAULT_SCAN_EXPIRATION_DATE;
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-
 import androidx.annotation.ColorRes;
 import androidx.annotation.IntDef;
 import androidx.annotation.RestrictTo;
 import androidx.core.content.ContextCompat;
+import lens24.sdk.R;
+import lens24.ui.ScanCardActivity;
+import lens24.ui.ScanCardRequest;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
-import lens24.sdk.R;
-import lens24.ui.ScanCardActivity;
-import lens24.ui.ScanCardRequest;
+import static lens24.ui.ScanCardRequest.*;
 
 public final class ScanCardIntent {
 
@@ -61,7 +56,7 @@ public final class ScanCardIntent {
 
         private String mManualInputButton;
 
-        private String mLottieJsonAnimation;
+        //private String mLottieJsonAnimation;
 
         private int mMainColor;
 
@@ -144,10 +139,10 @@ public final class ScanCardIntent {
          * @param jsonAnimation Defines json animation data for Lottie animation. Default:
          *                      <b>null</b>
          */
-        public Builder setLottieJsonAnimation(String jsonAnimation) {
-            mLottieJsonAnimation = jsonAnimation;
-            return this;
-        }
+//        public Builder setLottieJsonAnimation(String jsonAnimation) {
+//            mLottieJsonAnimation = jsonAnimation;
+//            return this;
+//        }
 
         /**
          * Defines main color of UI.
@@ -181,7 +176,7 @@ public final class ScanCardIntent {
                     mHint,
                     mTitle,
                     mManualInputButton,
-                    mLottieJsonAnimation,
+                    //mLottieJsonAnimation,
                     ContextCompat.getColor(mContext, mMainColor == 0 ? R.color.lens24_primary_color : mMainColor),
                     mBottomHint
             );

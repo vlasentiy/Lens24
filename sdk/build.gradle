@@ -2,7 +2,7 @@ apply plugin: 'com.android.library'
 
 ext {
     PUBLISH_GROUP_ID = 'io.github.vlasentiy'
-    PUBLISH_VERSION = '2.0.0'
+    PUBLISH_VERSION = '2.0.1'
     PUBLISH_ARTIFACT_ID = 'lens24'
     PUBLISH_DESCRIPTION = 'Lens24 Android SDK'
     PUBLISH_URL = 'https://github.com/vlasentiy/Lens24'
@@ -81,5 +81,4 @@ android {
 dependencies {
     implementation "androidx.constraintlayout:constraintlayout:$rootProject.ext.constraintlayoutVersion"
     implementation "androidx.appcompat:appcompat:$rootProject.ext.appCompatVersion"
-    implementation "com.airbnb.android:lottie:$rootProject.ext.lottieVersion"
 }

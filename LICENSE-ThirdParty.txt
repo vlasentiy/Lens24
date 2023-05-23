@@ -53,9 +53,3 @@ URL: https://github.com/intel/ARM_NEON_2_x86_SSE
 Developers: Intel Corporation
 License: BSD
 Reference: https://github.com/intel/ARM_NEON_2_x86_SSE/blob/master/LICENSE
-
-Project: Lottie
-URL: http://airbnb.io/lottie
-Developers: Airbnb
-License: MIT License
-Reference: https://github.com/airbnb/lottie/blob/master/LICENSE
