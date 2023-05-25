@@ -33,8 +33,8 @@ In your `build.gradle`, add maven repository to repositories list
     }
 ```
 
-<i>If you just want to recognize card number, use lightweight version '>=2.0.0' (reduce size up to 33%). There is no lottie animation support<br />
-For full recognition use version '[1.0.0..2.*.*)'<br />
+<i>If you just want to recognize card number, use lightweight version '>=2.0.0' (reduce size up to 33%). There is also no lottie animation support.<br />
+For full recognition use version v1.\*.\* <br />
 </i>
 <br />
 Add _Lens24_ as a dependency
