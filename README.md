@@ -33,14 +33,14 @@ In your `build.gradle`, add maven repository to repositories list
     }
 ```
 
-<i>If you just want to recognize card number, use lightweight version '>=2.0.0' (reduce size up to 33%).<br />
-For full recognition use version '[1.0.0..2.0.0)'<br />
+<i>If you just want to recognize card number, use lightweight version '>=2.0.0' (reduce size up to 33%). There is no lottie animation support<br />
+For full recognition use version '[1.0.0..2.*.*)'<br />
 </i>
 <br />
 Add _Lens24_ as a dependency
 ```
 dependencies {
-    implementation 'io.github.vlasentiy:lens24:2.0.0'
+    implementation 'io.github.vlasentiy:lens24:2.0.1'
 }
 ```
 
@@ -81,7 +81,7 @@ class MyActivity : AppCompatActivity {
             .setManualInputButtonText("Manual input")
             .setBottomHint("bottom hint")
             .setMainColor(R.color.primary_color_dark)
-            .setLottieJsonAnimation("lottie json data")
+            .setLottieJsonAnimation("lottie json data") //// version [1.0.0..2.0.0)
             .build()
 
         startActivityIntent.launch(intent)
@@ -122,7 +122,7 @@ class MyActivity extends AppCompatActivity {
                 .setManualInputButtonText("Manual input")
                 .setBottomHint("bottom hint")
                 .setMainColor(R.color.primary_color_dark)
-                .setLottieJsonAnimation("lottie json data")
+                .setLottieJsonAnimation("lottie json data") // version [1.0.0..2.0.0)
                 .build();
 
         startActivityIntent.launch(intent);
