@@ -8,7 +8,7 @@ android {
     compileSdkVersion rootProject.ext.compileSdkVersion
     defaultConfig {
         applicationId "lens24.demo"
-        minSdkVersion rootProject.ext.minSdkVersion
+        minSdkVersion rootProject.ext.minSdkVersionDemo
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode Integer.parseInt(DEMO_APP_VERSION_CODE)
         versionName DEMO_APP_VERSION_NAME
