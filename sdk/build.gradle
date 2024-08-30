@@ -2,7 +2,7 @@ apply plugin: 'com.android.library'
 
 ext {
     PUBLISH_GROUP_ID = 'io.github.vlasentiy'
-    PUBLISH_VERSION = '1.1.3'
+    PUBLISH_VERSION = '1.1.4'
     PUBLISH_ARTIFACT_ID = 'lens24'
     PUBLISH_DESCRIPTION = 'Lens24 Android SDK'
     PUBLISH_URL = 'https://github.com/vlasentiy/Lens24'
