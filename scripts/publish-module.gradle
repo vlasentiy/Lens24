@@ -29,7 +29,13 @@ afterEvaluate {
 
                 // Two artifacts, the `aar` (or `jar`) and the sources
                 if (project.plugins.findPlugin("com.android.library")) {
-                    from components.release
+                    def releaseComponent = components.findByName("release")
+
+                    if (releaseComponent != null) {
+                        from releaseComponent
+                    } else {
+                        logger.warn("No 'release' component found")
+                    }
                 } else {
                     artifact("$buildDir/libs/${project.getName()}-${version}.jar")
                 }
