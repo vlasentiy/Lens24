@@ -32,7 +32,6 @@ final class RecognitionCoreNdk implements RecognitionCoreImpl {
     }
 
     static {
-        System.loadLibrary("c++_shared");
         System.loadLibrary("data");
     }
 

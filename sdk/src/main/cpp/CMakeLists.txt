@@ -1,4 +1,5 @@
 cmake_minimum_required(VERSION 3.4.1)
+set(CMAKE_ANDROID_STL_TYPE system)
 
 #add_link_options(-Wl,-z,max-page-size=16384 -Wl,-z,common-page-size=16384)
 set(CMAKE_VERBOSE_MAKEFILE  ON)
