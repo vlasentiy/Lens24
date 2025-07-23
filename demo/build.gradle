@@ -13,7 +13,7 @@ android {
         versionCode Integer.parseInt(DEMO_APP_VERSION_CODE)
         versionName DEMO_APP_VERSION_NAME
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        resConfigs 'en'
+        resourceConfigurations += ['en']
         multiDexEnabled true
     }
     signingConfigs {
