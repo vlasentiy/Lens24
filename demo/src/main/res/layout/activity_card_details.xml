@@ -102,21 +102,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <com.google.android.gms.ads.AdView
-                    android:id="@+id/adView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginBottom="16dp"
-                    app:adSize="MEDIUM_RECTANGLE"
-                    app:adUnitId="@string/adUnitId"
-                    app:layout_constraintBottom_toTopOf="@+id/scan_button"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
-
-                </com.google.android.gms.ads.AdView>
-
                 <Button
                     android:id="@+id/scan_button"
                     style="@style/Widget.AppCompat.Button.Colored"

@@ -1,23 +1,5 @@
 apply plugin: 'com.android.library'
 
-ext {
-    PUBLISH_GROUP_ID = 'io.github.vlasentiy'
-    PUBLISH_VERSION = '1.1.5'
-    PUBLISH_ARTIFACT_ID = 'lens24'
-    PUBLISH_DESCRIPTION = 'Lens24 Android SDK'
-    PUBLISH_URL = 'https://github.com/vlasentiy/Lens24'
-    PUBLISH_LICENSE_NAME = 'MIT License'
-    PUBLISH_LICENSE_URL = 'https://github.com/vlasentiy/Lens24/blob/master/LICENSE.md'
-    PUBLISH_DEVELOPER_ID = 'vlas'
-    PUBLISH_DEVELOPER_NAME = 'Vlas Artanov'
-    PUBLISH_DEVELOPER_EMAIL = 'vlas.artanov@gmail.com'
-    PUBLISH_SCM_CONNECTION = 'scm:git:github.com/vlasentiy/Lens24.git'
-    PUBLISH_SCM_DEVELOPER_CONNECTION = 'scm:git:ssh://github.com/vlasentiy/Lens24.git'
-    PUBLISH_SCM_URL = 'https://github.com/vlasentiy/Lens24/tree/master'
-}
-
-apply from: "${rootProject.projectDir}/scripts/publish-module.gradle"
-
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
 
@@ -32,9 +14,10 @@ android {
         externalNativeBuild {
             cmake {
                 abiFilters 'armeabi-v7a', "arm64-v8a", /*"x86",*/ "x86_64"
-                arguments '-DANDROID_STL=c++_shared'
             }
         }
+
+        ndkVersion "26.3.11579264"
     }
 //    splits {
 //        abi {
@@ -69,9 +52,13 @@ android {
         }
     }
 
+    buildFeatures {
+        buildConfig = true
+    }
+
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_11
-        targetCompatibility JavaVersion.VERSION_11
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
 
     resourcePrefix "lens24_"
