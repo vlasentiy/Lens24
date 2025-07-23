@@ -1,7 +1,5 @@
 package demo;
 
-import com.google.android.gms.ads.MobileAds;
-
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -16,8 +14,6 @@ public class IntroActivity extends AppCompatActivity {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_intro);
-        MobileAds.initialize(this, initializationStatus -> {
-        });
         findViewById(R.id.button_next).setOnClickListener(view -> goToCardDetails());
         LottieAnimationView lottie = findViewById(R.id.lens24_lottieView);
         lottie.setOnLongClickListener(view -> {
