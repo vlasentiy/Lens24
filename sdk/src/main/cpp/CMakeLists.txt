@@ -30,4 +30,3 @@ target_link_libraries(data
         log
         z
 )
-

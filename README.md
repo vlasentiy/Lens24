@@ -1,7 +1,7 @@
 <p align="center" style="margin-bottom: 0px !important;">
   <img width="200" src="https://github.com/vlasentiy/assets/blob/main/lens24_logo.svg" alt="Lens24 logo" align="center">
 </p>
-<h1 align="center" style="margin-top: 0px;">Lens24</h1>
+<h1 align="center" style="margin-top: 0px;">Lens24 (16 Kb page size aligned)</h1>
 
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.github.vlasentiy/lens24/badge.svg)](https://maven-badges.herokuapp.com/maven-central/io.github.vlasentiy/lens24)
 [![API](https://img.shields.io/badge/API-16%2B-blue.svg?style=flat)](https://android-arsenal.com/api?level=16)
@@ -25,22 +25,31 @@ You can easily integrate and customize the SDK into your app by following the in
 
 ### SDK integration
 
-In your `build.gradle`, add maven repository to repositories list
+1. Download latest `.aar` file from [release page](https://github.com/moshenskyi/Lens24-16Kb-page-size-/releases).
+2. Put `lens24-sdk-release.aar` in `libs/lens24-sdk-release.aar`
+3. Add dependency to `build.gradle`:
 
 ```
-    repositories {
-        mavenCentral()
-    }
+dependecies {
+  implementation(files("libs/lens24-sdk-release.aar"))
+}
 ```
 
-<i>If you just want to recognize card number, use lightweight version '>=2.0.0' (reduce size up to 33%). There is also no lottie animation support.<br />
-For full recognition use version v1.\*.\* <br />
-</i>
-<br />
-Add _Lens24_ as a dependency
+Or you can autoimport all possible libraries from `libs` folder:
+
+**Groovy** config:
+
 ```
-dependencies {
-    implementation 'io.github.vlasentiy:lens24:2.0.1'
+dependecies {
+    implementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
+}
+```
+
+**Kotlin DSL** config:
+
+```
+dependecies {
+    implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar", "*.aar"])))
 }
 ```
 
