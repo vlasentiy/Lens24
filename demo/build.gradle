@@ -55,4 +55,5 @@ dependencies {
     implementation "androidx.appcompat:appcompat:$rootProject.ext.appCompatVersion"
     implementation "com.google.android.material:material:$rootProject.ext.materialVersion"
     implementation "com.airbnb.android:lottie:$rootProject.ext.lottieVersion"
+    //noinspection GradleDependency
 }

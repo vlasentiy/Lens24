@@ -22,7 +22,7 @@ else
     exit 1
 fi
 
-OBJDUMP_CMD="$NDK_HOME/toolchains/llvm/prebuilt/$HOST_TAG/bin/llvm-objdump"
+OBJDUMP_CMD="$NDK_HOME/26.3.11579264/toolchains/llvm/prebuilt/$HOST_TAG/bin/llvm-objdump"
 
 found_so_files=0
 find "$TARGET_DIR" -maxdepth 3 -name "*.so" -print0 | while IFS= read -r -d $'\0' so_file; do
