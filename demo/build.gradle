@@ -13,7 +13,7 @@ android {
         versionCode Integer.parseInt(DEMO_APP_VERSION_CODE)
         versionName DEMO_APP_VERSION_NAME
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        resConfigs 'en'
+        resourceConfigurations += ['en']
         multiDexEnabled true
     }
     signingConfigs {
@@ -25,14 +25,10 @@ android {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             //signingConfig signingConfigs.release // Linux
-            resValue 'string', "adUnitId", localProperties['adUnitId']
-            resValue 'string', "adMobApiKey", localProperties['adMobApiKey']
         }
         debug {
             minifyEnabled false
             jniDebuggable true
-            resValue 'string', "adUnitId", localProperties['adUnitIdDebug']
-            resValue 'string', "adMobApiKey", localProperties['adMobApiKeyDebug']
         }
         profiling {
             initWith debug
@@ -60,5 +56,4 @@ dependencies {
     implementation "com.google.android.material:material:$rootProject.ext.materialVersion"
     implementation "com.airbnb.android:lottie:$rootProject.ext.lottieVersion"
     //noinspection GradleDependency
-    implementation "com.google.android.gms:play-services-ads-lite:$rootProject.ext.adsVersion"
 }
