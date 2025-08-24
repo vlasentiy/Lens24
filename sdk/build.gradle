@@ -87,8 +87,8 @@ dependencies {
 afterEvaluate {
     publishing {
         publications {
-            create<MavenPublication>("release") {
-                from(components["release"])
+            release(MavenPublication) {
+                from components.release
                 groupId = PUBLISH_GROUP_ID
                 artifactId = PUBLISH_ARTIFACT_ID
                 version = PUBLISH_VERSION
