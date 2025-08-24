@@ -10,11 +10,7 @@ public final class Fonts {
     private Fonts(Context context) { }
 
     public static Typeface getCardFont(Context context) {
-        if (sCardFont == null) {
-            synchronized (Fonts.class) {
-                if (sCardFont == null) sCardFont = Typeface.createFromAsset(context.getAssets(), Constants.ASSETS_DIR + "/fonts/OCRAStd.otf");
-            }
-        }
-        return sCardFont;
+        // Font loading removed. Return default Typeface instead.
+        return Typeface.DEFAULT;
     }
 }
