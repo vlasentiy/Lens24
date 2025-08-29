@@ -3,4 +3,10 @@
     <color name="colorPrimary">#8DC641</color>
     <color name="colorPrimaryDark">#4CAF50</color>
     <color name="colorAccent">#8DC641</color>
+    <color name="lens24_primary_color_dark">#8DC641</color>
+    <color name="lens24_primary_color">#8DC641</color>
+    <color name="lens24_accent_color">#8DC641</color>
+    <color name="lens24_default_window_background">#000</color>
+    <color name="lens24_card_shadow_color">#a5080808</color>
+    <color name="lens24_arrow_back">#B3FFFFFF</color>
 </resources>

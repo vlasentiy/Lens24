@@ -1,8 +1,10 @@
 apply plugin: 'com.android.application'
 
-def localPropertiesFile = rootProject.file("local.properties")
 def localProperties = new Properties()
-localProperties.load(new FileInputStream(localPropertiesFile))
+def localPropertiesFile = rootProject.file("local.properties")
+if (localPropertiesFile.exists()) {
+    new FileInputStream(localPropertiesFile).withCloseable { stream -> localProperties.load(stream) }
+}
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
@@ -23,16 +25,15 @@ android {
     buildTypes {
         release {
             minifyEnabled true
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            //signingConfig signingConfigs.release // Linux
-            resValue 'string', "adUnitId", localProperties['adUnitId']
-            resValue 'string', "adMobApiKey", localProperties['adMobApiKey']
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            resValue 'string', "adUnitId", localProperties.getProperty('adUnitId', '')
+            resValue 'string', "adMobApiKey", localProperties.getProperty('adMobApiKey', '')
         }
         debug {
             minifyEnabled false
             jniDebuggable true
-            resValue 'string', "adUnitId", localProperties['adUnitIdDebug']
-            resValue 'string', "adMobApiKey", localProperties['adMobApiKeyDebug']
+            resValue 'string', "adUnitId", localProperties.getProperty('adUnitIdDebug', 'ca-app-pub-3940256099942544/6300978111')
+            resValue 'string', "adMobApiKey", localProperties.getProperty('adMobApiKeyDebug', 'ca-app-pub-3940256099942544~3347511713')
         }
         profiling {
             initWith debug
@@ -43,22 +44,15 @@ android {
             excludes += ['META-INF/LICENSE.txt', 'META-INF/NOTICE.txt']
         }
     }
-//    bundle {
-//        storeArchive {
-//            enable = false
-//        }
-//    }
+
     namespace 'demo'
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(path: ":sdk")
-    //debugCompile project(path: ":sdk", configuration: 'release')
-    //releaseCompile project(path: ":sdk", configuration: 'release')
     implementation "androidx.appcompat:appcompat:$rootProject.ext.appCompatVersion"
     implementation "com.google.android.material:material:$rootProject.ext.materialVersion"
     implementation "com.airbnb.android:lottie:$rootProject.ext.lottieVersion"
-    //noinspection GradleDependency
     implementation "com.google.android.gms:play-services-ads-lite:$rootProject.ext.adsVersion"
 }

@@ -21,4 +21,9 @@
     <string name="validation_error_invalid_card_number">Invalid card number</string>
     <string name="scan">Scan card again</string>
 
+    <string name="lens24_hint_position_card_in_frame">Position your card in this frame</string>
+    <string name="lens24_button_enter_card_number">Enter card details manually</string>
+    <string name="lens24_toggle_flash">Toggle flash</string>
+    <string name="lens24_title">Scan card</string>
+
 </resources>

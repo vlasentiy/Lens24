@@ -2,7 +2,7 @@ apply plugin: 'com.android.library'
 
 ext {
     PUBLISH_GROUP_ID = 'io.github.vlasentiy'
-    PUBLISH_VERSION = '1.1.5'
+    PUBLISH_VERSION = '1.1.1'
     PUBLISH_ARTIFACT_ID = 'lens24'
     PUBLISH_DESCRIPTION = 'Lens24 Android SDK'
     PUBLISH_URL = 'https://github.com/vlasentiy/Lens24'
@@ -20,35 +20,33 @@ apply from: "${rootProject.projectDir}/scripts/publish-module.gradle"
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
+    ndkVersion "26.3.11579264"
 
     testBuildType "profiling"
 
     defaultConfig {
-        minSdkVersion rootProject.ext.minSdkVersionSdk
+        minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
         externalNativeBuild {
             cmake {
-                abiFilters 'armeabi-v7a', "arm64-v8a", /*"x86",*/ "x86_64"
-                arguments '-DANDROID_STL=c++_shared'
+                abiFilters 'armeabi-v7a', "arm64-v8a", /*"x86",*/  "x86_64"
             }
         }
     }
-//    splits {
-//        abi {
-//            enable true
-//            reset()
-//            include 'armeabi-v7a', 'arm64-v8a', 'x86_64'
-//            universalApk true
-//        }
-//    }
+
     externalNativeBuild {
         cmake {
             path "src/main/cpp/CMakeLists.txt"
         }
     }
+
+    buildFeatures {
+        buildConfig = true
+    }
+
     buildTypes {
         release {
             minifyEnabled true
@@ -63,15 +61,15 @@ android {
             initWith debug
             externalNativeBuild {
                 cmake {
-                    arguments "-DCMAKE_BUILD_TYPE=Release"//, '-DCMAKE_VERBOSE_MAKEFILE=1'
+                    arguments "-DCMAKE_BUILD_TYPE=Release"
                 }
             }
         }
     }
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_11
-        targetCompatibility JavaVersion.VERSION_11
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
 
     resourcePrefix "lens24_"
