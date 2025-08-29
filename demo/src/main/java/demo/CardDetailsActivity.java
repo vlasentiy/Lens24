@@ -24,6 +24,7 @@ import demo.widget.CardNumberEditText;
 import lens24.intent.Card;
 import lens24.intent.ScanCardCallback;
 import lens24.intent.ScanCardIntent;
+import lens24.sdk.BuildConfig;
 
 public class CardDetailsActivity extends AppCompatActivity {
 

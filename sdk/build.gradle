@@ -20,6 +20,7 @@ apply from: "${rootProject.projectDir}/scripts/publish-module.gradle"
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
+    ndkVersion "26.3.11579264"
 
     testBuildType "profiling"
 
@@ -32,23 +33,20 @@ android {
         externalNativeBuild {
             cmake {
                 abiFilters 'armeabi-v7a', "arm64-v8a", /*"x86",*/  "x86_64"
-                arguments '-DANDROID_STL=c++_shared'
             }
         }
     }
-//    splits {
-//        abi {
-//            enable true
-//            reset()
-//            include 'armeabi-v7a', 'arm64-v8a', 'x86_64'
-//            universalApk true
-//        }
-//    }
+
     externalNativeBuild {
         cmake {
             path "src/main/cpp/CMakeLists.txt"
         }
     }
+
+    buildFeatures {
+        buildConfig = true
+    }
+
     buildTypes {
         release {
             minifyEnabled true
@@ -63,15 +61,15 @@ android {
             initWith debug
             externalNativeBuild {
                 cmake {
-                    arguments "-DCMAKE_BUILD_TYPE=Release"//, '-DCMAKE_VERBOSE_MAKEFILE=1'
+                    arguments "-DCMAKE_BUILD_TYPE=Release"
                 }
             }
         }
     }
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_11
-        targetCompatibility JavaVersion.VERSION_11
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
 
     resourcePrefix "lens24_"
