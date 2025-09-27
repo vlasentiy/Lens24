@@ -8,7 +8,7 @@ buildscript {
         maven { url "https://plugins.gradle.org/m2/" }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:8.11.1'
+        classpath 'com.android.tools.build:gradle:8.11.2'
         classpath 'io.github.gradle-nexus:publish-plugin:1.1.0'
     }
 }
@@ -37,6 +37,6 @@ ext {
     appCompatVersion = '1.7.1'
     materialVersion = '1.12.0'
     constraintlayoutVersion = '2.2.1'
-    lottieVersion = '6.5.0'
+    lottieVersion = '6.6.9'
     adsVersion = '23.1.0'
 }
