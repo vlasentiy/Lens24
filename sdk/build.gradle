@@ -1,30 +1,14 @@
-apply plugin: 'com.android.library'
-
-ext {
-    PUBLISH_GROUP_ID = 'io.github.vlasentiy'
-    PUBLISH_VERSION = '2.0.2'
-    PUBLISH_ARTIFACT_ID = 'lens24'
-    PUBLISH_DESCRIPTION = 'Lens24 Android SDK'
-    PUBLISH_URL = 'https://github.com/vlasentiy/Lens24'
-    PUBLISH_LICENSE_NAME = 'MIT License'
-    PUBLISH_LICENSE_URL = 'https://github.com/vlasentiy/Lens24/blob/master/LICENSE.md'
-    PUBLISH_DEVELOPER_ID = 'vlas'
-    PUBLISH_DEVELOPER_NAME = 'Vlas Artanov'
-    PUBLISH_DEVELOPER_EMAIL = 'vlas.artanov@gmail.com'
-    PUBLISH_SCM_CONNECTION = 'scm:git:github.com/vlasentiy/Lens24.git'
-    PUBLISH_SCM_DEVELOPER_CONNECTION = 'scm:git:ssh://github.com/vlasentiy/Lens24.git'
-    PUBLISH_SCM_URL = 'https://github.com/vlasentiy/Lens24/tree/master-lite'
+plugins {
+    id 'com.android.library'
+    id 'com.vanniktech.maven.publish'
 }
-
-apply from: "${rootProject.projectDir}/scripts/publish-module.gradle"
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
-
-    testBuildType "profiling"
+    ndkVersion = "26.3.11579264"
 
     defaultConfig {
-        minSdkVersion rootProject.ext.minSdkVersionSdk
+        minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -32,53 +16,71 @@ android {
         externalNativeBuild {
             cmake {
                 abiFilters 'armeabi-v7a', "arm64-v8a", /*"x86",*/  "x86_64"
-                arguments '-DANDROID_STL=c++_shared'
             }
         }
     }
-//    splits {
-//        abi {
-//            enable true
-//            reset()
-//            include 'armeabi-v7a', 'arm64-v8a', 'x86_64'
-//            universalApk true
-//        }
-//    }
+
     externalNativeBuild {
         cmake {
             path "src/main/cpp/CMakeLists.txt"
         }
     }
+
+    buildFeatures {
+        buildConfig = true
+    }
+
     buildTypes {
         release {
-            minifyEnabled true
-            jniDebuggable false
+            minifyEnabled = true
+            jniDebuggable = false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             consumerProguardFiles 'proguard-customer.pro'
-        }
-        debug {
-            jniDebuggable true
-        }
-        profiling {
-            initWith debug
-            externalNativeBuild {
-                cmake {
-                    arguments "-DCMAKE_BUILD_TYPE=Release"//, '-DCMAKE_VERBOSE_MAKEFILE=1'
-                }
-            }
         }
     }
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_11
-        targetCompatibility JavaVersion.VERSION_11
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
 
-    resourcePrefix "lens24_"
-    namespace 'lens24.sdk'
+    resourcePrefix = "lens24_"
+    namespace = 'lens24.sdk'
 }
 
 dependencies {
     implementation "androidx.constraintlayout:constraintlayout:$rootProject.ext.constraintlayoutVersion"
     implementation "androidx.appcompat:appcompat:$rootProject.ext.appCompatVersion"
+    implementation "com.airbnb.android:lottie:$rootProject.ext.lottieVersion"
+}
+
+mavenPublishing {
+    coordinates("io.github.vlasentiy", "lens24", "1.1.6")
+    signAllPublications()
+    publishToMavenCentral()
+
+    pom {
+        name = "lens24"
+        description = "📷 Library for scanning and OCR of credit or payment cards"
+        inceptionYear = "2022"
+        url = "https://github.com/vlasentiy/Lens24"
+        licenses {
+            license {
+                name = "MIT License"
+                url = "https://github.com/vlasentiy/Lens24/blob/master/LICENSE.md"
+            }
+        }
+        developers {
+            developer {
+                id = "vlas"
+                name = "Vlas Artanov"
+                url = "https://github.com/vlasentiy"
+            }
+        }
+        scm {
+            connection = "scm:git:git://github.com/vlasentiy/Lens24.git"
+            developerConnection = "scm:git:ssh://git@github.com/vlasentiy/Lens24.git"
+            url = "https://github.com/vlasentiy/Lens24/tree/master"
+        }
+    }
 }

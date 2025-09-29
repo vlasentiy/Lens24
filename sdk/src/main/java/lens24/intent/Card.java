@@ -37,7 +37,7 @@ public class Card implements Serializable, Parcelable {
     }
 
     /**
-     * @return card holder name
+     * @return cardholder name
      */
     @Nullable
     public String getCardHolderName() {

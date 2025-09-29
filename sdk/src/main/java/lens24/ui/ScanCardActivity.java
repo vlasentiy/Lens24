@@ -10,6 +10,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowCompat;
 import androidx.fragment.app.Fragment;
 import lens24.camera.RecognitionAvailabilityChecker;
 import lens24.camera.RecognitionCoreUtils;
@@ -26,6 +27,7 @@ public class ScanCardActivity extends AppCompatActivity implements ScanCardFragm
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
         if (!BuildConfig.DEBUG) {
             getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE);
         }

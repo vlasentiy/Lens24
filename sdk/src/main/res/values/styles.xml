@@ -5,6 +5,8 @@
         <item name="colorPrimary">@color/lens24_primary_color</item>
         <item name="colorPrimaryDark">@color/lens24_primary_color_dark</item>
         <item name="colorAccent">@color/lens24_accent_color</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:windowBackground">@color/lens24_default_window_background</item>
     </style>
 
