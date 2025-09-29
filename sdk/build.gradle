@@ -55,7 +55,6 @@ dependencies {
 }
 
 mavenPublishing {
-    //coordinates("io.github.vlasentiy", "lens24", "1.1.3-SNAPSHOT")
     coordinates("io.github.vlasentiy", "lens24", "1.1.3")
     signAllPublications()
     publishToMavenCentral()
