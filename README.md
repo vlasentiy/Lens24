@@ -40,7 +40,7 @@ For full recognition use version v1.\*.\* <br />
 Add _Lens24_ as a dependency
 ```
 dependencies {
-    implementation 'io.github.vlasentiy:lens24:2.0.1'
+    implementation 'io.github.vlasentiy:lens24:2.0.4'
 }
 ```
 
