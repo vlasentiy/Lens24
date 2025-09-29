@@ -1,11 +1,5 @@
 apply plugin: 'com.android.application'
 
-def localProperties = new Properties()
-def localPropertiesFile = rootProject.file("local.properties")
-if (localPropertiesFile.exists()) {
-    new FileInputStream(localPropertiesFile).withCloseable { stream -> localProperties.load(stream) }
-}
-
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
     defaultConfig {
@@ -26,14 +20,14 @@ android {
         release {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            resValue 'string', "adUnitId", localProperties.getProperty('adUnitId', '')
-            resValue 'string', "adMobApiKey", localProperties.getProperty('adMobApiKey', '')
+            resValue 'string', "adUnitId", adUnitId
+            resValue 'string', "adMobApiKey", adMobApiKey
         }
         debug {
             minifyEnabled false
             jniDebuggable true
-            resValue 'string', "adUnitId", localProperties.getProperty('adUnitIdDebug', 'ca-app-pub-3940256099942544/6300978111')
-            resValue 'string', "adMobApiKey", localProperties.getProperty('adMobApiKeyDebug', 'ca-app-pub-3940256099942544~3347511713')
+            resValue 'string', "adUnitId", adUnitIdDebug
+            resValue 'string', "adMobApiKey", adMobApiKeyDebug
         }
         profiling {
             initWith debug
