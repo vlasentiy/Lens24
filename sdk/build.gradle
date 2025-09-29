@@ -51,11 +51,10 @@ android {
 dependencies {
     implementation "androidx.constraintlayout:constraintlayout:$rootProject.ext.constraintlayoutVersion"
     implementation "androidx.appcompat:appcompat:$rootProject.ext.appCompatVersion"
-    implementation "com.airbnb.android:lottie:$rootProject.ext.lottieVersion"
 }
 
 mavenPublishing {
-    coordinates("io.github.vlasentiy", "lens24", "2.0.4")
+    coordinates("io.github.vlasentiy", "lens24", "2.0.5")
     signAllPublications()
     publishToMavenCentral()
 
