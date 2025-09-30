@@ -3,8 +3,8 @@
 </p>
 <h1 align="center" style="margin-top: 0px;">Lens24</h1>
 
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.github.vlasentiy/lens24/badge.svg)](https://maven-badges.herokuapp.com/maven-central/io.github.vlasentiy/lens24)
-[![API](https://img.shields.io/badge/API-16%2B-blue.svg?style=flat)](https://android-arsenal.com/api?level=16)
+[![Sonatype Central](https://maven-badges.herokuapp.com/sonatype-central/io.github.vlasentiy/lens24/badge.svg)](https://maven-badges.herokuapp.com/sonatype-central/io.github.vlasentiy/lens24)
+[![API](https://img.shields.io/badge/API-21%2B-blue.svg?style=flat)](https://android-arsenal.com/api?level=21)
 <a href="https://github.com/vlasentiy/Lens24/blob/master/LICENSE.md">
     <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="Lens24 is released under the MIT license." />
   </a>
