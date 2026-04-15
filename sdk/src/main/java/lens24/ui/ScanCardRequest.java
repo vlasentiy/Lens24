@@ -32,7 +32,6 @@ public final class ScanCardRequest implements Parcelable {
 
     private final String mManualInputButtonLabel;
 
-    private final String mLottieJsonAnimation;
 
     private final int mMainColor;
 
@@ -40,7 +39,7 @@ public final class ScanCardRequest implements Parcelable {
 
     private static final ScanCardRequest sDefaultInstance = new ScanCardRequest(
             DEFAULT_ENABLE_VIBRATION, DEFAULT_SCAN_EXPIRATION_DATE, DEFAULT_SCAN_CARD_HOLDER,
-            DEFAULT_GRAB_CARD_IMAGE, null, null, null, null, 0, null);
+            DEFAULT_GRAB_CARD_IMAGE, null, null, null, 0, null);
 
     private ScanCardRequest(Parcel in) {
         mEnableVibration = in.readByte() != 0;
@@ -50,7 +49,6 @@ public final class ScanCardRequest implements Parcelable {
         mHint = in.readString();
         mTitle = in.readString();
         mManualInputButtonLabel = in.readString();
-        mLottieJsonAnimation = in.readString();
         mMainColor = in.readInt();
         mBottomHint = in.readString();
     }
@@ -64,7 +62,6 @@ public final class ScanCardRequest implements Parcelable {
         dest.writeString(mHint);
         dest.writeString(mTitle);
         dest.writeString(mManualInputButtonLabel);
-        dest.writeString(mLottieJsonAnimation);
         dest.writeInt(mMainColor);
         dest.writeString(mBottomHint);
     }
@@ -97,7 +94,6 @@ public final class ScanCardRequest implements Parcelable {
                            String hint,
                            String title,
                            String manualInputButtonLabel,
-                           String lottieJsonAnimation,
                            int mainColor,
                            String bottomHint) {
         this.mEnableVibration = enableVibration;
@@ -107,7 +103,6 @@ public final class ScanCardRequest implements Parcelable {
         this.mHint = hint;
         this.mTitle = title;
         this.mManualInputButtonLabel = manualInputButtonLabel;
-        this.mLottieJsonAnimation = lottieJsonAnimation;
         this.mMainColor = mainColor;
         this.mBottomHint = bottomHint;
     }
@@ -140,10 +135,6 @@ public final class ScanCardRequest implements Parcelable {
         return mManualInputButtonLabel;
     }
 
-    public String getLottieJsonAnimation() {
-        return mLottieJsonAnimation;
-    }
-
     public int getMainColor() {
         return mMainColor;
     }
@@ -168,8 +159,6 @@ public final class ScanCardRequest implements Parcelable {
         if (!Objects.equals(mTitle, that.mTitle)) return false;
         if (!Objects.equals(mManualInputButtonLabel, that.mManualInputButtonLabel))
             return false;
-        if (!Objects.equals(mLottieJsonAnimation, that.mLottieJsonAnimation))
-            return false;
         return Objects.equals(mBottomHint, that.mBottomHint);
     }
 
@@ -182,7 +171,6 @@ public final class ScanCardRequest implements Parcelable {
         result = 31 * result + (mHint != null ? mHint.hashCode() : 0);
         result = 31 * result + (mTitle != null ? mTitle.hashCode() : 0);
         result = 31 * result + (mManualInputButtonLabel != null ? mManualInputButtonLabel.hashCode() : 0);
-        result = 31 * result + (mLottieJsonAnimation != null ? mLottieJsonAnimation.hashCode() : 0);
         result = 31 * result + mMainColor;
         result = 31 * result + (mBottomHint != null ? mBottomHint.hashCode() : 0);
         return result;

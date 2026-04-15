@@ -60,8 +60,6 @@ public final class ScanCardIntent {
 
         private String mManualInputButton;
 
-        private String mLottieJsonAnimation;
-
         private int mMainColor;
 
         private String mBottomHint;
@@ -79,7 +77,7 @@ public final class ScanCardIntent {
         }
 
         /**
-         * Scan the card holder's name. Default: <b>true</b>
+         * Scan the cardholder's name. Default: <b>true</b>
          */
         public Builder setScanCardHolder(boolean scanCardHolder) {
             mScanCardHolder = scanCardHolder;
@@ -138,17 +136,6 @@ public final class ScanCardIntent {
         }
 
         /**
-         * Defines Lottie animation instead ProgressBar.
-         *
-         * @param jsonAnimation Defines json animation data for Lottie animation. Default:
-         *                      <b>null</b>
-         */
-        public Builder setLottieJsonAnimation(String jsonAnimation) {
-            mLottieJsonAnimation = jsonAnimation;
-            return this;
-        }
-
-        /**
          * Defines main color of UI.
          *
          * @param mainColor Defines color of frame borders, frame lines, button text and
@@ -180,7 +167,6 @@ public final class ScanCardIntent {
                     mHint,
                     mTitle,
                     mManualInputButton,
-                    mLottieJsonAnimation,
                     ContextCompat.getColor(mContext, mMainColor == 0 ? R.color.lens24_primary_color : mMainColor),
                     mBottomHint
             );

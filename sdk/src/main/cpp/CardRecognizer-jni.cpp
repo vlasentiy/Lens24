@@ -2,6 +2,9 @@
 #include <string>
 #include <jni.h>
 #include <android/log.h>
+#include <zlib.h>
+#include <sys/stat.h>
+#include <stdio.h>
 #include "CrossPlatform/Include/Public/IRecognitionCore.h"
 #include "CrossPlatform/Include/Public/IRecognitionCoreDelegate.h"
 #include "CrossPlatform/Include/Public/ITorchDelegate.h"
@@ -26,6 +29,40 @@ extern "C" {
 
     static uint8_t frame_tmp_y[PROCESS_FRAME_WIDTH * PROCESS_FRAME_HEIGHT];
     static uint8_t frame_tmp_uv[PROCESS_FRAME_WIDTH * PROCESS_FRAME_HEIGHT / 2];
+
+    static bool FileExists(const std::string& name) {
+        struct stat buffer;
+        return (stat(name.c_str(), &buffer) == 0);
+    }
+
+    static void UnzipFile(const std::string& path) {
+        std::string zipPath = path + ".gz";
+        if (!FileExists(zipPath)) {
+            return;
+        }
+
+        if (FileExists(path)) {
+            return;
+        }
+
+        LOGI("Unzipping model: %s", zipPath.c_str());
+
+        gzFile srcFile = gzopen(zipPath.c_str(), "rb");
+        if (!srcFile) {
+            return;
+        }
+
+        FILE *dstFile = fopen(path.c_str(), "wb");
+        if (dstFile) {
+            char buffer[32768];
+            int len;
+            while ((len = gzread(srcFile, buffer, sizeof(buffer))) > 0) {
+                fwrite(buffer, 1, len, dstFile);
+            }
+            fclose(dstFile);
+        }
+        gzclose(srcFile);
+    }
 
     static jboolean GetJStringContent(JNIEnv *AEnv, jstring AStr, std::string &ARes) {
         if (!AStr) {
@@ -94,25 +131,41 @@ extern "C" {
 
         stdPath += "/";
 
+        UnzipFile(stdPath + "NumberRecognition/NumberRecognition.caffemodel");
         g_core->SetPathNumberRecognitionStruct(stdPath + "NumberRecognition/NumberRecognition.prototxt");
         g_core->SetPathNumberRecognitionModel(stdPath + "NumberRecognition/NumberRecognition.caffemodel");
 
+        UnzipFile(stdPath + "NumberLocalization/loc_x.caffemodel");
         g_core->SetPathNumberLocalizationXModel(stdPath + "NumberLocalization/loc_x.caffemodel");
         g_core->SetPathNumberLocalizationXStruct(stdPath + "NumberLocalization/loc_x.prototxt");
+
+        UnzipFile(stdPath + "NumberLocalization/loc_y.caffemodel");
         g_core->SetPathNumberLocalizationYModel(stdPath + "NumberLocalization/loc_y.caffemodel");
         g_core->SetPathNumberLocalizationYStruct(stdPath + "NumberLocalization/loc_y.prototxt");
-//// disable date recognition
+
+        UnzipFile(stdPath + "DateRecognition/DateRecognition.caffemodel");
         g_core->SetPathDateRecognitionModel(stdPath + "DateRecognition/DateRecognition.caffemodel");
         g_core->SetPathDateRecognitionStruct(stdPath + "DateRecognition/DateRecognition.prototxt");
+
+        UnzipFile(stdPath + "DateLocalization/DateLocalizationL0.caffemodel");
         g_core->SetPathDateLocalization0Model(stdPath + "DateLocalization/DateLocalizationL0.caffemodel");
         g_core->SetPathDateLocalization0Struct(stdPath + "DateLocalization/DateLocalizationL0.prototxt");
+
+        UnzipFile(stdPath + "DateLocalization/DateLocalizationL1.caffemodel");
         g_core->SetPathDateLocalization1Model(stdPath + "DateLocalization/DateLocalizationL1.caffemodel");
         g_core->SetPathDateLocalization1Struct(stdPath + "DateLocalization/DateLocalizationL1.prototxt");
+
+        UnzipFile(stdPath + "DateLocalization/cascade_date.xml");
         g_core->SetPathDateLocalizationViola(stdPath + "DateLocalization/cascade_date.xml");
-//// disable name recognition
+
+        UnzipFile(stdPath + "NameLocalization/NameLocalizationX.caffemodel");
         g_core->SetPathNameLocalizationXModel(stdPath + "NameLocalization/NameLocalizationX.caffemodel");
         g_core->SetPathNameLocalizationXStruct(stdPath + "NameLocalization/NameLocalizationX.prototxt");
+
+        UnzipFile(stdPath + "NameLocalization/cascade_name.xml");
         g_core->SetPathNameYLocalizationViola(stdPath + "NameLocalization/cascade_name.xml");
+
+        UnzipFile(stdPath + "NameRecognition/NameSpaceCharRecognition.caffemodel");
         g_core->SetPathNameSpaceCharModel(stdPath + "NameRecognition/NameSpaceCharRecognition.caffemodel");
         g_core->SetPathNameSpaceCharStruct(stdPath + "NameRecognition/NameSpaceCharRecognition.prototxt");
         g_core->SetPathNameListTxt(stdPath + "NameRecognition/names.txt");
