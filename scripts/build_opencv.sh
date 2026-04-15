@@ -107,7 +107,5 @@ build_abi () {
 
 mkdir -p $INSTALL_DIR
 build_abi "armeabi-v7a with NEON" "armeabi_v7a_neon" "$@"
-#build_abi "x86" "x86" $@
 build_abi "arm64-v8a" "arm64-v8a" $@
-build_abi "x86_64" "x86_64" $@
 

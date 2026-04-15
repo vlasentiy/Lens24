@@ -3,11 +3,11 @@
 </p>
 <h1 align="center" style="margin-top: 0px;">Lens24</h1>
 
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.github.vlasentiy/lens24/badge.svg)](https://maven-badges.herokuapp.com/maven-central/io.github.vlasentiy/lens24)
-[![API](https://img.shields.io/badge/API-16%2B-blue.svg?style=flat)](https://android-arsenal.com/api?level=16)
+[![Maven Central](https://img.shields.io/maven-central/v/io.github.vlasentiy/lens24.svg)](https://central.sonatype.com/artifact/io.github.vlasentiy/lens24)
+[![API](https://img.shields.io/badge/API-21%2B-blue.svg?style=flat)](https://android-arsenal.com/api?level=21)
 <a href="https://github.com/vlasentiy/Lens24/blob/master/LICENSE.md">
-<img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="Lens24 is released under the MIT license." />
-</a>
+    <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="Lens24 is released under the MIT license." />
+  </a>
 
 Lens24 is SDK for Android that gives you ability to scan various of credit or payment cards in your app offline.
 You can easily integrate and customize the SDK into your app by following the instructions below.
@@ -15,8 +15,13 @@ You can easily integrate and customize the SDK into your app by following the in
 <p align="center">
   <img src="https://github.com/vlasentiy/assets/blob/main/lens24_example_1.gif" width="360" />
     &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;
-  <img src="https://github.com/vlasentiy/assets/blob/main/lens24_example_4.gif" width="360" /> 
+  <img src="https://github.com/vlasentiy/assets/blob/main/lens24_example_4.gif" width="360" />
 </p>
+
+### Demo
+
+[<img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png' width="210"/>](https://play.google.com/store/apps/details?id=lens24.demo&hl=en&gl=US)
+
 
 ### SDK integration
 
@@ -29,10 +34,9 @@ In your `build.gradle`, add maven repository to repositories list
 ```
 
 Add _Lens24_ as a dependency
-
 ```
 dependencies {
-    implementation 'io.github.vlasentiy:lens24:1.1.0'
+    implementation 'io.github.vlasentiy:lens24:3.0.0'
 }
 ```
 
@@ -73,7 +77,6 @@ class MyActivity : AppCompatActivity {
             .setManualInputButtonText("Manual input")
             .setBottomHint("bottom hint")
             .setMainColor(R.color.primary_color_dark)
-            .setLottieJsonAnimation("lottie json data")
             .build()
 
         startActivityIntent.launch(intent)
@@ -114,17 +117,12 @@ class MyActivity extends AppCompatActivity {
                 .setManualInputButtonText("Manual input")
                 .setBottomHint("bottom hint")
                 .setMainColor(R.color.primary_color_dark)
-                .setLottieJsonAnimation("lottie json data")
                 .build();
 
         startActivityIntent.launch(intent);
     }
 }
 ```
-
-### Support
-
-<p><a href="https://www.buymeacoffee.com/vlasentiy"> <img align="left" src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" height="50" width="210" alt="vlasentiy" /></a></p><br></br>
 
 ### License
 
@@ -137,10 +135,10 @@ in the Software without restriction, including without limitation the rights
 to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 copies of the Software, and to permit persons to whom the Software is
 furnished to do so, subject to the following conditions:
- 
+
 The above copyright notice and this permission notice shall be included in all
 copies or substantial portions of the Software.
- 
+
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
