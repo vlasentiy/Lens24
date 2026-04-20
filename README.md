@@ -36,7 +36,7 @@ In your `build.gradle`, add maven repository to repositories list
 Add _Lens24_ as a dependency
 ```
 dependencies {
-    implementation 'io.github.vlasentiy:lens24:3.0.0'
+    implementation 'io.github.vlasentiy:lens24-lite:1.0.0'
 }
 ```
 
