@@ -59,19 +59,19 @@ dependencies {
 }
 
 mavenPublishing {
-    coordinates("io.github.vlasentiy", "lens24", "3.0.0")
+    coordinates("io.github.vlasentiy", "lens24-lite", "1.0.0")
     signAllPublications()
     publishToMavenCentral()
 
     pom {
-        name = "lens24"
+        name = "lens24-lite"
         description = "📷 Library for scanning and OCR of credit or payment cards"
         inceptionYear = "2022"
         url = "https://github.com/vlasentiy/Lens24"
         licenses {
             license {
                 name = "MIT License"
-                url = "https://github.com/vlasentiy/Lens24/blob/master/LICENSE.md"
+                url = "https://github.com/vlasentiy/Lens24/blob/master-lite/LICENSE.md"
             }
         }
         developers {
@@ -84,7 +84,7 @@ mavenPublishing {
         scm {
             connection = "scm:git:git://github.com/vlasentiy/Lens24.git"
             developerConnection = "scm:git:ssh://git@github.com/vlasentiy/Lens24.git"
-            url = "https://github.com/vlasentiy/Lens24/tree/master"
+            url = "https://github.com/vlasentiy/Lens24/tree/master-lite"
         }
     }
 }
