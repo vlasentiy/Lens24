@@ -3,8 +3,8 @@
 </p>
 <h1 align="center" style="margin-top: 0px;">Lens24</h1>
 
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.github.vlasentiy/lens24/badge.svg)](https://maven-badges.herokuapp.com/maven-central/io.github.vlasentiy/lens24)
-[![API](https://img.shields.io/badge/API-16%2B-blue.svg?style=flat)](https://android-arsenal.com/api?level=16)
+[![Maven Central](https://img.shields.io/maven-central/v/io.github.vlasentiy/lens24.svg)](https://central.sonatype.com/artifact/io.github.vlasentiy/lens24)
+[![API](https://img.shields.io/badge/API-21%2B-blue.svg?style=flat)](https://android-arsenal.com/api?level=21)
 <a href="https://github.com/vlasentiy/Lens24/blob/master/LICENSE.md">
     <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="Lens24 is released under the MIT license." />
   </a>
@@ -15,7 +15,7 @@ You can easily integrate and customize the SDK into your app by following the in
 <p align="center">
   <img src="https://github.com/vlasentiy/assets/blob/main/lens24_example_1.gif" width="360" />
     &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;
-  <img src="https://github.com/vlasentiy/assets/blob/main/lens24_example_4.gif" width="360" /> 
+  <img src="https://github.com/vlasentiy/assets/blob/main/lens24_example_4.gif" width="360" />
 </p>
 
 ### Demo
@@ -33,14 +33,10 @@ In your `build.gradle`, add maven repository to repositories list
     }
 ```
 
-<i>If you just want to recognize card number, use lightweight version '>=2.0.0' (reduce size up to 33%). There is also no lottie animation support.<br />
-For full recognition use version v1.\*.\* <br />
-</i>
-<br />
 Add _Lens24_ as a dependency
 ```
 dependencies {
-    implementation 'io.github.vlasentiy:lens24:2.0.4'
+    implementation 'io.github.vlasentiy:lens24:3.0.0'
 }
 ```
 
@@ -72,8 +68,8 @@ class MyActivity : AppCompatActivity {
     private fun scanCard() {
         val intent: Intent = ScanCardIntent.Builder(this)
             // customize these values to suit your needs
-            .setScanCardHolder(true) // version [1.0.0..2.0.0)
-            .setScanExpirationDate(true) // version [1.0.0..2.0.0)
+            .setScanCardHolder(true)
+            .setScanExpirationDate(true)
             .setVibrationEnabled(false)
             .setHint(getString(R.string.hint))
             .setToolbarTitle("Scan card")
@@ -81,7 +77,6 @@ class MyActivity : AppCompatActivity {
             .setManualInputButtonText("Manual input")
             .setBottomHint("bottom hint")
             .setMainColor(R.color.primary_color_dark)
-            .setLottieJsonAnimation("lottie json data") //// version [1.0.0..2.0.0)
             .build()
 
         startActivityIntent.launch(intent)
@@ -113,8 +108,8 @@ class MyActivity extends AppCompatActivity {
     private void scanCard() {
         Intent intent = new ScanCardIntent.Builder(this)
                 // customize these values to suit your needs
-                .setScanCardHolder(true) // version [1.0.0..2.0.0)
-                .setScanExpirationDate(true) // version [1.0.0..2.0.0)
+                .setScanCardHolder(true)
+                .setScanExpirationDate(true)
                 .setVibrationEnabled(false)
                 .setHint(getString(R.string.hint))
                 .setToolbarTitle("Scan card")
@@ -122,7 +117,6 @@ class MyActivity extends AppCompatActivity {
                 .setManualInputButtonText("Manual input")
                 .setBottomHint("bottom hint")
                 .setMainColor(R.color.primary_color_dark)
-                .setLottieJsonAnimation("lottie json data") // version [1.0.0..2.0.0)
                 .build();
 
         startActivityIntent.launch(intent);
@@ -141,10 +135,10 @@ in the Software without restriction, including without limitation the rights
 to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 copies of the Software, and to permit persons to whom the Software is
 furnished to do so, subject to the following conditions:
- 
+
 The above copyright notice and this permission notice shall be included in all
 copies or substantial portions of the Software.
- 
+
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE

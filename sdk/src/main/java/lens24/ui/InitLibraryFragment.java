@@ -11,6 +11,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+
+import java.lang.ref.WeakReference;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
@@ -24,8 +27,6 @@ import lens24.ndk.RecognitionCore;
 import lens24.sdk.R;
 import lens24.ui.views.ProgressBarIndeterminate;
 
-import java.lang.ref.WeakReference;
-
 @RestrictTo(RestrictTo.Scope.LIBRARY)
 public final class InitLibraryFragment extends Fragment {
 
@@ -36,7 +37,6 @@ public final class InitLibraryFragment extends Fragment {
     private static final int REQUEST_CAMERA_PERMISSION_CODE = 1;
 
     private ProgressBarIndeterminate mProgressBar;
-    //private LottieAnimationView mLottieView;
     private CameraPreviewLayout mCameraPreviewLayout;
     private ViewGroup mMainContent;
     private Button bEnterManually;
@@ -70,7 +70,6 @@ public final class InitLibraryFragment extends Fragment {
 
         mMainContent = root.findViewById(R.id.lens24_main_content);
         mProgressBar = root.findViewById(R.id.lens24_progress_bar);
-        //mLottieView = root.findViewById(R.id.lens24_lottieView);
         mCameraPreviewLayout = root.findViewById(R.id.card_recognition_view);
         bEnterManually = root.findViewById(R.id.lens24_bManual);
 
@@ -122,15 +121,10 @@ public final class InitLibraryFragment extends Fragment {
     }
 
     private void showLoader(boolean enable) {
-        if (false/*mScanCardRequest.getLottieJsonAnimation() != null*/) {
-            //mLottieView.setAnimationFromJson(mScanCardRequest.getLottieJsonAnimation(), null);
-            //mLottieView.setVisibility(enable ? View.VISIBLE : View.GONE);
+        if (enable) {
+            mProgressBar.setVisibility(View.VISIBLE);
         } else {
-            if (enable) {
-                mProgressBar.setVisibility(View.VISIBLE);
-            } else {
-                mProgressBar.hideSlow();
-            }
+            mProgressBar.hideSlow();
         }
     }
 
@@ -154,7 +148,6 @@ public final class InitLibraryFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         mProgressBar = null;
-        //mLottieView = null;
     }
 
     @Override
@@ -206,7 +199,6 @@ public final class InitLibraryFragment extends Fragment {
             InitLibraryFragment fragment = fragmentRef.get();
             if (fragment == null
                     || fragment.mProgressBar == null
-                    //|| fragment.mLottieView == null
                     || fragment.mListener == null) return;
 
             fragment.showLoader(false);
