@@ -85,8 +85,6 @@ public class CardDetailsActivity extends AppCompatActivity {
 
     private void scanCard() {
         Intent intent = new ScanCardIntent.Builder(this)
-                //.setScanCardHolder(false)
-                //.setScanExpirationDate(false)
                 .setHint(getString(R.string.lens24_hint_position_card_in_frame))
                 .setToolbarTitle("Scan card")
                 .setSaveCard(true)

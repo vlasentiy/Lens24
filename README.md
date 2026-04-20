@@ -68,8 +68,6 @@ class MyActivity : AppCompatActivity {
     private fun scanCard() {
         val intent: Intent = ScanCardIntent.Builder(this)
             // customize these values to suit your needs
-            .setScanCardHolder(true)
-            .setScanExpirationDate(true)
             .setVibrationEnabled(false)
             .setHint(getString(R.string.hint))
             .setToolbarTitle("Scan card")
@@ -108,8 +106,6 @@ class MyActivity extends AppCompatActivity {
     private void scanCard() {
         Intent intent = new ScanCardIntent.Builder(this)
                 // customize these values to suit your needs
-                .setScanCardHolder(true)
-                .setScanExpirationDate(true)
                 .setVibrationEnabled(false)
                 .setHint(getString(R.string.hint))
                 .setToolbarTitle("Scan card")

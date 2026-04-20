@@ -142,21 +142,6 @@ extern "C" {
         UnzipFile(stdPath + "NumberLocalization/loc_y.caffemodel");
         g_core->SetPathNumberLocalizationYModel(stdPath + "NumberLocalization/loc_y.caffemodel");
         g_core->SetPathNumberLocalizationYStruct(stdPath + "NumberLocalization/loc_y.prototxt");
-//// disable date recognition
-//        g_core->SetPathDateRecognitionModel(stdPath + "DateRecognition/DateRecognition.caffemodel");
-//        g_core->SetPathDateRecognitionStruct(stdPath + "DateRecognition/DateRecognition.prototxt");
-//        g_core->SetPathDateLocalization0Model(stdPath + "DateLocalization/DateLocalizationL0.caffemodel");
-//        g_core->SetPathDateLocalization0Struct(stdPath + "DateLocalization/DateLocalizationL0.prototxt");
-//        g_core->SetPathDateLocalization1Model(stdPath + "DateLocalization/DateLocalizationL1.caffemodel");
-//        g_core->SetPathDateLocalization1Struct(stdPath + "DateLocalization/DateLocalizationL1.prototxt");
-//        g_core->SetPathDateLocalizationViola(stdPath + "DateLocalization/cascade_date.xml");
-//// disable name recognition
-//        g_core->SetPathNameLocalizationXModel(stdPath + "NameLocalization/NameLocalizationX.caffemodel");
-//        g_core->SetPathNameLocalizationXStruct(stdPath + "NameLocalization/NameLocalizationX.prototxt");
-//        g_core->SetPathNameYLocalizationViola(stdPath + "NameLocalization/cascade_name.xml");
-//        g_core->SetPathNameSpaceCharModel(stdPath + "NameRecognition/NameSpaceCharRecognition.caffemodel");
-//        g_core->SetPathNameSpaceCharStruct(stdPath + "NameRecognition/NameSpaceCharRecognition.prototxt");
-//        g_core->SetPathNameListTxt(stdPath + "NameRecognition/names.txt");
     }
 
     JNIEXPORT void JNICALL
@@ -169,13 +154,9 @@ extern "C" {
         ITorchDelegate::GetInstance(torchDelegate, env);
 
         IRecognitionCore::GetInstance(g_core, coreDelegate, torchDelegate);
-        ////
         g_core->SetRecognitionMode((Lens24RecognizerMode) (
                 Lens24RecognizerModeNumber
-                | false /*Lens24RecognizerModeName*/
-                | false /*Lens24RecognizerModeDate*/
         ));
-        ////
     }
 
     JNIEXPORT void JNICALL

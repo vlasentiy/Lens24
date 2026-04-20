@@ -65,23 +65,6 @@ public final class ScanCardIntent {
         }
 
         /**
-         * Scan expiration date. Default: <b>true</b>
-         */
-//        public Builder setScanExpirationDate(boolean scanExpirationDate) {
-//            mScanExpirationDate = scanExpirationDate;
-//            return this;
-//        }
-
-        /**
-         * Scan the cardholder's name. Default: <b>true</b>
-         */
-//        public Builder setScanCardHolder(boolean scanCardHolder) {
-//            mScanCardHolder = scanCardHolder;
-//            return this;
-//        }
-
-
-        /**
          * Enables or disables vibration in the library.<Br> Default: <b>true</b>
          */
         public Builder setVibrationEnabled(boolean enableVibration) {
