@@ -40,6 +40,21 @@ dependencies {
 }
 ```
 
+<h2>Important Update!</h2>
+
+We are excited to announce the release of `io.github.vlasentiy:lens24-lite`, a new lite version of Lens24! This version is designed for users who do not require date and card name recognition, offering a significantly smaller footprint.
+
+Both `lens24` and `lens24-lite` are now approximately 40% lighter than their previous versions, providing a more efficient solution for your Android applications.
+
+### SDK integration for Lite version
+
+Add _Lens24-Lite_ as a dependency
+```
+dependencies {
+    implementation 'io.github.vlasentiy:lens24-lite:1.0.0'
+}
+```
+
 ### Usage
 
 Build an Intent using the `ScanCardIntent.Builder` and start a new activity to perform the scan:
@@ -105,7 +120,7 @@ class MyActivity extends AppCompatActivity {
         /*Your code here*/
     }
 
-    private void scanCard() {
+    private fun scanCard() {
         Intent intent = new ScanCardIntent.Builder(this)
                 // customize these values to suit your needs
                 .setScanCardHolder(true)
