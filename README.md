@@ -120,7 +120,7 @@ class MyActivity extends AppCompatActivity {
         /*Your code here*/
     }
 
-    private fun scanCard() {
+    private void scanCard() {
         Intent intent = new ScanCardIntent.Builder(this)
                 // customize these values to suit your needs
                 .setScanCardHolder(true)
